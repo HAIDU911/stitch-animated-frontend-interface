@@ -1,0 +1,1209 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Queries — SQMS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1F3A5F',
+        'on-primary': '#FFFFFF',
+        'primary-hover': '#17304F',
+        'primary-container': '#EBF1FF',
+        'on-primary-container': '#143155',
+        'link': '#2B6CB0',
+        'on-link': '#FFFFFF',
+        'accent-brass': '#B7791F',
+        'on-accent-brass': '#1F1F1F',
+        'accent-brass-tint': '#FFEEDE',
+        'on-accent-brass-tint': '#472A00',
+        'page': '#F5F7FA',
+        'surface': '#FFFFFF',
+        'on-surface': '#1B2430',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#5B6675',
+        'ink': '#1B2430',
+        'text-secondary': '#5B6675',
+        'border': '#DDE2E9',
+        'border-strong': '#BEC7D7',
+        'status-submitted-bg': '#F1F5F9',
+        'status-submitted-fg': '#334155',
+        'status-assigned-bg': '#EBF4FF',
+        'status-assigned-fg': '#1E4E8C',
+        'status-progress-bg': '#FEF3C7',
+        'status-progress-fg': '#92400E',
+        'status-resolved-bg': '#DCFCE7',
+        'status-resolved-fg': '#166534',
+        'status-closed-bg': '#E2E8F0',
+        'status-closed-fg': '#475569',
+        'priority-high': '#BA1A1A',
+        'on-priority-high': '#FFFFFF',
+        'priority-high-tint': '#FFEDEA',
+        'on-priority-high-tint': '#690005',
+        'priority-medium-bg': '#FEF3C7',
+        'priority-medium-fg': '#92400E',
+        'priority-low-bg': '#F1F5F9',
+        'priority-low-fg': '#475569',
+        'error': '#BA1A1A',
+        'on-error': '#FFFFFF',
+        'error-tint': '#FFEDEA',
+        'on-error-tint': '#690005',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-tint': '#DCFCE7',
+        'on-success-tint': '#166534',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        '2xl': '32px',
+        '3xl': '48px',
+      },
+      fontFamily: {
+        'display': ['"IBM Plex Sans"', 'sans-serif'],
+        'headline': ['"IBM Plex Sans"', 'sans-serif'],
+        'title': ['"IBM Plex Sans"', 'sans-serif'],
+        'body': ['"IBM Plex Sans"', 'sans-serif'],
+        'label': ['"IBM Plex Sans"', 'sans-serif'],
+        'mono': ['"IBM Plex Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-sm': ['32px', { lineHeight: '40px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '21px', fontWeight: '400' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+        'label-table': ['12px', { lineHeight: '16px', letterSpacing: '0.48px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+        'drawer-slide': '260ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes rowHighlightPulse {
+      0% {
+        background-color: #EBF1FF;
+      }
+      100% {
+        background-color: transparent;
+      }
+    }
+
+    @keyframes toastEnter {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .animate-row-pulse {
+      animation: rowHighlightPulse 1400ms cubic-bezier(0.2, 0, 0, 1) both;
+    }
+
+    .animate-toast-in {
+      animation: toastEnter 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    dialog[open] {
+      animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    dialog::backdrop {
+      background-color: rgba(27, 36, 48, 0.42);
+      transition: opacity 180ms ease-out;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up,
+      .animate-row-pulse,
+      .animate-toast-in,
+      dialog[open] {
+        animation: none !important;
+      }
+      * {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-page text-ink font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Shared Top Navbar (_Layout.cshtml) -->
+    <header class="sticky top-0 z-30 bg-surface border-b border-border">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl h-[64px] flex items-center justify-between gap-lg">
+        <!-- Left: Brand Wordmark + Role Navigation -->
+        <div class="flex items-center gap-2xl h-full">
+          <a href="#" class="flex items-center gap-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link rounded px-xs py-xs">
+            <span class="font-headline text-title-lg text-primary tracking-tight">SQMS</span>
+            <span class="hidden sm:inline-block font-label text-label-md text-text-secondary border-l border-border pl-sm">Registrar Portal</span>
+          </a>
+
+          <nav aria-label="Student navigation" class="hidden md:flex items-center gap-xl h-full">
+            <a href="#my-queries" aria-current="page" class="relative inline-flex items-center h-full font-label text-label-lg text-ink border-b-2 border-accent-brass transition-colors duration-state-change ease-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link">
+              My Queries
+            </a>
+            <button type="button" id="nav-new-query-btn" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change ease-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link">
+              New Query
+            </button>
+          </nav>
+        </div>
+
+        <!-- Right: User Identity Menu & Mobile Hamburger -->
+        <div class="flex items-center gap-md">
+          <div class="relative">
+            <button type="button" id="user-menu-btn" aria-expanded="false" aria-haspopup="true" class="inline-flex items-center gap-sm min-h-[40px] px-sm py-xs rounded hover:bg-surface-subtle transition-colors duration-state-change ease-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link">
+              <span class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-label text-label-md inline-flex items-center justify-center">AT</span>
+              <span class="hidden sm:flex flex-col items-start text-left">
+                <span class="font-label text-label-lg text-ink leading-none">Ayesha Tariq</span>
+                <span class="font-mono text-mono-sm text-text-secondary mt-xs leading-none">2023-CS-114</span>
+              </span>
+              <span class="hidden md:inline-flex items-center px-sm py-xs rounded bg-surface-subtle border border-border font-label text-label-md text-text-secondary">Student</span>
+              <span class="material-symbols-outlined text-[18px] text-text-secondary transition-transform duration-state-change" id="user-menu-chevron" aria-hidden="true">expand_more</span>
+            </button>
+
+            <!-- User Dropdown Menu -->
+            <div id="user-menu-dropdown" role="menu" class="hidden absolute right-0 mt-xs w-56 rounded-md bg-surface border border-border shadow-lg py-xs z-40 origin-top-right transition-all duration-surface-exit ease-surface-exit opacity-0 scale-95">
+              <div class="px-lg py-sm border-b border-border sm:hidden">
+                <p class="font-label text-label-lg text-ink">Ayesha Tariq</p>
+                <p class="font-mono text-mono-sm text-text-secondary">2023-CS-114</p>
+              </div>
+              <a href="#profile" role="menuitem" class="flex items-center gap-sm px-lg py-sm font-body text-body-md text-ink hover:bg-surface-subtle transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-[18px] text-text-secondary" aria-hidden="true">person</span>
+                <span>Profile</span>
+              </a>
+              <button type="button" role="menuitem" id="logout-demo-btn" class="w-full flex items-center gap-sm px-lg py-sm font-body text-body-md text-error hover:bg-error-tint/50 transition-colors duration-state-change text-left">
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">logout</span>
+                <span>Log out</span>
+              </button>
+            </div>
+          </div>
+
+          <button type="button" id="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation menu" class="md:hidden inline-flex items-center justify-center min-h-[40px] min-w-[40px] rounded text-text-secondary hover:bg-surface-subtle hover:text-ink transition-colors duration-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link">
+            <span class="material-symbols-outlined text-[22px]" aria-hidden="true">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Collapsed Navigation -->
+      <div id="mobile-nav-drawer" class="hidden md:hidden border-t border-border bg-surface px-lg py-md space-y-xs">
+        <a href="#my-queries" aria-current="page" class="block px-md py-sm rounded bg-primary-container text-on-primary-container font-label text-label-lg">My Queries</a>
+        <button type="button" id="mobile-new-query-btn" class="w-full text-left px-md py-sm rounded text-ink hover:bg-surface-subtle font-label text-label-lg">New Query</button>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-1 max-w-[1200px] w-full mx-auto px-lg sm:px-xl py-2xl space-y-xl">
+
+      <!-- Page Header -->
+      <section class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-lg animate-fade-up">
+        <div>
+          <h1 class="font-headline text-headline-md text-ink">My Queries</h1>
+          <p class="font-body text-body-md text-text-secondary mt-xs">
+            Track submitted university requests, review department responses, and manage open queries.
+          </p>
+        </div>
+
+        <!-- COMPONENT: button-with-icon -->
+        <button data-component-id="button-with-icon" data-component-type="button" data-component-variant="with-icon" type="button" id="open-new-query-btn" class="inline-flex items-center justify-center gap-sm min-h-[40px] px-lg py-sm rounded bg-primary text-on-primary hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link focus-visible:ring-offset-2 active:scale-[0.98] transition-colors duration-state-change ease-state-change self-start sm:self-auto">
+          <span class="material-symbols-outlined text-[18px]" aria-hidden="true">add</span>
+          <span data-design-text-token="label-lg" class="font-label text-label-lg">New Query</span>
+        </button>
+      </section>
+
+      <!-- Summary Stat Strip -->
+      <section aria-label="Query summary" class="grid grid-cols-1 sm:grid-cols-3 gap-lg animate-fade-up" style="animation-delay: 50ms;">
+        <div class="bg-surface border border-border rounded-md p-lg flex items-center justify-between">
+          <div>
+            <p class="font-label text-label-md text-text-secondary uppercase tracking-wider">Total Submitted</p>
+            <p id="stat-total" class="font-headline text-headline-md text-ink tabular-nums mt-xs">6</p>
+          </div>
+          <span class="w-10 h-10 rounded bg-surface-subtle border border-border inline-flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">folder_open</span>
+          </span>
+        </div>
+
+        <div class="bg-surface border border-border rounded-md p-lg flex items-center justify-between">
+          <div>
+            <p class="font-label text-label-md text-text-secondary uppercase tracking-wider">Active &amp; In Progress</p>
+            <p id="stat-active" class="font-headline text-headline-md text-ink tabular-nums mt-xs">3</p>
+          </div>
+          <span class="w-10 h-10 rounded bg-status-progress-bg inline-flex items-center justify-center text-status-progress-fg">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">pending_actions</span>
+          </span>
+        </div>
+
+        <div class="bg-surface border border-border rounded-md p-lg flex items-center justify-between">
+          <div>
+            <p class="font-label text-label-md text-text-secondary uppercase tracking-wider">Resolved</p>
+            <p id="stat-resolved" class="font-headline text-headline-md text-ink tabular-nums mt-xs">2</p>
+          </div>
+          <span class="w-10 h-10 rounded bg-status-resolved-bg inline-flex items-center justify-center text-status-resolved-fg">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">task_alt</span>
+          </span>
+        </div>
+      </section>
+
+      <!-- Filter Bar -->
+      <section aria-label="Filter queries" class="bg-surface border border-border rounded-md p-lg animate-fade-up" style="animation-delay: 100ms;">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-md items-end">
+          <div class="md:col-span-5">
+            <label data-component-id="input-field-icon" data-component-type="input-field" data-component-variant="search" class="flex flex-col gap-xs">
+              <span data-design-text-token="label-md" class="font-label text-label-md text-text-secondary">Search</span>
+              <div class="relative flex items-center">
+                <span class="material-symbols-outlined text-[18px] text-text-secondary absolute left-md pointer-events-none" aria-hidden="true">search</span>
+                <input id="filter-search" type="search" placeholder="Reference ID or query title..." class="w-full min-h-[40px] pl-2xl pr-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink placeholder:text-text-secondary/70 focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20 transition-colors duration-state-change ease-state-change">
+              </div>
+            </label>
+          </div>
+
+          <div class="md:col-span-3">
+            <label class="flex flex-col gap-xs">
+              <span class="font-label text-label-md text-text-secondary">Status</span>
+              <select id="filter-status" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20 transition-colors duration-state-change ease-state-change">
+                <option value>All Statuses</option>
+                <option value="Submitted">Submitted</option>
+                <option value="Assigned">Assigned</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Resolved">Resolved</option>
+                <option value="Closed">Closed</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="md:col-span-2">
+            <label class="flex flex-col gap-xs">
+              <span class="font-label text-label-md text-text-secondary">Priority</span>
+              <select id="filter-priority" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20 transition-colors duration-state-change ease-state-change">
+                <option value>All Priorities</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="md:col-span-2 flex justify-start md:justify-end">
+            <!-- COMPONENT: button-tertiary -->
+            <button data-component-id="button-tertiary" data-component-type="button" data-component-variant="tertiary" type="button" id="clear-filters-btn" class="inline-flex items-center justify-center gap-xs min-h-[40px] px-md py-sm rounded bg-transparent text-link hover:bg-primary-container focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link transition-colors duration-state-change ease-state-change">
+              <span data-design-text-token="label-lg" class="font-label text-label-lg">Clear Filters</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Queries Data Table -->
+      <section aria-label="Queries list" class="animate-fade-up" style="animation-delay: 140ms;">
+        <!-- COMPONENT: table-interactive -->
+        <div data-component-id="table-interactive" data-component-type="table" data-component-variant="interactive" class="bg-surface border border-border rounded-md overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead class="bg-surface-subtle border-b border-border">
+                <tr>
+                  <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">
+                    <button type="button" data-sort="id" class="sort-btn inline-flex items-center gap-xs hover:text-ink transition-colors duration-state-change">
+                      <span data-design-text-token="label-table">Reference</span>
+                      <span class="material-symbols-outlined text-[15px]" aria-hidden="true">unfold_more</span>
+                    </button>
+                  </th>
+                  <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">
+                    <span data-design-text-token="label-table">Title</span>
+                  </th>
+                  <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">
+                    <span data-design-text-token="label-table">Department</span>
+                  </th>
+                  <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">
+                    <button type="button" data-sort="priority" class="sort-btn inline-flex items-center gap-xs hover:text-ink transition-colors duration-state-change">
+                      <span data-design-text-token="label-table">Priority</span>
+                      <span class="material-symbols-outlined text-[15px]" aria-hidden="true">unfold_more</span>
+                    </button>
+                  </th>
+                  <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">
+                    <span data-design-text-token="label-table">Status</span>
+                  </th>
+                  <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">
+                    <button type="button" data-sort="date" class="sort-btn inline-flex items-center gap-xs hover:text-ink transition-colors duration-state-change">
+                      <span data-design-text-token="label-table">Submitted</span>
+                      <span class="material-symbols-outlined text-[15px]" aria-hidden="true">arrow_downward</span>
+                    </button>
+                  </th>
+                  <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary text-right whitespace-nowrap">
+                    <span data-design-text-token="label-table">Action</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="queries-tbody" class="divide-y divide-border">
+                <!-- Rows rendered dynamically by JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Empty State (hidden when rows exist) -->
+          <div id="empty-state" class="hidden py-3xl px-xl text-center">
+            <div class="w-12 h-12 rounded-full bg-surface-subtle border border-border inline-flex items-center justify-center text-text-secondary mb-md">
+              <span class="material-symbols-outlined text-[24px]" aria-hidden="true">inbox</span>
+            </div>
+            <h2 class="font-title text-title-md text-ink">No matching queries found</h2>
+            <p class="font-body text-body-md text-text-secondary mt-xs max-w-md mx-auto">
+              Adjust your search or filter criteria, or submit a new query to the university registrar.
+            </p>
+            <div class="mt-lg flex items-center justify-center gap-md">
+              <button type="button" id="empty-clear-btn" class="inline-flex items-center justify-center min-h-[40px] px-lg py-sm rounded bg-surface text-ink border border-border hover:bg-surface-subtle font-label text-label-lg transition-colors duration-state-change">
+                Clear Filters
+              </button>
+              <button type="button" id="empty-new-btn" class="inline-flex items-center justify-center gap-sm min-h-[40px] px-lg py-sm rounded bg-primary text-on-primary hover:bg-primary-hover font-label text-label-lg transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">add</span>
+                <span>New Query</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Table Footer / Pagination -->
+          <div id="table-footer" class="px-lg py-md bg-surface-subtle border-t border-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-md">
+            <p id="results-count" class="font-body text-body-sm text-text-secondary tabular-nums">Showing 6 of 6 queries</p>
+            <nav aria-label="Pagination" class="inline-flex items-center gap-xs">
+              <button type="button" disabled class="min-h-[36px] px-md py-xs rounded border border-border bg-surface-subtle text-text-secondary font-label text-label-md cursor-not-allowed">Previous</button>
+              <button type="button" aria-current="page" class="min-h-[36px] min-w-[36px] px-sm py-xs rounded bg-primary text-on-primary font-label text-label-md">1</button>
+              <button type="button" disabled class="min-h-[36px] px-md py-xs rounded border border-border bg-surface-subtle text-text-secondary font-label text-label-md cursor-not-allowed">Next</button>
+            </nav>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Minimal Institutional Footer -->
+    <footer class="bg-surface border-t border-border mt-auto">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl py-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-sm">
+        <p class="font-body text-body-sm text-text-secondary">
+          Student Query Management System (SQMS) · Office of the University Registrar
+        </p>
+        <p class="font-mono text-mono-sm text-text-secondary">
+          Academic Session 2026–2027
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Slide-over Drawer: New Query Form -->
+  <div id="new-query-backdrop" class="hidden fixed inset-0 z-40 bg-ink/40 opacity-0 transition-opacity duration-surface-enter ease-surface-enter" aria-hidden="true"></div>
+  <aside id="new-query-drawer" role="dialog" aria-modal="true" aria-labelledby="new-query-title" class="hidden fixed inset-y-0 right-0 z-50 w-full max-w-lg bg-surface border-l border-border shadow-xl flex flex-col translate-x-full transition-transform duration-drawer-slide ease-drawer-slide">
+    <header class="px-xl py-lg border-b border-border flex items-center justify-between gap-md">
+      <div>
+        <h2 id="new-query-title" class="font-title text-title-lg text-ink">Submit New Query</h2>
+        <p class="font-body text-body-sm text-text-secondary mt-xs">Routed automatically to the responsible university office.</p>
+      </div>
+      <button type="button" id="close-new-query-btn" aria-label="Close new query form" class="inline-flex items-center justify-center min-h-[40px] min-w-[40px] rounded text-text-secondary hover:bg-surface-subtle hover:text-ink transition-colors duration-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link">
+        <span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+      </button>
+    </header>
+
+    <form id="new-query-form" novalidate class="flex-1 overflow-y-auto p-xl space-y-lg">
+      <!-- Form Validation Summary Alert -->
+      <div id="form-error-summary" role="alert" class="hidden rounded border border-error/40 bg-error-tint p-md flex items-start gap-sm">
+        <span class="material-symbols-outlined text-[18px] text-error mt-0.5" aria-hidden="true">error</span>
+        <div>
+          <p class="font-label text-label-lg text-on-error-tint">Please review the highlighted fields</p>
+          <p class="font-body text-body-sm text-on-error-tint mt-xs">A title, category, and description are required before submitting.</p>
+        </div>
+      </div>
+
+      <div>
+        <label class="flex flex-col gap-xs">
+          <span class="font-label text-label-lg text-ink">Query Title <span class="text-error">*</span></span>
+          <input id="nq-title" type="text" placeholder="e.g., Fee challan not generated for Fall 2026" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink placeholder:text-text-secondary/70 focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20 transition-colors duration-state-change">
+          <span id="nq-title-error" class="hidden items-center gap-xs font-body text-body-sm text-error">
+            <span class="material-symbols-outlined text-[16px]" aria-hidden="true">error</span>
+            <span>Enter a concise title for your query.</span>
+          </span>
+        </label>
+      </div>
+
+      <div>
+        <label class="flex flex-col gap-xs">
+          <span class="font-label text-label-lg text-ink">Category &amp; Department <span class="text-error">*</span></span>
+          <select id="nq-category" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20 transition-colors duration-state-change">
+            <option value>Select a category...</option>
+            <option value="Fee Challan &amp; Billing|Finance &amp; Fees">Fee Challan &amp; Billing (Finance &amp; Fees)</option>
+            <option value="Exam Results &amp; Grading|Examinations">Exam Results &amp; Grading (Examinations)</option>
+            <option value="Timetable &amp; Course Clash|Examinations">Timetable &amp; Course Clash (Examinations)</option>
+            <option value="Hostel Accommodation|Hostel Office">Hostel Accommodation (Hostel Office)</option>
+            <option value="Portal &amp; Email Access|IT Services">Portal &amp; Email Access (IT Services)</option>
+            <option value="Document Verification|Admissions">Document Verification (Admissions)</option>
+          </select>
+          <span id="nq-category-error" class="hidden items-center gap-xs font-body text-body-sm text-error">
+            <span class="material-symbols-outlined text-[16px]" aria-hidden="true">error</span>
+            <span>Select the category that best matches your request.</span>
+          </span>
+        </label>
+      </div>
+
+      <div>
+        <span class="block font-label text-label-lg text-ink mb-xs">Priority</span>
+        <div role="radiogroup" aria-label="Query priority" class="grid grid-cols-3 gap-sm">
+          <button type="button" data-priority="Low" class="priority-seg min-h-[40px] px-md py-sm rounded border border-border bg-surface text-ink font-label text-label-lg hover:bg-surface-subtle transition-colors duration-state-change">Low</button>
+          <button type="button" data-priority="Medium" class="priority-seg min-h-[40px] px-md py-sm rounded border border-primary bg-primary-container text-on-primary-container font-label text-label-lg transition-colors duration-state-change">Medium</button>
+          <button type="button" data-priority="High" class="priority-seg min-h-[40px] px-md py-sm rounded border border-border bg-surface text-ink font-label text-label-lg hover:bg-surface-subtle transition-colors duration-state-change">High</button>
+        </div>
+        <p class="font-body text-body-sm text-text-secondary mt-xs">Select High only for urgent deadlines (e.g., exam clashes or fee due dates).</p>
+      </div>
+
+      <div>
+        <label class="flex flex-col gap-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-label text-label-lg text-ink">Description <span class="text-error">*</span></span>
+            <span id="nq-char-count" class="font-mono text-mono-sm text-text-secondary tabular-nums">0 / 600</span>
+          </div>
+          <textarea id="nq-description" rows="5" maxlength="600" placeholder="Include course codes, challan numbers, or dates so staff can resolve your request without follow-up..." class="w-full px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink placeholder:text-text-secondary/70 focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20 transition-colors duration-state-change"></textarea>
+          <span id="nq-desc-error" class="hidden items-center gap-xs font-body text-body-sm text-error">
+            <span class="material-symbols-outlined text-[16px]" aria-hidden="true">error</span>
+            <span>Provide at least 15 characters describing your issue.</span>
+          </span>
+        </label>
+      </div>
+    </form>
+
+    <footer class="px-xl py-lg bg-surface-subtle border-t border-border flex items-center justify-end gap-md">
+      <button type="button" id="cancel-new-query-btn" class="inline-flex items-center justify-center min-h-[40px] px-lg py-sm rounded bg-surface text-ink border border-border hover:bg-page font-label text-label-lg transition-colors duration-state-change">Cancel</button>
+      <button type="submit" form="new-query-form" class="inline-flex items-center justify-center gap-sm min-h-[40px] px-lg py-sm rounded bg-primary text-on-primary hover:bg-primary-hover active:scale-[0.98] font-label text-label-lg transition-colors duration-state-change">
+        <span>Submit Query</span>
+      </button>
+    </footer>
+  </aside>
+
+  <!-- Slide-over Drawer: Query Detail & Conversation -->
+  <div id="detail-backdrop" class="hidden fixed inset-0 z-40 bg-ink/40 opacity-0 transition-opacity duration-surface-enter ease-surface-enter" aria-hidden="true"></div>
+  <aside id="detail-drawer" role="dialog" aria-modal="true" aria-labelledby="detail-title" class="hidden fixed inset-y-0 right-0 z-50 w-full max-w-2xl bg-surface border-l border-border shadow-xl flex flex-col translate-x-full transition-transform duration-drawer-slide ease-drawer-slide">
+    <header class="px-xl py-lg border-b border-border flex items-start justify-between gap-md">
+      <div class="space-y-xs">
+        <div class="flex flex-wrap items-center gap-sm">
+          <span id="detail-ref" class="font-mono text-mono-md text-ink bg-surface-subtle border border-border px-sm py-xs rounded">Q-2026-0142</span>
+          <span id="detail-status-badge"></span>
+          <span id="detail-priority-badge"></span>
+        </div>
+        <h2 id="detail-title" class="font-title text-title-lg text-ink pt-xs">Query Title</h2>
+        <p id="detail-meta" class="font-body text-body-sm text-text-secondary"></p>
+      </div>
+      <button type="button" id="close-detail-btn" aria-label="Close query detail" class="inline-flex items-center justify-center min-h-[40px] min-w-[40px] rounded text-text-secondary hover:bg-surface-subtle hover:text-ink transition-colors duration-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link">
+        <span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+      </button>
+    </header>
+
+    <div class="flex-1 overflow-y-auto p-xl space-y-xl">
+      <!-- 5-Step Status Timeline -->
+      <section aria-label="Query progress">
+        <h3 class="font-label text-label-md text-text-secondary uppercase tracking-wider mb-md">Status Timeline</h3>
+        <ol id="detail-timeline" class="grid grid-cols-5 gap-xs">
+          <!-- Populated dynamically -->
+        </ol>
+      </section>
+
+      <!-- Conversation Thread -->
+      <section aria-label="Conversation history" class="space-y-md">
+        <h3 class="font-label text-label-md text-text-secondary uppercase tracking-wider">Conversation</h3>
+        <div id="detail-thread" class="space-y-md">
+          <!-- Messages populated dynamically -->
+        </div>
+      </section>
+    </div>
+
+    <!-- Reply Composer & Conditional Actions -->
+    <footer class="p-xl bg-surface-subtle border-t border-border space-y-md">
+      <div id="detail-reply-box">
+        <label class="flex flex-col gap-xs">
+          <span class="font-label text-label-md text-ink">Add a follow-up message</span>
+          <div class="flex gap-sm">
+            <input id="detail-reply-input" type="text" placeholder="Write a reply to the assigned office..." class="flex-1 min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink placeholder:text-text-secondary/70 focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20 transition-colors duration-state-change">
+            <button type="button" id="detail-send-reply-btn" class="inline-flex items-center justify-center min-h-[40px] px-lg py-sm rounded bg-primary text-on-primary hover:bg-primary-hover font-label text-label-lg transition-colors duration-state-change">
+              Send Reply
+            </button>
+          </div>
+        </label>
+      </div>
+
+      <div id="detail-closed-notice" class="hidden rounded border border-border bg-surface p-md flex items-center gap-sm text-text-secondary">
+        <span class="material-symbols-outlined text-[18px]" aria-hidden="true">lock</span>
+        <span class="font-body text-body-sm">This query is closed. Replies are disabled; submit a new query if further assistance is needed.</span>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-sm pt-xs">
+        <div id="detail-actions-left" class="flex items-center gap-sm">
+          <!-- Conditional Delete / Close / Reopen buttons -->
+        </div>
+        <button type="button" id="detail-done-btn" class="inline-flex items-center justify-center min-h-[40px] px-lg py-sm rounded bg-surface text-ink border border-border hover:bg-page font-label text-label-lg transition-colors duration-state-change">
+          Close Panel
+        </button>
+      </div>
+    </footer>
+  </aside>
+
+  <!-- Native Alert Dialog: Delete Confirmation -->
+  <dialog id="delete-confirm-dialog" role="alertdialog" data-component-id="modal-alert" data-component-type="modal" data-component-variant="alert" aria-labelledby="modal-alert-01-title" aria-describedby="modal-alert-01-body" class="rounded-md bg-surface border border-border shadow-lg p-0 max-w-md w-full">
+    <header class="p-xl border-b border-border flex items-center gap-sm">
+      <span class="material-symbols-outlined text-[22px] text-error" aria-hidden="true">warning</span>
+      <h2 id="modal-alert-01-title" data-design-text-token="title-lg" class="font-title text-title-lg text-ink">Delete Query?</h2>
+    </header>
+    <div id="modal-alert-01-body" class="p-xl">
+      <p data-design-text-token="body-md" class="font-body text-body-md text-text-secondary">
+        Query <span id="delete-target-ref" class="font-mono text-ink"></span> will be permanently removed from your records. This action cannot be undone.
+      </p>
+    </div>
+    <footer class="flex items-center justify-end gap-md px-xl py-lg bg-surface-subtle border-t border-border">
+      <button type="button" id="cancel-delete-btn" class="inline-flex items-center justify-center min-h-[40px] px-lg py-sm rounded bg-surface text-ink border border-border hover:bg-page font-label text-label-lg transition-colors duration-state-change">
+        <span data-design-text-token="label-lg">Cancel</span>
+      </button>
+      <button type="button" id="confirm-delete-btn" class="inline-flex items-center justify-center min-h-[40px] px-lg py-sm rounded bg-error text-on-error hover:opacity-90 font-label text-label-lg transition-opacity duration-state-change">
+        <span data-design-text-token="label-lg">Delete Query</span>
+      </button>
+    </footer>
+  </dialog>
+
+  <!-- Toast Notification -->
+  <div id="toast-container" aria-live="polite" class="fixed bottom-xl right-xl z-50 flex flex-col gap-sm pointer-events-none"></div>
+
+  <script>
+    (function () {
+      const STATUS_STEPS = ['Submitted', 'Assigned', 'In Progress', 'Resolved', 'Closed'];
+
+      let queries = [
+        {
+          id: 'Q-2026-0142',
+          title: 'Fee challan not generated for Fall 2026',
+          category: 'Fee Challan & Billing',
+          department: 'Finance & Fees',
+          priority: 'High',
+          status: 'In Progress',
+          date: '26 Nov 2026, 14:05',
+          relative: '2 hours ago',
+          sortDate: 202611261405,
+          reopenedOnce: false,
+          messages: [
+            { sender: 'Ayesha Tariq', role: 'Student', time: '26 Nov 2026, 14:05', text: 'My Fall 2026 semester fee challan is still not appearing on the student portal even though course registration was finalized yesterday.' },
+            { sender: 'Kamran Siddiqui', role: 'Finance & Fees Staff', time: '26 Nov 2026, 15:20', text: 'We have verified your registration batch (CS-2023). The challan generation job is queued and your challan will be visible by 17:00 today.' }
+          ]
+        },
+        {
+          id: 'Q-2026-0138',
+          title: 'Mid-term result discrepancy in CS-301',
+          category: 'Exam Results & Grading',
+          department: 'Examinations',
+          priority: 'High',
+          status: 'Assigned',
+          date: '25 Nov 2026, 10:30',
+          relative: '1 day ago',
+          sortDate: 202611251030,
+          reopenedOnce: false,
+          messages: [
+            { sender: 'Ayesha Tariq', role: 'Student', time: '25 Nov 2026, 10:30', text: 'My CS-301 Operating Systems mid-term score shows 14/30 on the portal, whereas my marked paper returned in class shows 24/30.' }
+          ]
+        },
+        {
+          id: 'Q-2026-0129',
+          title: 'Timetable clash between CS-305 and MT-210',
+          category: 'Timetable & Course Clash',
+          department: 'Examinations',
+          priority: 'Medium',
+          status: 'Submitted',
+          date: '24 Nov 2026, 16:45',
+          relative: '2 days ago',
+          sortDate: 202611241645,
+          reopenedOnce: false,
+          messages: [
+            { sender: 'Ayesha Tariq', role: 'Student', time: '24 Nov 2026, 16:45', text: 'Both CS-305 (Section B) and MT-210 (Section A) are scheduled on Tuesday 11:00–12:30. Requesting section transfer for MT-210.' }
+          ]
+        },
+        {
+          id: 'Q-2026-0114',
+          title: 'Hostel room change request (Block C to Block A)',
+          category: 'Hostel Accommodation',
+          department: 'Hostel Office',
+          priority: 'Low',
+          status: 'Resolved',
+          date: '20 Nov 2026, 09:15',
+          relative: '6 days ago',
+          sortDate: 202611200915,
+          reopenedOnce: false,
+          messages: [
+            { sender: 'Ayesha Tariq', role: 'Student', time: '20 Nov 2026, 09:15', text: 'Requesting transfer to Block A quiet study wing for final-year project preparation.' },
+            { sender: 'Saima Noreen', role: 'Hostel Office Staff', time: '22 Nov 2026, 11:40', text: 'Approved. Room A-208 has been allotted. Please collect your updated key slip from the Hostel Warden desk.' }
+          ]
+        },
+        {
+          id: 'Q-2026-0102',
+          title: 'University email password reset after 2FA lockout',
+          category: 'Portal & Email Access',
+          department: 'IT Services',
+          priority: 'Medium',
+          status: 'Resolved',
+          date: '15 Nov 2026, 13:20',
+          relative: '11 days ago',
+          sortDate: 202611151320,
+          reopenedOnce: false,
+          messages: [
+            { sender: 'Ayesha Tariq', role: 'Student', time: '15 Nov 2026, 13:20', text: 'Changed my phone number and cannot receive 2FA codes for my @university.edu.pk mailbox.' },
+            { sender: 'Tariq Mehmood', role: 'IT Services Staff', time: '15 Nov 2026, 14:50', text: '2FA device binding has been reset. You can now enroll your new phone on next sign-in.' }
+          ]
+        },
+        {
+          id: 'Q-2026-0089',
+          title: 'Transcript verification for HEC attestation',
+          category: 'Document Verification',
+          department: 'Admissions',
+          priority: 'Low',
+          status: 'Closed',
+          date: '02 Nov 2026, 11:05',
+          relative: '24 days ago',
+          sortDate: 202611021105,
+          reopenedOnce: false,
+          messages: [
+            { sender: 'Ayesha Tariq', role: 'Student', time: '02 Nov 2026, 11:05', text: 'Need stamped interim transcript for scholarship verification.' },
+            { sender: 'Nadia Farooq', role: 'Admissions Staff', time: '04 Nov 2026, 15:10', text: 'Sealed envelope collected by student at Registrar Window 3.' }
+          ]
+        }
+      ];
+
+      let filterState = { search: '', status: '', priority: '' };
+      let sortState = { key: 'date', dir: 'desc' };
+      let selectedPriority = 'Medium';
+      let activeQueryId = null;
+      let lastAddedId = null;
+      let pendingDeleteId = null;
+
+      const tbody = document.getElementById('queries-tbody');
+      const emptyState = document.getElementById('empty-state');
+      const tableFooter = document.getElementById('table-footer');
+      const resultsCount = document.getElementById('results-count');
+
+      function renderStatusBadge(status) {
+        const map = {
+          'Submitted': 'bg-status-submitted-bg text-status-submitted-fg',
+          'Assigned': 'bg-status-assigned-bg text-status-assigned-fg',
+          'In Progress': 'bg-status-progress-bg text-status-progress-fg',
+          'Resolved': 'bg-status-resolved-bg text-status-resolved-fg',
+          'Closed': 'bg-status-closed-bg text-status-closed-fg'
+        };
+        const dotMap = {
+          'Submitted': 'bg-status-submitted-fg',
+          'Assigned': 'bg-status-assigned-fg',
+          'In Progress': 'bg-status-progress-fg',
+          'Resolved': 'bg-status-resolved-fg',
+          'Closed': 'bg-status-closed-fg'
+        };
+        return `<span class="inline-flex items-center gap-xs px-sm py-xs rounded ${map[status] || ''} font-label text-label-md whitespace-nowrap">
+          <span class="w-1.5 h-1.5 rounded-full ${dotMap[status] || ''}" aria-hidden="true"></span>
+          <span>${status}</span>
+        </span>`;
+      }
+
+      function renderPriorityBadge(priority) {
+        if (priority === 'High') {
+          return `<span class="inline-flex items-center px-sm py-xs rounded bg-priority-high text-on-priority-high font-label text-label-md">High</span>`;
+        }
+        if (priority === 'Medium') {
+          return `<span class="inline-flex items-center px-sm py-xs rounded border border-accent-brass/40 bg-priority-medium-bg text-priority-medium-fg font-label text-label-md">Medium</span>`;
+        }
+        return `<span class="inline-flex items-center px-sm py-xs rounded border border-border bg-priority-low-bg text-priority-low-fg font-label text-label-md">Low</span>`;
+      }
+
+      function updateStats() {
+        document.getElementById('stat-total').textContent = queries.length;
+        document.getElementById('stat-active').textContent = queries.filter(q => ['Submitted', 'Assigned', 'In Progress'].includes(q.status)).length;
+        document.getElementById('stat-resolved').textContent = queries.filter(q => q.status === 'Resolved').length;
+      }
+
+      function getFilteredQueries() {
+        const q = filterState.search.trim().toLowerCase();
+        const priorityRank = { High: 3, Medium: 2, Low: 1 };
+        return queries
+          .filter(item => {
+            if (filterState.status && item.status !== filterState.status) return false;
+            if (filterState.priority && item.priority !== filterState.priority) return false;
+            if (q && !item.id.toLowerCase().includes(q) && !item.title.toLowerCase().includes(q)) return false;
+            return true;
+          })
+          .sort((a, b) => {
+            const mult = sortState.dir === 'asc' ? 1 : -1;
+            if (sortState.key === 'priority') {
+              return (priorityRank[a.priority] - priorityRank[b.priority]) * mult;
+            }
+            if (sortState.key === 'id') {
+              return a.id.localeCompare(b.id) * mult;
+            }
+            return (a.sortDate - b.sortDate) * mult;
+          });
+      }
+
+      function renderTable() {
+        const list = getFilteredQueries();
+        updateStats();
+
+        if (list.length === 0) {
+          tbody.innerHTML = '';
+          emptyState.classList.remove('hidden');
+          tableFooter.classList.add('hidden');
+          return;
+        }
+
+        emptyState.classList.add('hidden');
+        tableFooter.classList.remove('hidden');
+        resultsCount.textContent = `Showing ${list.length} of ${queries.length} queries`;
+
+        tbody.innerHTML = list.map((item, idx) => {
+          const isNew = item.id === lastAddedId;
+          return `
+            <tr data-id="${item.id}" class="group hover:bg-surface-subtle transition-colors duration-state-change ease-state-change cursor-pointer ${isNew ? 'animate-row-pulse' : ''}">
+              <td class="px-lg py-md whitespace-nowrap">
+                <span class="font-mono text-mono-sm text-ink tabular-nums">${item.id}</span>
+              </td>
+              <td class="px-lg py-md">
+                <div class="font-body text-body-md font-medium text-ink group-hover:text-primary transition-colors duration-state-change">${item.title}</div>
+                <div class="font-body text-body-sm text-text-secondary">${item.category}</div>
+              </td>
+              <td class="px-lg py-md whitespace-nowrap">
+                <span class="font-body text-body-md text-text-secondary">${item.department}</span>
+              </td>
+              <td class="px-lg py-md whitespace-nowrap">
+                ${renderPriorityBadge(item.priority)}
+              </td>
+              <td class="px-lg py-md whitespace-nowrap">
+                ${renderStatusBadge(item.status)}
+              </td>
+              <td class="px-lg py-md whitespace-nowrap">
+                <div class="font-body text-body-sm text-ink tabular-nums">${item.date}</div>
+                <div class="font-body text-body-sm text-text-secondary">${item.relative}</div>
+              </td>
+              <td class="px-lg py-md text-right whitespace-nowrap">
+                <button type="button" class="view-query-btn inline-flex items-center gap-xs min-h-[36px] px-md py-xs rounded text-link hover:bg-primary-container font-label text-label-md transition-colors duration-state-change">
+                  <span>View</span>
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+                </button>
+              </td>
+            </tr>
+          `;
+        }).join('');
+
+        lastAddedId = null;
+
+        tbody.querySelectorAll('tr').forEach(row => {
+          row.addEventListener('click', () => openDetailDrawer(row.dataset.id));
+        });
+      }
+
+      // Toast helper
+      function showToast(message, type = 'success') {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        const isError = type === 'error';
+        toast.className = `pointer-events-auto animate-toast-in flex items-center gap-sm px-lg py-md rounded-md border shadow-md bg-surface ${isError ? 'border-error/40 text-error' : 'border-success/40 text-success'}`;
+        toast.innerHTML = `
+          <span class="material-symbols-outlined text-[20px]" aria-hidden="true">${isError ? 'error' : 'check_circle'}</span>
+          <span class="font-label text-label-lg text-ink">${message}</span>
+        `;
+        container.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(8px)';
+          toast.style.transition = 'opacity 180ms ease-out, transform 180ms ease-out';
+          setTimeout(() => toast.remove(), 200);
+        }, 3200);
+      }
+
+      // Drawer open/close helpers
+      function openDrawer(drawerEl, backdropEl) {
+        backdropEl.classList.remove('hidden');
+        drawerEl.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          backdropEl.classList.remove('opacity-0');
+          drawerEl.classList.remove('translate-x-full');
+        });
+      }
+
+      function closeDrawer(drawerEl, backdropEl) {
+        backdropEl.classList.add('opacity-0');
+        drawerEl.classList.add('translate-x-full');
+        setTimeout(() => {
+          backdropEl.classList.add('hidden');
+          drawerEl.classList.add('hidden');
+        }, 250);
+      }
+
+      // New Query Drawer
+      const nqDrawer = document.getElementById('new-query-drawer');
+      const nqBackdrop = document.getElementById('new-query-backdrop');
+      const nqForm = document.getElementById('new-query-form');
+      const nqTitle = document.getElementById('nq-title');
+      const nqCategory = document.getElementById('nq-category');
+      const nqDesc = document.getElementById('nq-description');
+      const nqCharCount = document.getElementById('nq-char-count');
+
+      function openNewQuery() {
+        document.getElementById('form-error-summary').classList.add('hidden');
+        ['nq-title-error', 'nq-category-error', 'nq-desc-error'].forEach(id => {
+          document.getElementById(id).classList.add('hidden');
+          document.getElementById(id).classList.remove('inline-flex');
+        });
+        openDrawer(nqDrawer, nqBackdrop);
+        setTimeout(() => nqTitle.focus(), 200);
+      }
+
+      document.getElementById('open-new-query-btn').addEventListener('click', openNewQuery);
+      document.getElementById('nav-new-query-btn').addEventListener('click', openNewQuery);
+      document.getElementById('mobile-new-query-btn').addEventListener('click', () => {
+        document.getElementById('mobile-nav-drawer').classList.add('hidden');
+        openNewQuery();
+      });
+      document.getElementById('empty-new-btn').addEventListener('click', openNewQuery);
+      document.getElementById('close-new-query-btn').addEventListener('click', () => closeDrawer(nqDrawer, nqBackdrop));
+      document.getElementById('cancel-new-query-btn').addEventListener('click', () => closeDrawer(nqDrawer, nqBackdrop));
+      nqBackdrop.addEventListener('click', () => closeDrawer(nqDrawer, nqBackdrop));
+
+      nqDesc.addEventListener('input', () => {
+        nqCharCount.textContent = `${nqDesc.value.length} / 600`;
+      });
+
+      document.querySelectorAll('.priority-seg').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectedPriority = btn.dataset.priority;
+          document.querySelectorAll('.priority-seg').forEach(b => {
+            const active = b.dataset.priority === selectedPriority;
+            b.className = active
+              ? 'priority-seg min-h-[40px] px-md py-sm rounded border border-primary bg-primary-container text-on-primary-container font-label text-label-lg transition-colors duration-state-change'
+              : 'priority-seg min-h-[40px] px-md py-sm rounded border border-border bg-surface text-ink font-label text-label-lg hover:bg-surface-subtle transition-colors duration-state-change';
+          });
+        });
+      });
+
+      nqForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let valid = true;
+
+        const titleVal = nqTitle.value.trim();
+        const catVal = nqCategory.value;
+        const descVal = nqDesc.value.trim();
+
+        const toggleErr = (id, show) => {
+          const el = document.getElementById(id);
+          if (show) {
+            el.classList.remove('hidden');
+            el.classList.add('inline-flex');
+          } else {
+            el.classList.add('hidden');
+            el.classList.remove('inline-flex');
+          }
+        };
+
+        if (!titleVal) { toggleErr('nq-title-error', true); valid = false; } else toggleErr('nq-title-error', false);
+        if (!catVal) { toggleErr('nq-category-error', true); valid = false; } else toggleErr('nq-category-error', false);
+        if (descVal.length < 15) { toggleErr('nq-desc-error', true); valid = false; } else toggleErr('nq-desc-error', false);
+
+        if (!valid) {
+          document.getElementById('form-error-summary').classList.remove('hidden');
+          return;
+        }
+
+        const [category, department] = catVal.split('|');
+        const nextNum = 143 + queries.length;
+        const newRef = `Q-2026-0${nextNum}`;
+        const newItem = {
+          id: newRef,
+          title: titleVal,
+          category,
+          department,
+          priority: selectedPriority,
+          status: 'Submitted',
+          date: '26 Nov 2026, 07:14',
+          relative: 'Just now',
+          sortDate: 202611261600 + queries.length,
+          reopenedOnce: false,
+          messages: [
+            { sender: 'Ayesha Tariq', role: 'Student', time: '26 Nov 2026, 07:14', text: descVal }
+          ]
+        };
+
+        queries.unshift(newItem);
+        lastAddedId = newRef;
+        nqForm.reset();
+        nqCharCount.textContent = '0 / 600';
+        closeDrawer(nqDrawer, nqBackdrop);
+        renderTable();
+        showToast(`Query ${newRef} submitted to ${department}.`);
+      });
+
+      // Detail Drawer
+      const detailDrawer = document.getElementById('detail-drawer');
+      const detailBackdrop = document.getElementById('detail-backdrop');
+
+      function openDetailDrawer(id) {
+        activeQueryId = id;
+        const item = queries.find(q => q.id === id);
+        if (!item) return;
+
+        document.getElementById('detail-ref').textContent = item.id;
+        document.getElementById('detail-status-badge').innerHTML = renderStatusBadge(item.status);
+        document.getElementById('detail-priority-badge').innerHTML = renderPriorityBadge(item.priority);
+        document.getElementById('detail-title').textContent = item.title;
+        document.getElementById('detail-meta').textContent = `${item.department} · ${item.category} · Submitted ${item.date}`;
+
+        // Render Timeline
+        const currentIdx = STATUS_STEPS.indexOf(item.status);
+        document.getElementById('detail-timeline').innerHTML = STATUS_STEPS.map((step, idx) => {
+          const done = idx < currentIdx;
+          const active = idx === currentIdx;
+          return `
+            <li class="flex flex-col gap-xs">
+              <div class="h-1.5 rounded-full transition-colors duration-state-change ${active ? 'bg-accent-brass' : done ? 'bg-primary' : 'bg-border'}"></div>
+              <span class="font-label text-label-md ${active ? 'text-ink font-semibold' : done ? 'text-primary' : 'text-text-secondary'}">${step}</span>
+            </li>
+          `;
+        }).join('');
+
+        // Render Messages
+        document.getElementById('detail-thread').innerHTML = item.messages.map(m => {
+          const isStudent = m.role === 'Student';
+          return `
+            <div class="rounded-md border p-lg ${isStudent ? 'bg-surface border-border' : 'bg-primary-container/50 border-primary/20'}">
+              <div class="flex items-center justify-between gap-sm mb-xs">
+                <div class="flex items-center gap-sm">
+                  <span class="font-label text-label-lg text-ink">${m.sender}</span>
+                  <span class="px-sm py-xs rounded bg-surface-subtle border border-border font-label text-label-md text-text-secondary">${m.role}</span>
+                </div>
+                <span class="font-body text-body-sm text-text-secondary tabular-nums">${m.time}</span>
+              </div>
+              <p class="font-body text-body-md text-ink">${m.text}</p>
+            </div>
+          `;
+        }).join('');
+
+        // Closed state reply box
+        const isClosed = item.status === 'Closed';
+        document.getElementById('detail-reply-box').classList.toggle('hidden', isClosed);
+        document.getElementById('detail-closed-notice').classList.toggle('hidden', !isClosed);
+
+        // Conditional actions
+        const actionsLeft = document.getElementById('detail-actions-left');
+        actionsLeft.innerHTML = '';
+
+        if (item.status === 'Submitted') {
+          const delBtn = document.createElement('button');
+          delBtn.type = 'button';
+          delBtn.className = 'inline-flex items-center gap-xs min-h-[40px] px-md py-sm rounded border border-error/40 text-error hover:bg-error-tint font-label text-label-lg transition-colors duration-state-change';
+          delBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]" aria-hidden="true">delete</span><span>Delete Query</span>';
+          delBtn.addEventListener('click', () => openDeleteModal(item.id));
+          actionsLeft.appendChild(delBtn);
+        }
+
+        if (item.status === 'Resolved' && !item.reopenedOnce) {
+          const reopenBtn = document.createElement('button');
+          reopenBtn.type = 'button';
+          reopenBtn.className = 'inline-flex items-center gap-xs min-h-[40px] px-md py-sm rounded border border-border bg-surface text-ink hover:bg-page font-label text-label-lg transition-colors duration-state-change';
+          reopenBtn.textContent = 'Reopen Query';
+          reopenBtn.addEventListener('click', () => {
+            item.status = 'In Progress';
+            item.reopenedOnce = true;
+            renderTable();
+            openDetailDrawer(item.id);
+            showToast(`Query ${item.id} reopened.`);
+          });
+          actionsLeft.appendChild(reopenBtn);
+        }
+
+        if (item.status !== 'Closed') {
+          const closeBtn = document.createElement('button');
+          closeBtn.type = 'button';
+          closeBtn.className = 'inline-flex items-center gap-xs min-h-[40px] px-md py-sm rounded border border-border bg-surface text-ink hover:bg-page font-label text-label-lg transition-colors duration-state-change';
+          closeBtn.textContent = 'Mark as Closed';
+          closeBtn.addEventListener('click', () => {
+            item.status = 'Closed';
+            renderTable();
+            openDetailDrawer(item.id);
+            showToast(`Query ${item.id} closed.`);
+          });
+          actionsLeft.appendChild(closeBtn);
+        }
+
+        openDrawer(detailDrawer, detailBackdrop);
+      }
+
+      document.getElementById('close-detail-btn').addEventListener('click', () => closeDrawer(detailDrawer, detailBackdrop));
+      document.getElementById('detail-done-btn').addEventListener('click', () => closeDrawer(detailDrawer, detailBackdrop));
+      detailBackdrop.addEventListener('click', () => closeDrawer(detailDrawer, detailBackdrop));
+
+      document.getElementById('detail-send-reply-btn').addEventListener('click', () => {
+        const input = document.getElementById('detail-reply-input');
+        const text = input.value.trim();
+        if (!text || !activeQueryId) return;
+        const item = queries.find(q => q.id === activeQueryId);
+        if (!item) return;
+        item.messages.push({
+          sender: 'Ayesha Tariq',
+          role: 'Student',
+          time: 'Just now',
+          text
+        });
+        input.value = '';
+        openDetailDrawer(item.id);
+        showToast('Reply sent.');
+      });
+
+      // Delete Confirmation Dialog
+      const deleteDialog = document.getElementById('delete-confirm-dialog');
+      function openDeleteModal(id) {
+        pendingDeleteId = id;
+        document.getElementById('delete-target-ref').textContent = id;
+        deleteDialog.showModal();
+      }
+      document.getElementById('cancel-delete-btn').addEventListener('click', () => deleteDialog.close());
+      document.getElementById('confirm-delete-btn').addEventListener('click', () => {
+        if (!pendingDeleteId) return;
+        queries = queries.filter(q => q.id !== pendingDeleteId);
+        const removedId = pendingDeleteId;
+        pendingDeleteId = null;
+        deleteDialog.close();
+        closeDrawer(detailDrawer, detailBackdrop);
+        renderTable();
+        showToast(`Query ${removedId} deleted.`);
+      });
+
+      // Filters & Sorting
+      document.getElementById('filter-search').addEventListener('input', (e) => {
+        filterState.search = e.target.value;
+        renderTable();
+      });
+      document.getElementById('filter-status').addEventListener('change', (e) => {
+        filterState.status = e.target.value;
+        renderTable();
+      });
+      document.getElementById('filter-priority').addEventListener('change', (e) => {
+        filterState.priority = e.target.value;
+        renderTable();
+      });
+
+      function clearFilters() {
+        filterState = { search: '', status: '', priority: '' };
+        document.getElementById('filter-search').value = '';
+        document.getElementById('filter-status').value = '';
+        document.getElementById('filter-priority').value = '';
+        renderTable();
+      }
+      document.getElementById('clear-filters-btn').addEventListener('click', clearFilters);
+      document.getElementById('empty-clear-btn').addEventListener('click', clearFilters);
+
+      document.querySelectorAll('.sort-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.dataset.sort;
+          if (sortState.key === key) {
+            sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+          } else {
+            sortState.key = key;
+            sortState.dir = 'desc';
+          }
+          renderTable();
+        });
+      });
+
+      // User menu dropdown & mobile nav
+      const userMenuBtn = document.getElementById('user-menu-btn');
+      const userDropdown = document.getElementById('user-menu-dropdown');
+      const userChevron = document.getElementById('user-menu-chevron');
+
+      userMenuBtn.addEventListener('click', () => {
+        const open = !userDropdown.classList.contains('hidden');
+        if (open) {
+          userDropdown.classList.add('opacity-0', 'scale-95');
+          setTimeout(() => userDropdown.classList.add('hidden'), 150);
+          userMenuBtn.setAttribute('aria-expanded', 'false');
+          userChevron.style.transform = 'rotate(0deg)';
+        } else {
+          userDropdown.classList.remove('hidden');
+          requestAnimationFrame(() => userDropdown.classList.remove('opacity-0', 'scale-95'));
+          userMenuBtn.setAttribute('aria-expanded', 'true');
+          userChevron.style.transform = 'rotate(180deg)';
+        }
+      });
+
+      document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+        const drawer = document.getElementById('mobile-nav-drawer');
+        drawer.classList.toggle('hidden');
+      });
+
+      document.getElementById('logout-demo-btn').addEventListener('click', () => {
+        userDropdown.classList.add('hidden');
+        showToast('Signed out of demo session.');
+      });
+
+      renderTable();
+    })();
+  </script>
+
+
+</body></html>

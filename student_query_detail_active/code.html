@@ -1,0 +1,530 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Query Detail Q-2026-0142 — SQMS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1F3A5F',
+        'on-primary': '#FFFFFF',
+        'primary-hover': '#17304F',
+        'primary-container': '#EBF1FF',
+        'on-primary-container': '#143155',
+        'link': '#2B6CB0',
+        'on-link': '#FFFFFF',
+        'accent-brass': '#B7791F',
+        'on-accent-brass': '#1F1F1F',
+        'accent-brass-tint': '#FFEEDE',
+        'on-accent-brass-tint': '#472A00',
+        'page': '#F5F7FA',
+        'surface': '#FFFFFF',
+        'on-surface': '#1B2430',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#5B6675',
+        'ink': '#1B2430',
+        'text-secondary': '#5B6675',
+        'border': '#DDE2E9',
+        'border-strong': '#BEC7D7',
+        'status-submitted-bg': '#F1F5F9',
+        'status-submitted-fg': '#334155',
+        'status-assigned-bg': '#EBF4FF',
+        'status-assigned-fg': '#1E4E8C',
+        'status-progress-bg': '#FEF3C7',
+        'status-progress-fg': '#92400E',
+        'status-resolved-bg': '#DCFCE7',
+        'status-resolved-fg': '#166534',
+        'status-closed-bg': '#E2E8F0',
+        'status-closed-fg': '#475569',
+        'priority-high': '#BA1A1A',
+        'on-priority-high': '#FFFFFF',
+        'priority-high-tint': '#FFEDEA',
+        'on-priority-high-tint': '#690005',
+        'priority-medium-bg': '#FEF3C7',
+        'priority-medium-fg': '#92400E',
+        'priority-low-bg': '#F1F5F9',
+        'priority-low-fg': '#475569',
+        'error': '#BA1A1A',
+        'on-error': '#FFFFFF',
+        'error-tint': '#FFEDEA',
+        'on-error-tint': '#690005',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-tint': '#DCFCE7',
+        'on-success-tint': '#166534',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        '2xl': '32px',
+        '3xl': '48px',
+      },
+      fontFamily: {
+        'display': ['"IBM Plex Sans"', 'sans-serif'],
+        'headline': ['"IBM Plex Sans"', 'sans-serif'],
+        'title': ['"IBM Plex Sans"', 'sans-serif'],
+        'body': ['"IBM Plex Sans"', 'sans-serif'],
+        'label': ['"IBM Plex Sans"', 'sans-serif'],
+        'mono': ['"IBM Plex Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-sm': ['32px', { lineHeight: '40px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '21px', fontWeight: '400' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+        'label-table': ['12px', { lineHeight: '16px', letterSpacing: '0.48px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+        'drawer-slide': '260ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes stepPulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.18);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .animate-step-active {
+      animation: stepPulse 420ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    dialog[open] {
+      animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    dialog::backdrop {
+      background-color: rgba(27, 36, 48, 0.42);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up,
+      .animate-step-active,
+      dialog[open] {
+        animation: none !important;
+      }
+      * {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-page text-ink font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Shared Top Navbar (_Layout.cshtml) -->
+    <header class="sticky top-0 z-30 bg-surface border-b border-border">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl h-[64px] flex items-center justify-between gap-lg">
+        <div class="flex items-center gap-2xl h-full">
+          <a href="#" class="flex items-center gap-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link rounded px-xs py-xs">
+            <span class="font-headline text-title-lg text-primary tracking-tight">SQMS</span>
+            <span class="hidden sm:inline-block font-label text-label-md text-text-secondary border-l border-border pl-sm">Registrar Portal</span>
+          </a>
+
+          <nav aria-label="Student navigation" class="hidden md:flex items-center gap-xl h-full">
+            <a href="#my-queries" aria-current="page" class="relative inline-flex items-center h-full font-label text-label-lg text-ink border-b-2 border-accent-brass transition-colors duration-state-change ease-state-change">
+              My Queries
+            </a>
+            <a href="#new-query" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change ease-state-change">
+              New Query
+            </a>
+          </nav>
+        </div>
+
+        <div class="flex items-center gap-md">
+          <div class="inline-flex items-center gap-sm min-h-[40px] px-sm py-xs">
+            <span class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-label text-label-md inline-flex items-center justify-center">AT</span>
+            <span class="hidden sm:flex flex-col items-start text-left">
+              <span class="font-label text-label-lg text-ink leading-none">Ayesha Tariq</span>
+              <span class="font-mono text-mono-sm text-text-secondary mt-xs leading-none">2023-CS-114</span>
+            </span>
+            <span class="hidden md:inline-flex items-center px-sm py-xs rounded bg-surface-subtle border border-border font-label text-label-md text-text-secondary">Student</span>
+          </div>
+
+          <button type="button" id="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation menu" class="md:hidden inline-flex items-center justify-center min-h-[40px] min-w-[40px] rounded text-text-secondary hover:bg-surface-subtle hover:text-ink transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[22px]" aria-hidden="true">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-nav-drawer" class="hidden md:hidden border-t border-border bg-surface px-lg py-md space-y-xs">
+        <a href="#my-queries" aria-current="page" class="block px-md py-sm rounded bg-primary-container text-on-primary-container font-label text-label-lg">My Queries</a>
+        <a href="#new-query" class="block px-md py-sm rounded text-ink hover:bg-surface-subtle font-label text-label-lg">New Query</a>
+      </div>
+    </header>
+
+    <!-- Main Detail Workspace -->
+    <main class="flex-1 max-w-[1200px] w-full mx-auto px-lg sm:px-xl py-2xl space-y-xl">
+
+      <!-- Top Bar: Breadcrumb + Interactive State Switcher -->
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-md animate-fade-up">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-xs font-body text-body-sm text-text-secondary">
+          <a href="#my-queries" class="text-link hover:underline">My Queries</a>
+          <span aria-hidden="true">/</span>
+          <span class="font-mono text-ink">Q-2026-0142</span>
+        </nav>
+
+        <div class="flex flex-wrap items-center gap-xs bg-surface border border-border rounded p-xs" role="group" aria-label="Preview query status state">
+          <span class="font-label text-label-md text-text-secondary px-sm">State:</span>
+          <button type="button" data-status-preview="Submitted" class="status-pill px-sm py-xs rounded font-label text-label-md text-text-secondary hover:text-ink transition-colors duration-state-change">Submitted</button>
+          <button type="button" data-status-preview="In Progress" class="status-pill px-sm py-xs rounded font-label text-label-md bg-primary text-on-primary transition-colors duration-state-change">In Progress</button>
+          <button type="button" data-status-preview="Resolved" class="status-pill px-sm py-xs rounded font-label text-label-md text-text-secondary hover:text-ink transition-colors duration-state-change">Resolved</button>
+          <button type="button" data-status-preview="Closed" class="status-pill px-sm py-xs rounded font-label text-label-md text-text-secondary hover:text-ink transition-colors duration-state-change">Closed</button>
+        </div>
+      </div>
+
+      <!-- Query Header + Animated 5-Step Status Timeline -->
+      <section class="bg-surface border border-border rounded-md p-xl space-y-xl animate-fade-up" style="animation-delay: 40ms;">
+        <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-lg">
+          <div class="space-y-sm">
+            <div class="flex flex-wrap items-center gap-sm">
+              <span class="font-mono text-mono-md text-ink bg-surface-subtle border border-border px-sm py-xs rounded">Q-2026-0142</span>
+              <span id="qd-status-badge"></span>
+              <span class="inline-flex items-center px-sm py-xs rounded bg-priority-high text-on-priority-high font-label text-label-md">High Priority</span>
+            </div>
+            <h1 id="qd-title" class="font-headline text-headline-md text-ink">Fee challan not generated for Fall 2026</h1>
+            <p class="font-body text-body-sm text-text-secondary">
+              Finance &amp; Fees · Fee Challan &amp; Billing · Submitted 26 Nov 2026, 14:05 (2 hours ago)
+            </p>
+          </div>
+
+          <!-- Conditional Action Buttons -->
+          <div id="qd-actions" class="flex flex-wrap items-center gap-sm shrink-0">
+            <!-- Populated dynamically per status -->
+          </div>
+        </div>
+
+        <!-- Animated 5-Step Status Timeline -->
+        <div class="pt-lg border-t border-border">
+          <div class="flex items-center justify-between mb-md">
+            <h2 class="font-label text-label-md text-text-secondary uppercase tracking-wider">Status Timeline</h2>
+            <span id="qd-step-label" class="font-mono text-mono-sm text-text-secondary">Step 3 of 5</span>
+          </div>
+
+          <div class="relative">
+            <!-- Animated Progress Track (Desktop/Tablet) -->
+            <div class="hidden sm:block absolute top-3 left-[10%] right-[10%] h-1 bg-border rounded-full overflow-hidden" aria-hidden="true">
+              <div id="timeline-progress-bar" class="h-full bg-primary transition-transform duration-drawer-slide ease-drawer-slide origin-left" style="transform: scaleX(0.5);"></div>
+            </div>
+
+            <ol id="qd-timeline" class="grid grid-cols-1 sm:grid-cols-5 gap-md sm:gap-xs relative z-10">
+              <!-- Steps populated dynamically -->
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conversation Thread & Reply Composer -->
+      <section class="bg-surface border border-border rounded-md overflow-hidden animate-fade-up" style="animation-delay: 80ms;">
+        <header class="px-xl py-lg border-b border-border flex items-center justify-between">
+          <h2 class="font-title text-title-md text-ink">Conversation History</h2>
+          <span id="qd-msg-count" class="font-mono text-mono-sm text-text-secondary tabular-nums">2 messages</span>
+        </header>
+
+        <div id="qd-thread" class="p-xl space-y-lg">
+          <!-- Messages rendered dynamically -->
+        </div>
+
+        <!-- Reply Composer -->
+        <footer class="p-xl bg-surface-subtle border-t border-border">
+          <div id="qd-reply-active">
+            <label class="flex flex-col gap-xs">
+              <span class="font-label text-label-lg text-ink">Reply to Finance &amp; Fees</span>
+              <textarea id="qd-reply-input" rows="3" placeholder="Add follow-up details or attach reference numbers..." class="w-full px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink placeholder:text-text-secondary focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20 transition-colors duration-state-change"></textarea>
+            </label>
+            <div class="mt-md flex items-center justify-end">
+              <button type="button" id="qd-send-reply-btn" class="inline-flex items-center justify-center min-h-[40px] px-xl py-sm rounded bg-primary text-on-primary hover:bg-primary-hover active:scale-[0.98] font-label text-label-lg transition-colors duration-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link">
+                Send Reply
+              </button>
+            </div>
+          </div>
+
+          <div id="qd-reply-closed" class="hidden rounded border border-border bg-surface p-lg flex items-center gap-md text-text-secondary">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">lock</span>
+            <div>
+              <p class="font-label text-label-lg text-ink">Replies are disabled</p>
+              <p class="font-body text-body-sm text-text-secondary">This query has been marked Closed. Submit a new query if you need further help.</p>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <!-- Minimal Institutional Footer -->
+    <footer class="bg-surface border-t border-border mt-auto">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl py-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-sm">
+        <p class="font-body text-body-sm text-text-secondary">Student Query Management System (SQMS) · Office of the University Registrar</p>
+        <p class="font-mono text-mono-sm text-text-secondary">Academic Session 2026–2027</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Edit Query Modal (Pre-filled) -->
+  <dialog id="edit-query-dialog" aria-labelledby="edit-dialog-title" class="rounded-md bg-surface border border-border shadow-lg p-0 max-w-lg w-full">
+    <header class="px-xl py-lg border-b border-border flex items-center justify-between">
+      <h2 id="edit-dialog-title" class="font-title text-title-lg text-ink">Edit Query <span class="font-mono text-mono-md text-text-secondary">Q-2026-0142</span></h2>
+      <button type="button" id="close-edit-btn" aria-label="Close dialog" class="min-h-[40px] min-w-[40px] inline-flex items-center justify-center rounded text-text-secondary hover:bg-surface-subtle hover:text-ink">
+        <span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+      </button>
+    </header>
+    <div class="p-xl space-y-lg">
+      <label class="flex flex-col gap-xs">
+        <span class="font-label text-label-lg text-ink">Query Title</span>
+        <input id="edit-title-input" type="text" value="Fee challan not generated for Fall 2026" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">
+      </label>
+      <label class="flex flex-col gap-xs">
+        <span class="font-label text-label-lg text-ink">Description</span>
+        <textarea id="edit-desc-input" rows="4" class="w-full px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">My Fall 2026 semester fee challan is still not appearing on the student portal even though course registration was finalized yesterday.</textarea>
+      </label>
+    </div>
+    <footer class="px-xl py-lg bg-surface-subtle border-t border-border flex items-center justify-end gap-md">
+      <button type="button" id="cancel-edit-btn" class="min-h-[40px] px-lg py-sm rounded bg-surface text-ink border border-border hover:bg-page font-label text-label-lg">Cancel</button>
+      <button type="button" id="save-edit-btn" class="min-h-[40px] px-lg py-sm rounded bg-primary text-on-primary hover:bg-primary-hover font-label text-label-lg">Save Changes</button>
+    </footer>
+  </dialog>
+
+  <!-- Delete Confirmation Modal -->
+  <dialog id="delete-dialog" role="alertdialog" aria-labelledby="del-title" aria-describedby="del-body" class="rounded-md bg-surface border border-border shadow-lg p-0 max-w-md w-full">
+    <header class="p-xl border-b border-border flex items-center gap-sm">
+      <span class="material-symbols-outlined text-[22px] text-error" aria-hidden="true">warning</span>
+      <h2 id="del-title" class="font-title text-title-lg text-ink">Delete Query?</h2>
+    </header>
+    <div id="del-body" class="p-xl">
+      <p class="font-body text-body-md text-text-secondary">
+        Query <span class="font-mono text-ink">Q-2026-0142</span> will be permanently deleted. This action is only available before a query is assigned and cannot be undone.
+      </p>
+    </div>
+    <footer class="px-xl py-lg bg-surface-subtle border-t border-border flex items-center justify-end gap-md">
+      <button type="button" id="cancel-del-btn" class="min-h-[40px] px-lg py-sm rounded bg-surface text-ink border border-border hover:bg-page font-label text-label-lg">Cancel</button>
+      <button type="button" id="confirm-del-btn" class="min-h-[40px] px-lg py-sm rounded bg-error text-on-error hover:opacity-90 font-label text-label-lg">Delete Query</button>
+    </footer>
+  </dialog>
+
+  <script>
+    (function () {
+      const STEPS = ['Submitted', 'Assigned', 'In Progress', 'Resolved', 'Closed'];
+      let currentStatus = 'In Progress';
+      let reopenedOnce = false;
+      let messages = [
+        { sender: 'Ayesha Tariq', role: 'Student', time: '26 Nov 2026, 14:05', text: 'My Fall 2026 semester fee challan is still not appearing on the student portal even though course registration was finalized yesterday.' },
+        { sender: 'Kamran Siddiqui', role: 'Finance & Fees Staff', time: '26 Nov 2026, 15:20', text: 'We have verified your registration batch (CS-2023). The challan generation job is queued and your challan will be visible by 17:00 today.' }
+      ];
+
+      function renderStatusBadge(status) {
+        const map = {
+          'Submitted': 'bg-status-submitted-bg text-status-submitted-fg',
+          'Assigned': 'bg-status-assigned-bg text-status-assigned-fg',
+          'In Progress': 'bg-status-progress-bg text-status-progress-fg',
+          'Resolved': 'bg-status-resolved-bg text-status-resolved-fg',
+          'Closed': 'bg-status-closed-bg text-status-closed-fg'
+        };
+        const dotMap = {
+          'Submitted': 'bg-status-submitted-fg',
+          'Assigned': 'bg-status-assigned-fg',
+          'In Progress': 'bg-status-progress-fg',
+          'Resolved': 'bg-status-resolved-fg',
+          'Closed': 'bg-status-closed-fg'
+        };
+        return `<span class="inline-flex items-center gap-xs px-sm py-xs rounded ${map[status]} font-label text-label-md">
+          <span class="w-1.5 h-1.5 rounded-full ${dotMap[status]}" aria-hidden="true"></span>
+          <span>${status}</span>
+        </span>`;
+      }
+
+      function render() {
+        document.getElementById('qd-status-badge').innerHTML = renderStatusBadge(currentStatus);
+
+        const activeIdx = STEPS.indexOf(currentStatus);
+        document.getElementById('qd-step-label').textContent = `Step ${activeIdx + 1} of 5`;
+        const progressRatio = activeIdx / (STEPS.length - 1);
+        document.getElementById('timeline-progress-bar').style.transform = `scaleX(${progressRatio})`;
+
+        document.getElementById('qd-timeline').innerHTML = STEPS.map((step, idx) => {
+          const done = idx < activeIdx;
+          const active = idx === activeIdx;
+          return `
+            <li class="flex sm:flex-col items-center sm:text-center gap-md sm:gap-xs">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center border-2 transition-colors duration-state-change ${
+                active ? 'bg-accent-brass border-accent-brass text-on-accent-brass animate-step-active' :
+                done ? 'bg-primary border-primary text-on-primary' :
+                'bg-surface border-border text-text-secondary'
+              }">
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">${done ? 'check' : active ? 'radio_button_checked' : 'circle'}</span>
+              </div>
+              <span class="font-label text-label-md ${active ? 'text-ink font-semibold' : done ? 'text-primary' : 'text-text-secondary'}">${step}</span>
+            </li>
+          `;
+        }).join('');
+
+        // Actions
+        const actionsEl = document.getElementById('qd-actions');
+        actionsEl.innerHTML = '';
+        if (currentStatus === 'Submitted') {
+          actionsEl.innerHTML = `
+            <button type="button" id="btn-edit-query" class="inline-flex items-center gap-xs min-h-[40px] px-md py-sm rounded border border-border bg-surface text-ink hover:bg-surface-subtle font-label text-label-lg transition-colors duration-state-change">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">edit</span>
+              <span>Edit</span>
+            </button>
+            <button type="button" id="btn-delete-query" class="inline-flex items-center gap-xs min-h-[40px] px-md py-sm rounded border border-error/40 bg-surface text-error hover:bg-error-tint font-label text-label-lg transition-colors duration-state-change">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">delete</span>
+              <span>Delete</span>
+            </button>
+          `;
+          document.getElementById('btn-edit-query').addEventListener('click', () => document.getElementById('edit-query-dialog').showModal());
+          document.getElementById('btn-delete-query').addEventListener('click', () => document.getElementById('delete-dialog').showModal());
+        } else if (currentStatus === 'Resolved' && !reopenedOnce) {
+          actionsEl.innerHTML = `
+            <button type="button" id="btn-reopen-query" class="inline-flex items-center gap-xs min-h-[40px] px-md py-sm rounded border border-border bg-surface text-ink hover:bg-surface-subtle font-label text-label-lg transition-colors duration-state-change">Reopen Query</button>
+            <button type="button" id="btn-close-query" class="inline-flex items-center gap-xs min-h-[40px] px-md py-sm rounded bg-primary text-on-primary hover:bg-primary-hover font-label text-label-lg transition-colors duration-state-change">Close Query</button>
+          `;
+          document.getElementById('btn-reopen-query').addEventListener('click', () => { reopenedOnce = true; setStatus('In Progress'); });
+          document.getElementById('btn-close-query').addEventListener('click', () => setStatus('Closed'));
+        } else if (currentStatus !== 'Closed') {
+          actionsEl.innerHTML = `
+            <button type="button" id="btn-close-query" class="inline-flex items-center gap-xs min-h-[40px] px-md py-sm rounded border border-border bg-surface text-ink hover:bg-surface-subtle font-label text-label-lg transition-colors duration-state-change">Close Query</button>
+          `;
+          document.getElementById('btn-close-query').addEventListener('click', () => setStatus('Closed'));
+        }
+
+        // Messages
+        document.getElementById('qd-msg-count').textContent = `${messages.length} messages`;
+        document.getElementById('qd-thread').innerHTML = messages.map(m => {
+          const isStudent = m.role === 'Student';
+          return `
+            <div class="rounded-md border p-lg animate-fade-up ${isStudent ? 'bg-surface border-border' : 'bg-primary-container/50 border-primary/20'}">
+              <div class="flex flex-wrap items-center justify-between gap-sm mb-xs">
+                <div class="flex items-center gap-sm">
+                  <span class="font-label text-label-lg text-ink">${m.sender}</span>
+                  <span class="px-sm py-xs rounded bg-surface-subtle border border-border font-label text-label-md text-text-secondary">${m.role}</span>
+                </div>
+                <span class="font-body text-body-sm text-text-secondary tabular-nums">${m.time}</span>
+              </div>
+              <p class="font-body text-body-md text-ink">${m.text}</p>
+            </div>
+          `;
+        }).join('');
+
+        const isClosed = currentStatus === 'Closed';
+        document.getElementById('qd-reply-active').classList.toggle('hidden', isClosed);
+        document.getElementById('qd-reply-closed').classList.toggle('hidden', !isClosed);
+      }
+
+      function setStatus(st) {
+        currentStatus = st;
+        document.querySelectorAll('.status-pill').forEach(btn => {
+          const active = btn.dataset.statusPreview === st;
+          btn.className = active
+            ? 'status-pill px-sm py-xs rounded font-label text-label-md bg-primary text-on-primary transition-colors duration-state-change'
+            : 'status-pill px-sm py-xs rounded font-label text-label-md text-text-secondary hover:text-ink transition-colors duration-state-change';
+        });
+        render();
+      }
+
+      document.querySelectorAll('.status-pill').forEach(btn => {
+        btn.addEventListener('click', () => setStatus(btn.dataset.statusPreview));
+      });
+
+      document.getElementById('qd-send-reply-btn').addEventListener('click', () => {
+        const input = document.getElementById('qd-reply-input');
+        const text = input.value.trim();
+        if (!text) return;
+        messages.push({ sender: 'Ayesha Tariq', role: 'Student', time: 'Just now', text });
+        input.value = '';
+        render();
+      });
+
+      // Edit & Delete Modals
+      const editDialog = document.getElementById('edit-query-dialog');
+      document.getElementById('close-edit-btn').addEventListener('click', () => editDialog.close());
+      document.getElementById('cancel-edit-btn').addEventListener('click', () => editDialog.close());
+      document.getElementById('save-edit-btn').addEventListener('click', () => {
+        const newTitle = document.getElementById('edit-title-input').value.trim();
+        if (newTitle) document.getElementById('qd-title').textContent = newTitle;
+        editDialog.close();
+      });
+
+      const delDialog = document.getElementById('delete-dialog');
+      document.getElementById('cancel-del-btn').addEventListener('click', () => delDialog.close());
+      document.getElementById('confirm-del-btn').addEventListener('click', () => delDialog.close());
+
+      document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+        document.getElementById('mobile-nav-drawer').classList.toggle('hidden');
+      });
+
+      render();
+    })();
+  </script>
+
+
+</body></html>

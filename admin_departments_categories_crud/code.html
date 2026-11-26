@@ -1,0 +1,441 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Departments &amp; Categories — Admin SQMS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1F3A5F',
+        'on-primary': '#FFFFFF',
+        'primary-hover': '#17304F',
+        'primary-container': '#EBF1FF',
+        'on-primary-container': '#143155',
+        'link': '#2B6CB0',
+        'on-link': '#FFFFFF',
+        'accent-brass': '#B7791F',
+        'on-accent-brass': '#1F1F1F',
+        'accent-brass-tint': '#FFEEDE',
+        'on-accent-brass-tint': '#472A00',
+        'page': '#F5F7FA',
+        'surface': '#FFFFFF',
+        'on-surface': '#1B2430',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#5B6675',
+        'ink': '#1B2430',
+        'text-secondary': '#5B6675',
+        'border': '#DDE2E9',
+        'border-strong': '#BEC7D7',
+        'status-submitted-bg': '#F1F5F9',
+        'status-submitted-fg': '#334155',
+        'status-assigned-bg': '#EBF4FF',
+        'status-assigned-fg': '#1E4E8C',
+        'status-progress-bg': '#FEF3C7',
+        'status-progress-fg': '#92400E',
+        'status-resolved-bg': '#DCFCE7',
+        'status-resolved-fg': '#166534',
+        'status-closed-bg': '#E2E8F0',
+        'status-closed-fg': '#475569',
+        'priority-high': '#BA1A1A',
+        'on-priority-high': '#FFFFFF',
+        'priority-high-tint': '#FFEDEA',
+        'on-priority-high-tint': '#690005',
+        'priority-medium-bg': '#FEF3C7',
+        'priority-medium-fg': '#92400E',
+        'priority-low-bg': '#F1F5F9',
+        'priority-low-fg': '#475569',
+        'error': '#BA1A1A',
+        'on-error': '#FFFFFF',
+        'error-tint': '#FFEDEA',
+        'on-error-tint': '#690005',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-tint': '#DCFCE7',
+        'on-success-tint': '#166534',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        '2xl': '32px',
+        '3xl': '48px',
+      },
+      fontFamily: {
+        'display': ['"IBM Plex Sans"', 'sans-serif'],
+        'headline': ['"IBM Plex Sans"', 'sans-serif'],
+        'title': ['"IBM Plex Sans"', 'sans-serif'],
+        'body': ['"IBM Plex Sans"', 'sans-serif'],
+        'label': ['"IBM Plex Sans"', 'sans-serif'],
+        'mono': ['"IBM Plex Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-sm': ['32px', { lineHeight: '40px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '21px', fontWeight: '400' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+        'label-table': ['12px', { lineHeight: '16px', letterSpacing: '0.48px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+        'drawer-slide': '260ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-up { animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+    dialog[open] { animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+    dialog::backdrop { background-color: rgba(27, 36, 48, 0.42); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up, dialog[open] { animation: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-page text-ink font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Shared Admin Top Navbar -->
+    <header class="sticky top-0 z-30 bg-surface border-b border-border">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl h-[64px] flex items-center justify-between gap-lg">
+        <div class="flex items-center gap-2xl h-full">
+          <a href="#" class="flex items-center gap-sm rounded px-xs py-xs">
+            <span class="font-headline text-title-lg text-primary tracking-tight">SQMS</span>
+            <span class="hidden sm:inline-block font-label text-label-md text-text-secondary border-l border-border pl-sm">Registrar Portal</span>
+          </a>
+
+          <nav aria-label="Admin navigation" class="hidden md:flex items-center gap-xl h-full">
+            <a href="#dashboard" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change">Dashboard</a>
+            <a href="#all-queries" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change">All Queries</a>
+            <a href="#users" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change">Users</a>
+            <a href="#departments" aria-current="page" class="relative inline-flex items-center h-full font-label text-label-lg text-ink border-b-2 border-accent-brass">Departments</a>
+            <a href="#categories" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change">Categories</a>
+          </nav>
+        </div>
+
+        <div class="flex items-center gap-md">
+          <div class="inline-flex items-center gap-sm min-h-[40px] px-sm py-xs">
+            <span class="w-8 h-8 rounded-full bg-primary text-on-primary font-label text-label-md inline-flex items-center justify-center">TM</span>
+            <span class="hidden sm:flex flex-col items-start text-left">
+              <span class="font-label text-label-lg text-ink leading-none">Dr. Tariq Mehmood</span>
+              <span class="font-body text-body-sm text-text-secondary mt-xs leading-none">Registrar Office</span>
+            </span>
+            <span class="hidden md:inline-flex items-center px-sm py-xs rounded bg-surface-subtle border border-border font-label text-label-md text-text-secondary">Admin</span>
+          </div>
+          <button type="button" id="mobile-menu-toggle" aria-label="Toggle navigation menu" class="md:hidden inline-flex items-center justify-center min-h-[40px] min-w-[40px] rounded text-text-secondary hover:bg-surface-subtle">
+            <span class="material-symbols-outlined text-[22px]" aria-hidden="true">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-nav-drawer" class="hidden md:hidden border-t border-border bg-surface px-lg py-md space-y-xs">
+        <a href="#dashboard" class="block px-md py-sm rounded text-ink hover:bg-surface-subtle font-label text-label-lg">Dashboard</a>
+        <a href="#departments" aria-current="page" class="block px-md py-sm rounded bg-primary-container text-on-primary-container font-label text-label-lg">Departments &amp; Categories</a>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-[1200px] w-full mx-auto px-lg sm:px-xl py-2xl space-y-xl">
+      <section class="animate-fade-up">
+        <h1 class="font-headline text-headline-md text-ink">Departments &amp; Categories</h1>
+        <p class="font-body text-body-md text-text-secondary mt-xs">
+          Configure university offices and query routing categories. Items with active queries cannot be deleted.
+        </p>
+      </section>
+
+      <!-- Departments CRUD Section -->
+      <section class="bg-surface border border-border rounded-md overflow-hidden animate-fade-up" style="animation-delay: 40ms;">
+        <header class="px-xl py-lg border-b border-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-md">
+          <h2 class="font-title text-title-md text-ink">University Departments</h2>
+          <form id="add-dept-form" class="flex items-center gap-sm">
+            <input id="new-dept-name" type="text" placeholder="New department name..." class="min-h-[36px] px-md py-xs rounded bg-surface border border-border font-body text-body-md text-ink placeholder:text-text-secondary focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">
+            <button type="submit" class="inline-flex items-center gap-xs min-h-[36px] px-md py-xs rounded bg-primary text-on-primary hover:bg-primary-hover font-label text-label-md transition-colors duration-state-change">Add</button>
+          </form>
+        </header>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead class="bg-surface-subtle border-b border-border">
+              <tr>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Department</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Code</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Open Queries</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary text-right whitespace-nowrap">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="dept-tbody" class="divide-y divide-border"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Categories CRUD Section -->
+      <section class="bg-surface border border-border rounded-md overflow-hidden animate-fade-up" style="animation-delay: 80ms;">
+        <header class="px-xl py-lg border-b border-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-md">
+          <h2 class="font-title text-title-md text-ink">Query Categories</h2>
+          <form id="add-cat-form" class="flex items-center gap-sm">
+            <input id="new-cat-name" type="text" placeholder="New category name..." class="min-h-[36px] px-md py-xs rounded bg-surface border border-border font-body text-body-md text-ink placeholder:text-text-secondary focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">
+            <button type="submit" class="inline-flex items-center gap-xs min-h-[36px] px-md py-xs rounded bg-primary text-on-primary hover:bg-primary-hover font-label text-label-md transition-colors duration-state-change">Add</button>
+          </form>
+        </header>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead class="bg-surface-subtle border-b border-border">
+              <tr>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Category</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Default Department</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Active Queries</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary text-right whitespace-nowrap">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="cat-tbody" class="divide-y divide-border"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Engineering Handoff Note -->
+      <details class="bg-surface border border-border rounded-md p-lg">
+        <summary class="font-label text-label-md text-text-secondary cursor-pointer">Engineering Handoff · Views/Admin/Departments.cshtml</summary>
+        <div class="mt-md pt-md border-t border-border font-body text-body-sm text-text-secondary space-y-xs">
+          <p><strong class="text-ink">Razor Views:</strong> <span class="font-mono text-ink">Views/Admin/Departments.cshtml</span> &amp; <span class="font-mono text-ink">Views/Admin/Categories.cshtml</span></p>
+          <p><strong class="text-ink">Bootstrap 5 Mapping:</strong> <span class="font-mono text-ink">.table</span>, <span class="font-mono text-ink">.input-group</span> (inline add), <span class="font-mono text-ink">.modal</span> (Edit &amp; Delete confirmation with <span class="font-mono text-ink">.alert-danger</span> for referential integrity errors).</p>
+        </div>
+      </details>
+    </main>
+
+    <footer class="bg-surface border-t border-border mt-auto">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl py-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-sm">
+        <p class="font-body text-body-sm text-text-secondary">Student Query Management System (SQMS) · Office of the University Registrar</p>
+        <p class="font-mono text-mono-sm text-text-secondary">Academic Session 2026–2027</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Edit Modal -->
+  <dialog id="crud-edit-dialog" aria-labelledby="crud-edit-title" class="rounded-md bg-surface border border-border shadow-lg p-0 max-w-md w-full">
+    <header class="px-xl py-lg border-b border-border flex items-center justify-between">
+      <h2 id="crud-edit-title" class="font-title text-title-lg text-ink">Edit Item</h2>
+      <button type="button" id="close-crud-edit" aria-label="Close dialog" class="min-h-[40px] min-w-[40px] inline-flex items-center justify-center rounded text-text-secondary hover:bg-surface-subtle">
+        <span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+      </button>
+    </header>
+    <div class="p-xl">
+      <label class="flex flex-col gap-xs">
+        <span class="font-label text-label-lg text-ink">Name</span>
+        <input id="crud-edit-input" type="text" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">
+      </label>
+    </div>
+    <footer class="px-xl py-lg bg-surface-subtle border-t border-border flex items-center justify-end gap-md">
+      <button type="button" id="cancel-crud-edit" class="min-h-[40px] px-lg py-sm rounded bg-surface text-ink border border-border hover:bg-page font-label text-label-lg">Cancel</button>
+      <button type="button" id="save-crud-edit" class="min-h-[40px] px-lg py-sm rounded bg-primary text-on-primary hover:bg-primary-hover font-label text-label-lg">Save</button>
+    </footer>
+  </dialog>
+
+  <!-- Delete Confirmation Modal (with "Cannot delete — currently in use" error state) -->
+  <dialog id="crud-delete-dialog" role="alertdialog" aria-labelledby="crud-del-title" class="rounded-md bg-surface border border-border shadow-lg p-0 max-w-md w-full">
+    <header class="p-xl border-b border-border flex items-center gap-sm">
+      <span class="material-symbols-outlined text-[22px] text-error" aria-hidden="true">warning</span>
+      <h2 id="crud-del-title" class="font-title text-title-lg text-ink">Delete <span id="crud-del-name"></span>?</h2>
+    </header>
+    <div class="p-xl space-y-md">
+      <p id="crud-del-msg" class="font-body text-body-md text-text-secondary">
+        This will permanently remove the selected record from SQMS.
+      </p>
+      <div id="crud-in-use-err" role="alert" class="hidden rounded border border-error/40 bg-error-tint p-md flex items-start gap-sm">
+        <span class="material-symbols-outlined text-[18px] text-error mt-0.5" aria-hidden="true">error</span>
+        <div>
+          <p class="font-label text-label-lg text-on-error-tint">Cannot delete — currently in use</p>
+          <p id="crud-in-use-detail" class="font-body text-body-sm text-on-error-tint mt-xs"></p>
+        </div>
+      </div>
+    </div>
+    <footer class="px-xl py-lg bg-surface-subtle border-t border-border flex items-center justify-end gap-md">
+      <button type="button" id="cancel-crud-del" class="min-h-[40px] px-lg py-sm rounded bg-surface text-ink border border-border hover:bg-page font-label text-label-lg">Close</button>
+      <button type="button" id="confirm-crud-del" class="min-h-[40px] px-lg py-sm rounded bg-error text-on-error hover:opacity-90 font-label text-label-lg">Delete</button>
+    </footer>
+  </dialog>
+
+  <script>
+    (function () {
+      let DEPTS = [
+        { id: 1, name: 'Finance & Fees', code: 'FIN', count: 42 },
+        { id: 2, name: 'Examinations', code: 'EXM', count: 36 },
+        { id: 3, name: 'Admissions', code: 'ADM', count: 28 },
+        { id: 4, name: 'Hostel Office', code: 'HST', count: 21 },
+        { id: 5, name: 'IT Services', code: 'ITS', count: 0 }
+      ];
+
+      let CATS = [
+        { id: 1, name: 'Fee Challan & Billing', dept: 'Finance & Fees', count: 29 },
+        { id: 2, name: 'Exam Results & Grading', dept: 'Examinations', count: 24 },
+        { id: 3, name: 'Hostel Accommodation', dept: 'Hostel Office', count: 14 },
+        { id: 4, name: 'Alumni Verification', dept: 'Admissions', count: 0 }
+      ];
+
+      let editTarget = null;
+      let deleteTarget = null;
+
+      function render() {
+        document.getElementById('dept-tbody').innerHTML = DEPTS.map(d => `
+          <tr class="hover:bg-surface-subtle transition-colors duration-state-change">
+            <td class="px-lg py-md font-body text-body-md font-medium text-ink whitespace-nowrap">${d.name}</td>
+            <td class="px-lg py-md font-mono text-mono-sm text-text-secondary whitespace-nowrap">${d.code}</td>
+            <td class="px-lg py-md font-mono text-mono-sm text-ink tabular-nums whitespace-nowrap">${d.count}</td>
+            <td class="px-lg py-md text-right whitespace-nowrap space-x-xs">
+              <button type="button" data-edit-dept="${d.id}" class="edit-dept-btn px-sm py-xs rounded text-link hover:bg-primary-container font-label text-label-md">Edit</button>
+              <button type="button" data-del-dept="${d.id}" class="del-dept-btn px-sm py-xs rounded text-error hover:bg-error-tint font-label text-label-md">Delete</button>
+            </td>
+          </tr>
+        `).join('');
+
+        document.getElementById('cat-tbody').innerHTML = CATS.map(c => `
+          <tr class="hover:bg-surface-subtle transition-colors duration-state-change">
+            <td class="px-lg py-md font-body text-body-md font-medium text-ink whitespace-nowrap">${c.name}</td>
+            <td class="px-lg py-md font-body text-body-md text-text-secondary whitespace-nowrap">${c.dept}</td>
+            <td class="px-lg py-md font-mono text-mono-sm text-ink tabular-nums whitespace-nowrap">${c.count}</td>
+            <td class="px-lg py-md text-right whitespace-nowrap space-x-xs">
+              <button type="button" data-edit-cat="${c.id}" class="edit-cat-btn px-sm py-xs rounded text-link hover:bg-primary-container font-label text-label-md">Edit</button>
+              <button type="button" data-del-cat="${c.id}" class="del-cat-btn px-sm py-xs rounded text-error hover:bg-error-tint font-label text-label-md">Delete</button>
+            </td>
+          </tr>
+        `).join('');
+
+        document.querySelectorAll('.edit-dept-btn').forEach(b => b.addEventListener('click', () => openEdit('dept', Number(b.dataset.editDept))));
+        document.querySelectorAll('.edit-cat-btn').forEach(b => b.addEventListener('click', () => openEdit('cat', Number(b.dataset.editCat))));
+        document.querySelectorAll('.del-dept-btn').forEach(b => b.addEventListener('click', () => openDelete('dept', Number(b.dataset.delDept))));
+        document.querySelectorAll('.del-cat-btn').forEach(b => b.addEventListener('click', () => openDelete('cat', Number(b.dataset.delCat))));
+      }
+
+      const editDlg = document.getElementById('crud-edit-dialog');
+      function openEdit(kind, id) {
+        const list = kind === 'dept' ? DEPTS : CATS;
+        const item = list.find(x => x.id === id);
+        editTarget = { kind, id };
+        document.getElementById('crud-edit-title').textContent = kind === 'dept' ? 'Edit Department' : 'Edit Category';
+        document.getElementById('crud-edit-input').value = item.name;
+        editDlg.showModal();
+      }
+      document.getElementById('close-crud-edit').addEventListener('click', () => editDlg.close());
+      document.getElementById('cancel-crud-edit').addEventListener('click', () => editDlg.close());
+      document.getElementById('save-crud-edit').addEventListener('click', () => {
+        const val = document.getElementById('crud-edit-input').value.trim();
+        if (!val || !editTarget) return;
+        const list = editTarget.kind === 'dept' ? DEPTS : CATS;
+        const item = list.find(x => x.id === editTarget.id);
+        if (item) item.name = val;
+        editDlg.close();
+        render();
+      });
+
+      const delDlg = document.getElementById('crud-delete-dialog');
+      function openDelete(kind, id) {
+        const list = kind === 'dept' ? DEPTS : CATS;
+        const item = list.find(x => x.id === id);
+        deleteTarget = { kind, id, item };
+        document.getElementById('crud-del-name').textContent = item.name;
+        const inUseErr = document.getElementById('crud-in-use-err');
+        const confirmBtn = document.getElementById('confirm-crud-del');
+
+        if (item.count > 0) {
+          inUseErr.classList.remove('hidden');
+          document.getElementById('crud-in-use-detail').textContent = `${item.count} active queries reference "${item.name}". Reassign them before deleting.`;
+          confirmBtn.classList.add('hidden');
+        } else {
+          inUseErr.classList.add('hidden');
+          confirmBtn.classList.remove('hidden');
+        }
+        delDlg.showModal();
+      }
+
+      document.getElementById('cancel-crud-del').addEventListener('click', () => delDlg.close());
+      document.getElementById('confirm-crud-del').addEventListener('click', () => {
+        if (!deleteTarget || deleteTarget.item.count > 0) return;
+        if (deleteTarget.kind === 'dept') DEPTS = DEPTS.filter(x => x.id !== deleteTarget.id);
+        else CATS = CATS.filter(x => x.id !== deleteTarget.id);
+        delDlg.close();
+        render();
+      });
+
+      document.getElementById('add-dept-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('new-dept-name');
+        const name = input.value.trim();
+        if (!name) return;
+        DEPTS.push({ id: Date.now(), name, code: name.slice(0, 3).toUpperCase(), count: 0 });
+        input.value = '';
+        render();
+      });
+
+      document.getElementById('add-cat-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('new-cat-name');
+        const name = input.value.trim();
+        if (!name) return;
+        CATS.push({ id: Date.now(), name, dept: 'Admissions', count: 0 });
+        input.value = '';
+        render();
+      });
+
+      document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+        document.getElementById('mobile-nav-drawer').classList.toggle('hidden');
+      });
+
+      render();
+    })();
+  </script>
+
+
+</body></html>

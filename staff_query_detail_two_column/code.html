@@ -1,0 +1,521 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Query Detail Q-2026-0142 — SQMS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1F3A5F',
+        'on-primary': '#FFFFFF',
+        'primary-hover': '#17304F',
+        'primary-container': '#EBF1FF',
+        'on-primary-container': '#143155',
+        'link': '#2B6CB0',
+        'on-link': '#FFFFFF',
+        'accent-brass': '#B7791F',
+        'on-accent-brass': '#1F1F1F',
+        'accent-brass-tint': '#FFEEDE',
+        'on-accent-brass-tint': '#472A00',
+        'page': '#F5F7FA',
+        'surface': '#FFFFFF',
+        'on-surface': '#1B2430',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#5B6675',
+        'ink': '#1B2430',
+        'text-secondary': '#5B6675',
+        'border': '#DDE2E9',
+        'border-strong': '#BEC7D7',
+        'status-submitted-bg': '#F1F5F9',
+        'status-submitted-fg': '#334155',
+        'status-assigned-bg': '#EBF4FF',
+        'status-assigned-fg': '#1E4E8C',
+        'status-progress-bg': '#FEF3C7',
+        'status-progress-fg': '#92400E',
+        'status-resolved-bg': '#DCFCE7',
+        'status-resolved-fg': '#166534',
+        'status-closed-bg': '#E2E8F0',
+        'status-closed-fg': '#475569',
+        'priority-high': '#BA1A1A',
+        'on-priority-high': '#FFFFFF',
+        'priority-high-tint': '#FFEDEA',
+        'on-priority-high-tint': '#690005',
+        'priority-medium-bg': '#FEF3C7',
+        'priority-medium-fg': '#92400E',
+        'priority-low-bg': '#F1F5F9',
+        'priority-low-fg': '#475569',
+        'error': '#BA1A1A',
+        'on-error': '#FFFFFF',
+        'error-tint': '#FFEDEA',
+        'on-error-tint': '#690005',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-tint': '#DCFCE7',
+        'on-success-tint': '#166534',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        '2xl': '32px',
+        '3xl': '48px',
+      },
+      fontFamily: {
+        'display': ['"IBM Plex Sans"', 'sans-serif'],
+        'headline': ['"IBM Plex Sans"', 'sans-serif'],
+        'title': ['"IBM Plex Sans"', 'sans-serif'],
+        'body': ['"IBM Plex Sans"', 'sans-serif'],
+        'label': ['"IBM Plex Sans"', 'sans-serif'],
+        'mono': ['"IBM Plex Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-sm': ['32px', { lineHeight: '40px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '21px', fontWeight: '400' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+        'label-table': ['12px', { lineHeight: '16px', letterSpacing: '0.48px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+        'drawer-slide': '260ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes toastEnter {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .animate-toast-in {
+      animation: toastEnter 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up,
+      .animate-toast-in {
+        animation: none !important;
+      }
+      * {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-page text-ink font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Shared Staff Top Navbar (_Layout.cshtml) -->
+    <header class="sticky top-0 z-30 bg-surface border-b border-border">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl h-[64px] flex items-center justify-between gap-lg">
+        <div class="flex items-center gap-2xl h-full">
+          <a href="#" class="flex items-center gap-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link rounded px-xs py-xs">
+            <span class="font-headline text-title-lg text-primary tracking-tight">SQMS</span>
+            <span class="hidden sm:inline-block font-label text-label-md text-text-secondary border-l border-border pl-sm">Registrar Portal</span>
+          </a>
+
+          <nav aria-label="Staff navigation" class="hidden md:flex items-center gap-xl h-full">
+            <a href="#staff-home" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change">
+              Home
+            </a>
+            <a href="#department-queue" aria-current="page" class="relative inline-flex items-center h-full font-label text-label-lg text-ink border-b-2 border-accent-brass transition-colors duration-state-change">
+              Department Queue
+            </a>
+          </nav>
+        </div>
+
+        <div class="flex items-center gap-md">
+          <div class="inline-flex items-center gap-sm min-h-[40px] px-sm py-xs">
+            <span class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-label text-label-md inline-flex items-center justify-center">KS</span>
+            <span class="hidden sm:flex flex-col items-start text-left">
+              <span class="font-label text-label-lg text-ink leading-none">Kamran Siddiqui</span>
+              <span class="font-body text-body-sm text-text-secondary mt-xs leading-none">Finance &amp; Fees</span>
+            </span>
+            <span class="hidden md:inline-flex items-center px-sm py-xs rounded bg-surface-subtle border border-border font-label text-label-md text-text-secondary">Staff</span>
+          </div>
+
+          <button type="button" id="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation menu" class="md:hidden inline-flex items-center justify-center min-h-[40px] min-w-[40px] rounded text-text-secondary hover:bg-surface-subtle hover:text-ink transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[22px]" aria-hidden="true">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-nav-drawer" class="hidden md:hidden border-t border-border bg-surface px-lg py-md space-y-xs">
+        <a href="#staff-home" class="block px-md py-sm rounded text-ink hover:bg-surface-subtle font-label text-label-lg">Home</a>
+        <a href="#department-queue" aria-current="page" class="block px-md py-sm rounded bg-primary-container text-on-primary-container font-label text-label-lg">Department Queue</a>
+      </div>
+    </header>
+
+    <!-- Main Two-Column Staff Detail Workspace -->
+    <main class="flex-1 max-w-[1200px] w-full mx-auto px-lg sm:px-xl py-2xl space-y-xl">
+
+      <!-- Breadcrumb & Header -->
+      <div class="animate-fade-up">
+        <nav aria-label="Breadcrumb" class="flex items-center gap-xs font-body text-body-sm text-text-secondary mb-xs">
+          <a href="#department-queue" class="text-link hover:underline">Department Queue</a>
+          <span aria-hidden="true">/</span>
+          <span class="font-mono text-ink">Q-2026-0142</span>
+        </nav>
+        <div class="flex flex-wrap items-center gap-sm">
+          <h1 class="font-headline text-headline-md text-ink">Fee challan not generated for Fall 2026</h1>
+          <span id="sqd-header-status"></span>
+        </div>
+      </div>
+
+      <!-- Two-Column Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-xl items-start">
+
+        <!-- Left Column (8 cols): Conversation Thread & Reply / Internal Note Composer -->
+        <section class="lg:col-span-8 bg-surface border border-border rounded-md overflow-hidden animate-fade-up" style="animation-delay: 40ms;">
+          <header class="px-xl py-lg border-b border-border flex items-center justify-between">
+            <h2 class="font-title text-title-md text-ink">Conversation &amp; Internal Notes</h2>
+            <span id="sqd-msg-count" class="font-mono text-mono-sm text-text-secondary tabular-nums">3 entries</span>
+          </header>
+
+          <div id="sqd-thread" class="p-xl space-y-lg">
+            <!-- Populated dynamically -->
+          </div>
+
+          <!-- Reply / Internal Note Composer -->
+          <footer class="p-xl bg-surface-subtle border-t border-border space-y-md">
+            <div class="flex items-center justify-between gap-md flex-wrap">
+              <!-- Mode Toggle -->
+              <div role="tablist" aria-label="Message visibility mode" class="inline-flex rounded bg-surface border border-border p-xs gap-xs">
+                <button type="button" role="tab" aria-selected="true" data-mode="reply" class="composer-tab inline-flex items-center gap-xs px-md py-xs rounded bg-primary text-on-primary font-label text-label-md transition-colors duration-state-change">
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">reply</span>
+                  <span>Reply to Student</span>
+                </button>
+                <button type="button" role="tab" aria-selected="false" data-mode="internal" class="composer-tab inline-flex items-center gap-xs px-md py-xs rounded text-text-secondary hover:text-ink font-label text-label-md transition-colors duration-state-change">
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">lock</span>
+                  <span>Internal Note</span>
+                </button>
+              </div>
+
+              <span id="composer-hint" class="font-body text-body-sm text-text-secondary">Visible to Ayesha Tariq and department staff.</span>
+            </div>
+
+            <div id="composer-box" class="rounded-md border border-border bg-surface p-md transition-colors duration-state-change">
+              <textarea id="sqd-composer-input" rows="3" placeholder="Write an official response to the student..." class="w-full border-0 p-0 bg-transparent font-body text-body-md text-ink placeholder:text-text-secondary focus:ring-0"></textarea>
+            </div>
+
+            <div class="flex items-center justify-end">
+              <button type="button" id="sqd-post-btn" class="inline-flex items-center justify-center gap-sm min-h-[40px] px-xl py-sm rounded bg-primary text-on-primary hover:bg-primary-hover active:scale-[0.98] font-label text-label-lg transition-colors duration-state-change">
+                <span>Send Reply</span>
+              </button>
+            </div>
+          </footer>
+        </section>
+
+        <!-- Right Column (4 cols): Metadata & Status Control Sidebar -->
+        <aside class="lg:col-span-4 space-y-lg animate-fade-up" style="animation-delay: 80ms;">
+          <!-- Status Update Card -->
+          <section class="bg-surface border border-border rounded-md p-xl space-y-md">
+            <h2 class="font-title text-title-md text-ink">Query Status</h2>
+            <label class="flex flex-col gap-xs">
+              <span class="font-label text-label-md text-text-secondary">Update workflow state</span>
+              <select id="sqd-status-select" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">
+                <option value="Submitted">Submitted</option>
+                <option value="Assigned">Assigned</option>
+                <option value="In Progress" selected>In Progress</option>
+                <option value="Resolved">Resolved</option>
+                <option value="Closed">Closed</option>
+              </select>
+            </label>
+            <button type="button" id="sqd-update-status-btn" class="w-full inline-flex items-center justify-center min-h-[40px] px-lg py-sm rounded bg-primary text-on-primary hover:bg-primary-hover active:scale-[0.98] font-label text-label-lg transition-colors duration-state-change">
+              Update Status
+            </button>
+          </section>
+
+          <!-- Metadata Sidebar -->
+          <section class="bg-surface border border-border rounded-md p-xl space-y-lg">
+            <h2 class="font-title text-title-md text-ink border-b border-border pb-md">Details</h2>
+
+            <dl class="space-y-md">
+              <div class="flex items-center justify-between gap-sm">
+                <dt class="font-label text-label-md text-text-secondary">Priority</dt>
+                <dd><span class="inline-flex items-center px-sm py-xs rounded bg-priority-high text-on-priority-high font-label text-label-md">High</span></dd>
+              </div>
+              <div class="flex items-center justify-between gap-sm">
+                <dt class="font-label text-label-md text-text-secondary">Category</dt>
+                <dd class="font-body text-body-md text-ink text-right">Fee Challan &amp; Billing</dd>
+              </div>
+              <div class="flex items-center justify-between gap-sm">
+                <dt class="font-label text-label-md text-text-secondary">Assigned Staff</dt>
+                <dd class="font-body text-body-md text-ink text-right">Kamran Siddiqui</dd>
+              </div>
+              <div class="flex items-center justify-between gap-sm">
+                <dt class="font-label text-label-md text-text-secondary">Submitted</dt>
+                <dd class="font-body text-body-sm text-ink tabular-nums text-right">26 Nov 2026, 14:05</dd>
+              </div>
+            </dl>
+
+            <div class="pt-lg border-t border-border space-y-sm">
+              <h3 class="font-label text-label-md text-text-secondary uppercase tracking-wider">Student Information</h3>
+              <div class="flex items-center gap-md">
+                <span class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container font-label text-label-md inline-flex items-center justify-center shrink-0">AT</span>
+                <div>
+                  <p class="font-label text-label-lg text-ink">Ayesha Tariq</p>
+                  <p class="font-mono text-mono-sm text-text-secondary">2023-CS-114</p>
+                </div>
+              </div>
+              <p class="font-body text-body-sm text-text-secondary">Department of Computer Science · Semester 7</p>
+            </div>
+          </section>
+        </aside>
+      </div>
+
+      <!-- Engineering Handoff Note -->
+      <details class="bg-surface border border-border rounded-md p-lg">
+        <summary class="font-label text-label-md text-text-secondary cursor-pointer">Engineering Handoff · Views/Staff/Details.cshtml</summary>
+        <div class="mt-md pt-md border-t border-border font-body text-body-sm text-text-secondary space-y-xs">
+          <p><strong class="text-ink">Razor View:</strong> <span class="font-mono text-ink">Views/Staff/Details.cshtml</span></p>
+          <p><strong class="text-ink">Bootstrap 5 Mapping:</strong> <span class="font-mono text-ink">.row .col-lg-8 / .col-lg-4</span> (Two-column layout), <span class="font-mono text-ink">.card</span> (Thread &amp; Metadata Sidebar), <span class="font-mono text-ink">.btn-group</span> (Reply / Internal Note toggle), <span class="font-mono text-ink">.border-warning</span> (Internal Note dashed amber container), <span class="font-mono text-ink">.form-select</span>.</p>
+        </div>
+      </details>
+    </main>
+
+    <!-- Minimal Institutional Footer -->
+    <footer class="bg-surface border-t border-border mt-auto">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl py-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-sm">
+        <p class="font-body text-body-sm text-text-secondary">Student Query Management System (SQMS) · Office of the University Registrar</p>
+        <p class="font-mono text-mono-sm text-text-secondary">Academic Session 2026–2027</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" aria-live="polite" class="fixed bottom-xl right-xl z-50 flex flex-col gap-sm pointer-events-none"></div>
+
+  <script>
+    (function () {
+      let currentStatus = 'In Progress';
+      let composerMode = 'reply';
+
+      const entries = [
+        {
+          type: 'student',
+          sender: 'Ayesha Tariq',
+          role: 'Student · 2023-CS-114',
+          time: '26 Nov 2026, 14:05',
+          text: 'My Fall 2026 semester fee challan is still not appearing on the student portal even though course registration was finalized yesterday.'
+        },
+        {
+          type: 'internal',
+          sender: 'Kamran Siddiqui',
+          role: 'Finance & Fees Staff',
+          time: '26 Nov 2026, 14:48',
+          text: 'Checked ERP ledger: batch CS-2023 credit-hour sync ran with a 2-hour delay. Triggered manual challan batch #4412.'
+        },
+        {
+          type: 'staff',
+          sender: 'Kamran Siddiqui',
+          role: 'Finance & Fees Staff',
+          time: '26 Nov 2026, 15:20',
+          text: 'We have verified your registration batch (CS-2023). The challan generation job is queued and your challan will be visible by 17:00 today.'
+        }
+      ];
+
+      function renderStatusBadge(s) {
+        const m = {
+          'Submitted': 'bg-status-submitted-bg text-status-submitted-fg',
+          'Assigned': 'bg-status-assigned-bg text-status-assigned-fg',
+          'In Progress': 'bg-status-progress-bg text-status-progress-fg',
+          'Resolved': 'bg-status-resolved-bg text-status-resolved-fg',
+          'Closed': 'bg-status-closed-bg text-status-closed-fg'
+        };
+        const d = {
+          'Submitted': 'bg-status-submitted-fg',
+          'Assigned': 'bg-status-assigned-fg',
+          'In Progress': 'bg-status-progress-fg',
+          'Resolved': 'bg-status-resolved-fg',
+          'Closed': 'bg-status-closed-fg'
+        };
+        return `<span class="inline-flex items-center gap-xs px-sm py-xs rounded ${m[s]} font-label text-label-md"><span class="w-1.5 h-1.5 rounded-full ${d[s]}" aria-hidden="true"></span><span>${s}</span></span>`;
+      }
+
+      function render() {
+        document.getElementById('sqd-header-status').innerHTML = renderStatusBadge(currentStatus);
+        document.getElementById('sqd-msg-count').textContent = `${entries.length} entries`;
+
+        document.getElementById('sqd-thread').innerHTML = entries.map(e => {
+          if (e.type === 'internal') {
+            return `
+              <div class="rounded-md border border-dashed border-accent-brass bg-accent-brass-tint/50 p-lg animate-fade-up">
+                <div class="flex flex-wrap items-center justify-between gap-sm mb-xs">
+                  <div class="flex flex-wrap items-center gap-sm">
+                    <span class="inline-flex items-center gap-xs px-sm py-xs rounded bg-accent-brass text-on-accent-brass font-label text-label-md">
+                      <span class="material-symbols-outlined text-[14px]" aria-hidden="true">lock</span>
+                      <span>Internal note, hidden from student</span>
+                    </span>
+                    <span class="font-label text-label-lg text-ink">${e.sender}</span>
+                  </div>
+                  <span class="font-body text-body-sm text-text-secondary tabular-nums">${e.time}</span>
+                </div>
+                <p class="font-body text-body-md text-on-accent-brass-tint">${e.text}</p>
+              </div>
+            `;
+          }
+
+          const isStaff = e.type === 'staff';
+          return `
+            <div class="rounded-md border p-lg animate-fade-up ${isStaff ? 'bg-primary-container/50 border-primary/20' : 'bg-surface border-border'}">
+              <div class="flex flex-wrap items-center justify-between gap-sm mb-xs">
+                <div class="flex items-center gap-sm">
+                  <span class="font-label text-label-lg text-ink">${e.sender}</span>
+                  <span class="px-sm py-xs rounded bg-surface-subtle border border-border font-label text-label-md text-text-secondary">${e.role}</span>
+                </div>
+                <span class="font-body text-body-sm text-text-secondary tabular-nums">${e.time}</span>
+              </div>
+              <p class="font-body text-body-md text-ink">${e.text}</p>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function showToast(msg) {
+        const c = document.getElementById('toast-container');
+        const t = document.createElement('div');
+        t.className = 'pointer-events-auto animate-toast-in flex items-center gap-sm px-lg py-md rounded-md border border-success/40 shadow-md bg-surface text-success';
+        t.innerHTML = `<span class="material-symbols-outlined text-[20px]" aria-hidden="true">check_circle</span><span class="font-label text-label-lg text-ink">${msg}</span>`;
+        c.appendChild(t);
+        setTimeout(() => {
+          t.style.opacity = '0';
+          t.style.transition = 'opacity 180ms ease-out';
+          setTimeout(() => t.remove(), 200);
+        }, 3000);
+      }
+
+      document.querySelectorAll('.composer-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          composerMode = tab.dataset.mode;
+          const isInternal = composerMode === 'internal';
+          document.querySelectorAll('.composer-tab').forEach(t => {
+            const active = t.dataset.mode === composerMode;
+            t.setAttribute('aria-selected', active ? 'true' : 'false');
+            t.className = active
+              ? `composer-tab inline-flex items-center gap-xs px-md py-xs rounded ${isInternal ? 'bg-accent-brass text-on-accent-brass' : 'bg-primary text-on-primary'} font-label text-label-md transition-colors duration-state-change`
+              : 'composer-tab inline-flex items-center gap-xs px-md py-xs rounded text-text-secondary hover:text-ink font-label text-label-md transition-colors duration-state-change';
+          });
+
+          const box = document.getElementById('composer-box');
+          const input = document.getElementById('sqd-composer-input');
+          const hint = document.getElementById('composer-hint');
+          const btn = document.getElementById('sqd-post-btn');
+
+          if (isInternal) {
+            box.className = 'rounded-md border border-dashed border-accent-brass bg-accent-brass-tint/40 p-md transition-colors duration-state-change';
+            input.placeholder = 'Write an internal staff note (never visible to the student)...';
+            hint.textContent = 'Internal note, hidden from student.';
+            btn.textContent = 'Add Internal Note';
+          } else {
+            box.className = 'rounded-md border border-border bg-surface p-md transition-colors duration-state-change';
+            input.placeholder = 'Write an official response to the student...';
+            hint.textContent = 'Visible to Ayesha Tariq and department staff.';
+            btn.textContent = 'Send Reply';
+          }
+        });
+      });
+
+      document.getElementById('sqd-post-btn').addEventListener('click', () => {
+        const input = document.getElementById('sqd-composer-input');
+        const text = input.value.trim();
+        if (!text) return;
+        entries.push({
+          type: composerMode === 'internal' ? 'internal' : 'staff',
+          sender: 'Kamran Siddiqui',
+          role: 'Finance & Fees Staff',
+          time: 'Just now',
+          text
+        });
+        input.value = '';
+        render();
+        showToast(composerMode === 'internal' ? 'Internal note added.' : 'Reply sent to student.');
+      });
+
+      document.getElementById('sqd-update-status-btn').addEventListener('click', () => {
+        currentStatus = document.getElementById('sqd-status-select').value;
+        render();
+        showToast(`Status updated to ${currentStatus}.`);
+      });
+
+      document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+        document.getElementById('mobile-nav-drawer').classList.toggle('hidden');
+      });
+
+      render();
+    })();
+  </script>
+
+
+</body></html>

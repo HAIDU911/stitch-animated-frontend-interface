@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Error Pages — SQMS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1F3A5F',
+        'on-primary': '#FFFFFF',
+        'primary-hover': '#17304F',
+        'primary-container': '#EBF1FF',
+        'on-primary-container': '#143155',
+        'link': '#2B6CB0',
+        'on-link': '#FFFFFF',
+        'accent-brass': '#B7791F',
+        'on-accent-brass': '#1F1F1F',
+        'accent-brass-tint': '#FFEEDE',
+        'on-accent-brass-tint': '#472A00',
+        'page': '#F5F7FA',
+        'surface': '#FFFFFF',
+        'on-surface': '#1B2430',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#5B6675',
+        'ink': '#1B2430',
+        'text-secondary': '#5B6675',
+        'border': '#DDE2E9',
+        'border-strong': '#BEC7D7',
+        'status-submitted-bg': '#F1F5F9',
+        'status-submitted-fg': '#334155',
+        'status-assigned-bg': '#EBF4FF',
+        'status-assigned-fg': '#1E4E8C',
+        'status-progress-bg': '#FEF3C7',
+        'status-progress-fg': '#92400E',
+        'status-resolved-bg': '#DCFCE7',
+        'status-resolved-fg': '#166534',
+        'status-closed-bg': '#E2E8F0',
+        'status-closed-fg': '#475569',
+        'priority-high': '#BA1A1A',
+        'on-priority-high': '#FFFFFF',
+        'priority-high-tint': '#FFEDEA',
+        'on-priority-high-tint': '#690005',
+        'priority-medium-bg': '#FEF3C7',
+        'priority-medium-fg': '#92400E',
+        'priority-low-bg': '#F1F5F9',
+        'priority-low-fg': '#475569',
+        'error': '#BA1A1A',
+        'on-error': '#FFFFFF',
+        'error-tint': '#FFEDEA',
+        'on-error-tint': '#690005',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-tint': '#DCFCE7',
+        'on-success-tint': '#166534',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        '2xl': '32px',
+        '3xl': '48px',
+      },
+      fontFamily: {
+        'display': ['"IBM Plex Sans"', 'sans-serif'],
+        'headline': ['"IBM Plex Sans"', 'sans-serif'],
+        'title': ['"IBM Plex Sans"', 'sans-serif'],
+        'body': ['"IBM Plex Sans"', 'sans-serif'],
+        'label': ['"IBM Plex Sans"', 'sans-serif'],
+        'mono': ['"IBM Plex Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-sm': ['32px', { lineHeight: '40px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '21px', fontWeight: '400' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+        'label-table': ['12px', { lineHeight: '16px', letterSpacing: '0.48px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+        'drawer-slide': '260ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-up { animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up { animation: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-page text-ink font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Minimal Institutional Header with Error Page Switcher -->
+    <header class="bg-surface border-b border-border">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl h-[64px] flex items-center justify-between gap-lg">
+        <div class="flex items-center gap-sm">
+          <span class="font-headline text-title-lg text-primary tracking-tight">SQMS</span>
+          <span class="hidden sm:inline-block font-label text-label-md text-text-secondary border-l border-border pl-sm">Registrar Portal</span>
+        </div>
+
+        <div class="flex items-center gap-xs bg-surface-subtle border border-border rounded p-xs" role="group" aria-label="Select error page">
+          <button type="button" data-err="403" class="err-pill px-sm py-xs rounded font-label text-label-md bg-primary text-on-primary transition-colors duration-state-change">403</button>
+          <button type="button" data-err="404" class="err-pill px-sm py-xs rounded font-label text-label-md text-text-secondary hover:text-ink transition-colors duration-state-change">404</button>
+          <button type="button" data-err="500" class="err-pill px-sm py-xs rounded font-label text-label-md text-text-secondary hover:text-ink transition-colors duration-state-change">500</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Centered Institutional Error Card -->
+    <main class="flex-1 max-w-[1200px] w-full mx-auto px-lg sm:px-xl py-3xl flex flex-col items-center justify-center gap-xl">
+      <section id="err-card" class="w-full max-w-lg bg-surface border border-border rounded-md p-2xl space-y-lg animate-fade-up">
+        <div class="flex items-center gap-md">
+          <span id="err-icon-wrap" class="w-12 h-12 rounded-md bg-error-tint text-error inline-flex items-center justify-center shrink-0">
+            <span id="err-icon" class="material-symbols-outlined text-[24px]" aria-hidden="true">gpp_maybe</span>
+          </span>
+          <div>
+            <p id="err-code" class="font-mono text-mono-sm text-text-secondary uppercase">HTTP 403 · Access Denied</p>
+            <h1 id="err-title" class="font-headline text-headline-md text-ink">Access Denied</h1>
+          </div>
+        </div>
+
+        <p id="err-body" class="font-body text-body-md text-text-secondary">
+          You do not have permission to view this page or perform this action. If you believe your role permissions need updating, contact the Office of the Registrar.
+        </p>
+
+        <div class="pt-md border-t border-border flex flex-wrap items-center justify-between gap-md">
+          <a href="#dashboard" class="inline-flex items-center justify-center gap-sm min-h-[40px] px-xl py-sm rounded bg-primary text-on-primary hover:bg-primary-hover font-label text-label-lg transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
+            <span>Back to my dashboard</span>
+          </a>
+          <span class="font-mono text-mono-sm text-text-secondary">26 Nov 2026, 14:05</span>
+        </div>
+      </section>
+
+      <!-- Engineering Handoff Note -->
+      <details class="w-full max-w-lg bg-surface border border-border rounded-md p-lg">
+        <summary class="font-label text-label-md text-text-secondary cursor-pointer">Engineering Handoff · Views/Shared/Error*.cshtml</summary>
+        <div class="mt-md pt-md border-t border-border font-body text-body-sm text-text-secondary space-y-xs">
+          <p><strong class="text-ink">Razor Views:</strong> <span class="font-mono text-ink">Views/Shared/Error403.cshtml</span>, <span class="font-mono text-ink">Error404.cshtml</span>, <span class="font-mono text-ink">Error.cshtml</span></p>
+          <p><strong class="text-ink">Bootstrap 5 Mapping:</strong> <span class="font-mono text-ink">.card .mx-auto</span>, <span class="font-mono text-ink">.btn .btn-primary</span> (&#34;Back to my dashboard&#34;).</p>
+        </div>
+      </details>
+    </main>
+
+    <footer class="bg-surface border-t border-border mt-auto">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl py-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-sm">
+        <p class="font-body text-body-sm text-text-secondary">Student Query Management System (SQMS) · Office of the University Registrar</p>
+        <p class="font-mono text-mono-sm text-text-secondary">Academic Session 2026–2027</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const ERRORS = {
+        '403': {
+          icon: 'gpp_maybe',
+          code: 'HTTP 403 · Access Denied',
+          title: 'Access Denied',
+          body: 'You do not have permission to view this page or perform this action. If you believe your role permissions need updating, contact the Office of the Registrar.'
+        },
+        '404': {
+          icon: 'search_off',
+          code: 'HTTP 404 · Not Found',
+          title: 'Page Not Found',
+          body: 'The query or page you requested could not be found. It may have been moved, deleted, or the reference ID may be incorrect.'
+        },
+        '500': {
+          icon: 'error_outline',
+          code: 'HTTP 500 · System Error',
+          title: 'Something Went Wrong',
+          body: 'An unexpected server error occurred while processing your request. Please try again in a moment, or return to your dashboard.'
+        }
+      };
+
+      document.querySelectorAll('.err-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const code = btn.dataset.err;
+          document.querySelectorAll('.err-pill').forEach(b => {
+            const active = b.dataset.err === code;
+            b.className = active
+              ? 'err-pill px-sm py-xs rounded font-label text-label-md bg-primary text-on-primary transition-colors duration-state-change'
+              : 'err-pill px-sm py-xs rounded font-label text-label-md text-text-secondary hover:text-ink transition-colors duration-state-change';
+          });
+          const data = ERRORS[code];
+          document.getElementById('err-icon').textContent = data.icon;
+          document.getElementById('err-code').textContent = data.code;
+          document.getElementById('err-title').textContent = data.title;
+          document.getElementById('err-body').textContent = data.body;
+        });
+      });
+    })();
+  </script>
+
+
+</body></html>

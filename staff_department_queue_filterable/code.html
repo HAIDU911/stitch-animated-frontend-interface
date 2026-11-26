@@ -1,0 +1,440 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department Queue — SQMS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1F3A5F',
+        'on-primary': '#FFFFFF',
+        'primary-hover': '#17304F',
+        'primary-container': '#EBF1FF',
+        'on-primary-container': '#143155',
+        'link': '#2B6CB0',
+        'on-link': '#FFFFFF',
+        'accent-brass': '#B7791F',
+        'on-accent-brass': '#1F1F1F',
+        'accent-brass-tint': '#FFEEDE',
+        'on-accent-brass-tint': '#472A00',
+        'page': '#F5F7FA',
+        'surface': '#FFFFFF',
+        'on-surface': '#1B2430',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#5B6675',
+        'ink': '#1B2430',
+        'text-secondary': '#5B6675',
+        'border': '#DDE2E9',
+        'border-strong': '#BEC7D7',
+        'status-submitted-bg': '#F1F5F9',
+        'status-submitted-fg': '#334155',
+        'status-assigned-bg': '#EBF4FF',
+        'status-assigned-fg': '#1E4E8C',
+        'status-progress-bg': '#FEF3C7',
+        'status-progress-fg': '#92400E',
+        'status-resolved-bg': '#DCFCE7',
+        'status-resolved-fg': '#166534',
+        'status-closed-bg': '#E2E8F0',
+        'status-closed-fg': '#475569',
+        'priority-high': '#BA1A1A',
+        'on-priority-high': '#FFFFFF',
+        'priority-high-tint': '#FFEDEA',
+        'on-priority-high-tint': '#690005',
+        'priority-medium-bg': '#FEF3C7',
+        'priority-medium-fg': '#92400E',
+        'priority-low-bg': '#F1F5F9',
+        'priority-low-fg': '#475569',
+        'error': '#BA1A1A',
+        'on-error': '#FFFFFF',
+        'error-tint': '#FFEDEA',
+        'on-error-tint': '#690005',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-tint': '#DCFCE7',
+        'on-success-tint': '#166534',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        '2xl': '32px',
+        '3xl': '48px',
+      },
+      fontFamily: {
+        'display': ['"IBM Plex Sans"', 'sans-serif'],
+        'headline': ['"IBM Plex Sans"', 'sans-serif'],
+        'title': ['"IBM Plex Sans"', 'sans-serif'],
+        'body': ['"IBM Plex Sans"', 'sans-serif'],
+        'label': ['"IBM Plex Sans"', 'sans-serif'],
+        'mono': ['"IBM Plex Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-sm': ['32px', { lineHeight: '40px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '21px', fontWeight: '400' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+        'label-table': ['12px', { lineHeight: '16px', letterSpacing: '0.48px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+        'drawer-slide': '260ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .high-priority-row {
+      box-shadow: inset 3px 0 0 #BA1A1A;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up {
+        animation: none !important;
+      }
+      * {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-page text-ink font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Shared Staff Top Navbar (_Layout.cshtml) -->
+    <header class="sticky top-0 z-30 bg-surface border-b border-border">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl h-[64px] flex items-center justify-between gap-lg">
+        <div class="flex items-center gap-2xl h-full">
+          <a href="#" class="flex items-center gap-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link rounded px-xs py-xs">
+            <span class="font-headline text-title-lg text-primary tracking-tight">SQMS</span>
+            <span class="hidden sm:inline-block font-label text-label-md text-text-secondary border-l border-border pl-sm">Registrar Portal</span>
+          </a>
+
+          <nav aria-label="Staff navigation" class="hidden md:flex items-center gap-xl h-full">
+            <a href="#staff-home" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change ease-state-change">
+              Home
+            </a>
+            <a href="#department-queue" aria-current="page" class="relative inline-flex items-center h-full font-label text-label-lg text-ink border-b-2 border-accent-brass transition-colors duration-state-change ease-state-change">
+              Department Queue
+            </a>
+          </nav>
+        </div>
+
+        <div class="flex items-center gap-md">
+          <div class="inline-flex items-center gap-sm min-h-[40px] px-sm py-xs">
+            <span class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-label text-label-md inline-flex items-center justify-center">KS</span>
+            <span class="hidden sm:flex flex-col items-start text-left">
+              <span class="font-label text-label-lg text-ink leading-none">Kamran Siddiqui</span>
+              <span class="font-body text-body-sm text-text-secondary mt-xs leading-none">Finance &amp; Fees</span>
+            </span>
+            <span class="hidden md:inline-flex items-center px-sm py-xs rounded bg-surface-subtle border border-border font-label text-label-md text-text-secondary">Staff</span>
+          </div>
+
+          <button type="button" id="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation menu" class="md:hidden inline-flex items-center justify-center min-h-[40px] min-w-[40px] rounded text-text-secondary hover:bg-surface-subtle hover:text-ink transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[22px]" aria-hidden="true">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-nav-drawer" class="hidden md:hidden border-t border-border bg-surface px-lg py-md space-y-xs">
+        <a href="#staff-home" class="block px-md py-sm rounded text-ink hover:bg-surface-subtle font-label text-label-lg">Home</a>
+        <a href="#department-queue" aria-current="page" class="block px-md py-sm rounded bg-primary-container text-on-primary-container font-label text-label-lg">Department Queue</a>
+      </div>
+    </header>
+
+    <!-- Main Queue Workspace -->
+    <main class="flex-1 max-w-[1200px] w-full mx-auto px-lg sm:px-xl py-2xl space-y-xl">
+
+      <section class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-md animate-fade-up">
+        <div>
+          <h1 class="font-headline text-headline-md text-ink">Finance &amp; Fees Queue</h1>
+          <p class="font-body text-body-md text-text-secondary mt-xs">
+            High-priority student requests are marked with a left crimson indicator for immediate triage.
+          </p>
+        </div>
+        <span class="inline-flex items-center gap-xs px-md py-xs rounded bg-surface border border-border font-mono text-mono-sm text-ink self-start">
+          <span class="w-2 h-2 rounded-full bg-priority-high" aria-hidden="true"></span>
+          <span>2 High Priority Active</span>
+        </span>
+      </section>
+
+      <!-- Filter Bar -->
+      <section aria-label="Filter department queue" class="bg-surface border border-border rounded-md p-lg animate-fade-up" style="animation-delay: 40ms;">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-md items-end">
+          <div class="md:col-span-5">
+            <label class="flex flex-col gap-xs">
+              <span class="font-label text-label-md text-text-secondary">Search</span>
+              <div class="relative flex items-center">
+                <span class="material-symbols-outlined text-[18px] text-text-secondary absolute left-md pointer-events-none" aria-hidden="true">search</span>
+                <input id="sq-search" type="search" placeholder="Reference ID, student name, or title..." class="w-full min-h-[40px] pl-2xl pr-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink placeholder:text-text-secondary focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20 transition-colors duration-state-change">
+              </div>
+            </label>
+          </div>
+
+          <div class="md:col-span-3">
+            <label class="flex flex-col gap-xs">
+              <span class="font-label text-label-md text-text-secondary">Status</span>
+              <select id="sq-status" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">
+                <option value>All Statuses</option>
+                <option value="Submitted">Submitted</option>
+                <option value="Assigned">Assigned</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Resolved">Resolved</option>
+                <option value="Closed">Closed</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="md:col-span-2">
+            <label class="flex flex-col gap-xs">
+              <span class="font-label text-label-md text-text-secondary">Priority</span>
+              <select id="sq-priority" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">
+                <option value>All Priorities</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="md:col-span-2 flex justify-start md:justify-end">
+            <button type="button" id="sq-clear" class="inline-flex items-center justify-center min-h-[40px] px-md py-sm rounded text-link hover:bg-primary-container font-label text-label-lg transition-colors duration-state-change">
+              Clear Filters
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Queue Data Table -->
+      <section class="bg-surface border border-border rounded-md overflow-hidden animate-fade-up" style="animation-delay: 80ms;">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead class="bg-surface-subtle border-b border-border">
+              <tr>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Reference</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Query</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Student</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Priority</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Status</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Submitted</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary text-right whitespace-nowrap">Action</th>
+              </tr>
+            </thead>
+            <tbody id="sq-tbody" class="divide-y divide-border">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="sq-empty" class="hidden py-3xl px-xl text-center">
+          <span class="material-symbols-outlined text-[28px] text-text-secondary mb-sm" aria-hidden="true">filter_list_off</span>
+          <h2 class="font-title text-title-md text-ink">No queries match your filters</h2>
+          <p class="font-body text-body-md text-text-secondary mt-xs">Reset your status, priority, or search criteria to view the full queue.</p>
+          <button type="button" id="sq-empty-clear" class="mt-lg min-h-[40px] px-lg py-sm rounded bg-primary text-on-primary hover:bg-primary-hover font-label text-label-lg">Clear Filters</button>
+        </div>
+
+        <div id="sq-footer" class="px-lg py-md bg-surface-subtle border-t border-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-md">
+          <p id="sq-count" class="font-body text-body-sm text-text-secondary tabular-nums">Showing 5 of 5 queries</p>
+          <nav aria-label="Pagination" class="inline-flex items-center gap-xs">
+            <button type="button" disabled class="min-h-[36px] px-md py-xs rounded border border-border bg-surface-subtle text-text-secondary font-label text-label-md cursor-not-allowed">Previous</button>
+            <button type="button" aria-current="page" class="min-h-[36px] min-w-[36px] px-sm py-xs rounded bg-primary text-on-primary font-label text-label-md">1</button>
+            <button type="button" disabled class="min-h-[36px] px-md py-xs rounded border border-border bg-surface-subtle text-text-secondary font-label text-label-md cursor-not-allowed">Next</button>
+          </nav>
+        </div>
+      </section>
+
+      <!-- Engineering Handoff Note -->
+      <details class="bg-surface border border-border rounded-md p-lg">
+        <summary class="font-label text-label-md text-text-secondary cursor-pointer">Engineering Handoff · Views/Staff/Queue.cshtml</summary>
+        <div class="mt-md pt-md border-t border-border font-body text-body-sm text-text-secondary space-y-xs">
+          <p><strong class="text-ink">Razor View:</strong> <span class="font-mono text-ink">Views/Staff/Queue.cshtml</span></p>
+          <p><strong class="text-ink">Bootstrap 5 Mapping:</strong> <span class="font-mono text-ink">.form-select</span> &amp; <span class="font-mono text-ink">.form-control</span> (Filter Bar), <span class="font-mono text-ink">.table .table-hover</span> (Queue Table with <span class="font-mono text-ink">border-start border-danger border-3</span> on High-priority rows), <span class="font-mono text-ink">.pagination</span>.</p>
+        </div>
+      </details>
+    </main>
+
+    <!-- Minimal Institutional Footer -->
+    <footer class="bg-surface border-t border-border mt-auto">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl py-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-sm">
+        <p class="font-body text-body-sm text-text-secondary">Student Query Management System (SQMS) · Office of the University Registrar</p>
+        <p class="font-mono text-mono-sm text-text-secondary">Academic Session 2026–2027</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const QUEUE = [
+        { id: 'Q-2026-0142', title: 'Fee challan not generated for Fall 2026', category: 'Fee Challan & Billing', student: 'Ayesha Tariq', reg: '2023-CS-114', priority: 'High', status: 'In Progress', date: '26 Nov 2026, 14:05', rel: '2 hours ago' },
+        { id: 'Q-2026-0145', title: 'Merit scholarship fee waiver not reflected', category: 'Scholarships & Aid', student: 'Bilal Ahmed Khan', reg: '2024-EE-042', priority: 'High', status: 'Assigned', date: '26 Nov 2026, 11:20', rel: '5 hours ago' },
+        { id: 'Q-2026-0141', title: 'Duplicate semester library fine posted', category: 'Ledger & Fines', student: 'Zainab Fatima', reg: '2022-BBA-089', priority: 'Medium', status: 'Submitted', date: '25 Nov 2026, 16:40', rel: '1 day ago' },
+        { id: 'Q-2026-0134', title: 'Installment plan approval for Spring 2027', category: 'Fee Challan & Billing', student: 'Usman Ghani', reg: '2023-ME-019', priority: 'Medium', status: 'Assigned', date: '24 Nov 2026, 09:50', rel: '2 days ago' },
+        { id: 'Q-2026-0119', title: 'Security deposit refund status after graduation', category: 'Refunds', student: 'Hira Manzoor', reg: '2021-CS-077', priority: 'Low', status: 'Resolved', date: '21 Nov 2026, 15:10', rel: '5 days ago' }
+      ];
+
+      function badgeStatus(s) {
+        const m = {
+          'Submitted': 'bg-status-submitted-bg text-status-submitted-fg',
+          'Assigned': 'bg-status-assigned-bg text-status-assigned-fg',
+          'In Progress': 'bg-status-progress-bg text-status-progress-fg',
+          'Resolved': 'bg-status-resolved-bg text-status-resolved-fg',
+          'Closed': 'bg-status-closed-bg text-status-closed-fg'
+        };
+        const d = {
+          'Submitted': 'bg-status-submitted-fg',
+          'Assigned': 'bg-status-assigned-fg',
+          'In Progress': 'bg-status-progress-fg',
+          'Resolved': 'bg-status-resolved-fg',
+          'Closed': 'bg-status-closed-fg'
+        };
+        return `<span class="inline-flex items-center gap-xs px-sm py-xs rounded ${m[s]} font-label text-label-md whitespace-nowrap"><span class="w-1.5 h-1.5 rounded-full ${d[s]}" aria-hidden="true"></span><span>${s}</span></span>`;
+      }
+
+      function badgePriority(p) {
+        if (p === 'High') return `<span class="inline-flex items-center px-sm py-xs rounded bg-priority-high text-on-priority-high font-label text-label-md">High</span>`;
+        if (p === 'Medium') return `<span class="inline-flex items-center px-sm py-xs rounded border border-accent-brass/40 bg-priority-medium-bg text-priority-medium-fg font-label text-label-md">Medium</span>`;
+        return `<span class="inline-flex items-center px-sm py-xs rounded border border-border bg-priority-low-bg text-priority-low-fg font-label text-label-md">Low</span>`;
+      }
+
+      function render() {
+        const search = document.getElementById('sq-search').value.trim().toLowerCase();
+        const st = document.getElementById('sq-status').value;
+        const pr = document.getElementById('sq-priority').value;
+
+        const list = QUEUE.filter(q => {
+          if (st && q.status !== st) return false;
+          if (pr && q.priority !== pr) return false;
+          if (search && !q.id.toLowerCase().includes(search) && !q.title.toLowerCase().includes(search) && !q.student.toLowerCase().includes(search)) return false;
+          return true;
+        });
+
+        const tbody = document.getElementById('sq-tbody');
+        const empty = document.getElementById('sq-empty');
+        const footer = document.getElementById('sq-footer');
+
+        if (list.length === 0) {
+          tbody.innerHTML = '';
+          empty.classList.remove('hidden');
+          footer.classList.add('hidden');
+          return;
+        }
+
+        empty.classList.add('hidden');
+        footer.classList.remove('hidden');
+        document.getElementById('sq-count').textContent = `Showing ${list.length} of ${QUEUE.length} queries`;
+
+        tbody.innerHTML = list.map(q => `
+          <tr class="${q.priority === 'High' ? 'high-priority-row bg-priority-high-tint/20' : ''} hover:bg-surface-subtle transition-colors duration-state-change">
+            <td class="px-lg py-md whitespace-nowrap">
+              <span class="font-mono text-mono-sm text-ink tabular-nums">${q.id}</span>
+            </td>
+            <td class="px-lg py-md">
+              <div class="font-body text-body-md font-medium text-ink">${q.title}</div>
+              <div class="font-body text-body-sm text-text-secondary">${q.category}</div>
+            </td>
+            <td class="px-lg py-md whitespace-nowrap">
+              <div class="font-body text-body-md text-ink">${q.student}</div>
+              <div class="font-mono text-mono-sm text-text-secondary">${q.reg}</div>
+            </td>
+            <td class="px-lg py-md whitespace-nowrap">${badgePriority(q.priority)}</td>
+            <td class="px-lg py-md whitespace-nowrap">${badgeStatus(q.status)}</td>
+            <td class="px-lg py-md whitespace-nowrap">
+              <div class="font-body text-body-sm text-ink tabular-nums">${q.date}</div>
+              <div class="font-body text-body-sm text-text-secondary">${q.rel}</div>
+            </td>
+            <td class="px-lg py-md text-right whitespace-nowrap">
+              <a href="#open-${q.id}" class="inline-flex items-center gap-xs min-h-[36px] px-md py-xs rounded text-link hover:bg-primary-container font-label text-label-md transition-colors duration-state-change">
+                <span>Open</span>
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+              </a>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      function clearAll() {
+        document.getElementById('sq-search').value = '';
+        document.getElementById('sq-status').value = '';
+        document.getElementById('sq-priority').value = '';
+        render();
+      }
+
+      document.getElementById('sq-search').addEventListener('input', render);
+      document.getElementById('sq-status').addEventListener('change', render);
+      document.getElementById('sq-priority').addEventListener('change', render);
+      document.getElementById('sq-clear').addEventListener('click', clearAll);
+      document.getElementById('sq-empty-clear').addEventListener('click', clearAll);
+
+      document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+        document.getElementById('mobile-nav-drawer').classList.toggle('hidden');
+      });
+
+      render();
+    })();
+  </script>
+
+
+</body></html>

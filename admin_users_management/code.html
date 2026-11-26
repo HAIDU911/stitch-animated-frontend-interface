@@ -1,0 +1,427 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users Management — Admin SQMS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1F3A5F',
+        'on-primary': '#FFFFFF',
+        'primary-hover': '#17304F',
+        'primary-container': '#EBF1FF',
+        'on-primary-container': '#143155',
+        'link': '#2B6CB0',
+        'on-link': '#FFFFFF',
+        'accent-brass': '#B7791F',
+        'on-accent-brass': '#1F1F1F',
+        'accent-brass-tint': '#FFEEDE',
+        'on-accent-brass-tint': '#472A00',
+        'page': '#F5F7FA',
+        'surface': '#FFFFFF',
+        'on-surface': '#1B2430',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#5B6675',
+        'ink': '#1B2430',
+        'text-secondary': '#5B6675',
+        'border': '#DDE2E9',
+        'border-strong': '#BEC7D7',
+        'status-submitted-bg': '#F1F5F9',
+        'status-submitted-fg': '#334155',
+        'status-assigned-bg': '#EBF4FF',
+        'status-assigned-fg': '#1E4E8C',
+        'status-progress-bg': '#FEF3C7',
+        'status-progress-fg': '#92400E',
+        'status-resolved-bg': '#DCFCE7',
+        'status-resolved-fg': '#166534',
+        'status-closed-bg': '#E2E8F0',
+        'status-closed-fg': '#475569',
+        'priority-high': '#BA1A1A',
+        'on-priority-high': '#FFFFFF',
+        'priority-high-tint': '#FFEDEA',
+        'on-priority-high-tint': '#690005',
+        'priority-medium-bg': '#FEF3C7',
+        'priority-medium-fg': '#92400E',
+        'priority-low-bg': '#F1F5F9',
+        'priority-low-fg': '#475569',
+        'error': '#BA1A1A',
+        'on-error': '#FFFFFF',
+        'error-tint': '#FFEDEA',
+        'on-error-tint': '#690005',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-tint': '#DCFCE7',
+        'on-success-tint': '#166534',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        '2xl': '32px',
+        '3xl': '48px',
+      },
+      fontFamily: {
+        'display': ['"IBM Plex Sans"', 'sans-serif'],
+        'headline': ['"IBM Plex Sans"', 'sans-serif'],
+        'title': ['"IBM Plex Sans"', 'sans-serif'],
+        'body': ['"IBM Plex Sans"', 'sans-serif'],
+        'label': ['"IBM Plex Sans"', 'sans-serif'],
+        'mono': ['"IBM Plex Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-sm': ['32px', { lineHeight: '40px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '21px', fontWeight: '400' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+        'label-table': ['12px', { lineHeight: '16px', letterSpacing: '0.48px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+        'drawer-slide': '260ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-up { animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+    dialog[open] { animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+    dialog::backdrop { background-color: rgba(27, 36, 48, 0.42); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up, dialog[open] { animation: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-page text-ink font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Shared Admin Top Navbar -->
+    <header class="sticky top-0 z-30 bg-surface border-b border-border">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl h-[64px] flex items-center justify-between gap-lg">
+        <div class="flex items-center gap-2xl h-full">
+          <a href="#" class="flex items-center gap-sm rounded px-xs py-xs">
+            <span class="font-headline text-title-lg text-primary tracking-tight">SQMS</span>
+            <span class="hidden sm:inline-block font-label text-label-md text-text-secondary border-l border-border pl-sm">Registrar Portal</span>
+          </a>
+
+          <nav aria-label="Admin navigation" class="hidden md:flex items-center gap-xl h-full">
+            <a href="#dashboard" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change">Dashboard</a>
+            <a href="#all-queries" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change">All Queries</a>
+            <a href="#users" aria-current="page" class="relative inline-flex items-center h-full font-label text-label-lg text-ink border-b-2 border-accent-brass">Users</a>
+            <a href="#departments" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change">Departments</a>
+            <a href="#categories" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change">Categories</a>
+          </nav>
+        </div>
+
+        <div class="flex items-center gap-md">
+          <div class="inline-flex items-center gap-sm min-h-[40px] px-sm py-xs">
+            <span class="w-8 h-8 rounded-full bg-primary text-on-primary font-label text-label-md inline-flex items-center justify-center">TM</span>
+            <span class="hidden sm:flex flex-col items-start text-left">
+              <span class="font-label text-label-lg text-ink leading-none">Dr. Tariq Mehmood</span>
+              <span class="font-body text-body-sm text-text-secondary mt-xs leading-none">Registrar Office</span>
+            </span>
+            <span class="hidden md:inline-flex items-center px-sm py-xs rounded bg-surface-subtle border border-border font-label text-label-md text-text-secondary">Admin</span>
+          </div>
+          <button type="button" id="mobile-menu-toggle" aria-label="Toggle navigation menu" class="md:hidden inline-flex items-center justify-center min-h-[40px] min-w-[40px] rounded text-text-secondary hover:bg-surface-subtle">
+            <span class="material-symbols-outlined text-[22px]" aria-hidden="true">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-nav-drawer" class="hidden md:hidden border-t border-border bg-surface px-lg py-md space-y-xs">
+        <a href="#dashboard" class="block px-md py-sm rounded text-ink hover:bg-surface-subtle font-label text-label-lg">Dashboard</a>
+        <a href="#all-queries" class="block px-md py-sm rounded text-ink hover:bg-surface-subtle font-label text-label-lg">All Queries</a>
+        <a href="#users" aria-current="page" class="block px-md py-sm rounded bg-primary-container text-on-primary-container font-label text-label-lg">Users</a>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-[1200px] w-full mx-auto px-lg sm:px-xl py-2xl space-y-xl">
+      <section class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-md animate-fade-up">
+        <div>
+          <h1 class="font-headline text-headline-md text-ink">Users Management</h1>
+          <p class="font-body text-body-md text-text-secondary mt-xs">
+            Manage student, department staff, and administrator accounts across SQMS.
+          </p>
+        </div>
+        <button type="button" id="add-user-btn" class="inline-flex items-center justify-center gap-sm min-h-[40px] px-lg py-sm rounded bg-primary text-on-primary hover:bg-primary-hover font-label text-label-lg transition-colors duration-state-change self-start">
+          <span class="material-symbols-outlined text-[18px]" aria-hidden="true">person_add</span>
+          <span>Add User</span>
+        </button>
+      </section>
+
+      <!-- Users Table -->
+      <section class="bg-surface border border-border rounded-md overflow-hidden animate-fade-up" style="animation-delay: 50ms;">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead class="bg-surface-subtle border-b border-border">
+              <tr>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Name</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Email</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Role</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Department</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary whitespace-nowrap">Active</th>
+                <th scope="col" class="px-lg py-md uppercase font-label text-label-table text-text-secondary text-right whitespace-nowrap">Action</th>
+              </tr>
+            </thead>
+            <tbody id="users-tbody" class="divide-y divide-border"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Engineering Handoff Note -->
+      <details class="bg-surface border border-border rounded-md p-lg">
+        <summary class="font-label text-label-md text-text-secondary cursor-pointer">Engineering Handoff · Views/Admin/Users.cshtml</summary>
+        <div class="mt-md pt-md border-t border-border font-body text-body-sm text-text-secondary space-y-xs">
+          <p><strong class="text-ink">Razor View:</strong> <span class="font-mono text-ink">Views/Admin/Users.cshtml</span></p>
+          <p><strong class="text-ink">Bootstrap 5 Mapping:</strong> <span class="font-mono text-ink">.table</span>, <span class="font-mono text-ink">.form-check .form-switch</span> (Active toggle), <span class="font-mono text-ink">.offcanvas .offcanvas-end</span> (Add/Edit User slide-over drawer), <span class="font-mono text-ink">.modal</span> (Deactivate confirmation).</p>
+        </div>
+      </details>
+    </main>
+
+    <footer class="bg-surface border-t border-border mt-auto">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl py-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-sm">
+        <p class="font-body text-body-sm text-text-secondary">Student Query Management System (SQMS) · Office of the University Registrar</p>
+        <p class="font-mono text-mono-sm text-text-secondary">Academic Session 2026–2027</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Add / Edit User Slide-Over Drawer -->
+  <div id="user-backdrop" class="hidden fixed inset-0 z-40 bg-ink/40 opacity-0 transition-opacity duration-surface-enter" aria-hidden="true"></div>
+  <aside id="user-drawer" role="dialog" aria-modal="true" aria-labelledby="user-drawer-title" class="hidden fixed inset-y-0 right-0 z-50 w-full max-w-md bg-surface border-l border-border shadow-xl flex flex-col translate-x-full transition-transform duration-drawer-slide ease-drawer-slide">
+    <header class="px-xl py-lg border-b border-border flex items-center justify-between">
+      <h2 id="user-drawer-title" class="font-title text-title-lg text-ink">Add User</h2>
+      <button type="button" id="close-user-drawer" aria-label="Close drawer" class="min-h-[40px] min-w-[40px] inline-flex items-center justify-center rounded text-text-secondary hover:bg-surface-subtle">
+        <span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+      </button>
+    </header>
+    <form id="user-form" class="flex-1 overflow-y-auto p-xl space-y-lg">
+      <label class="flex flex-col gap-xs">
+        <span class="font-label text-label-lg text-ink">Full Name</span>
+        <input id="uf-name" type="text" required placeholder="Saima Noreen" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">
+      </label>
+      <label class="flex flex-col gap-xs">
+        <span class="font-label text-label-lg text-ink">University Email</span>
+        <input id="uf-email" type="email" required placeholder="saima.noreen@university.edu.pk" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">
+      </label>
+      <label class="flex flex-col gap-xs">
+        <span class="font-label text-label-lg text-ink">Role</span>
+        <select id="uf-role" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">
+          <option value="Staff">Staff</option>
+          <option value="Student">Student</option>
+          <option value="Admin">Admin</option>
+        </select>
+      </label>
+      <label class="flex flex-col gap-xs">
+        <span class="font-label text-label-lg text-ink">Department</span>
+        <select id="uf-dept" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">
+          <option value="Finance &amp; Fees">Finance &amp; Fees</option>
+          <option value="Examinations">Examinations</option>
+          <option value="Admissions">Admissions</option>
+          <option value="Hostel Office">Hostel Office</option>
+          <option value="IT Services">IT Services</option>
+          <option value="BS Computer Science">BS Computer Science</option>
+        </select>
+      </label>
+    </form>
+    <footer class="px-xl py-lg bg-surface-subtle border-t border-border flex items-center justify-end gap-md">
+      <button type="button" id="cancel-user-drawer" class="min-h-[40px] px-lg py-sm rounded bg-surface text-ink border border-border hover:bg-page font-label text-label-lg">Cancel</button>
+      <button type="submit" form="user-form" class="min-h-[40px] px-lg py-sm rounded bg-primary text-on-primary hover:bg-primary-hover font-label text-label-lg">Save User</button>
+    </footer>
+  </aside>
+
+  <!-- Deactivate User Confirmation Modal -->
+  <dialog id="deactivate-dialog" role="alertdialog" aria-labelledby="deact-title" class="rounded-md bg-surface border border-border shadow-lg p-0 max-w-md w-full">
+    <header class="p-xl border-b border-border flex items-center gap-sm">
+      <span class="material-symbols-outlined text-[22px] text-error" aria-hidden="true">person_off</span>
+      <h2 id="deact-title" class="font-title text-title-lg text-ink">Deactivate User?</h2>
+    </header>
+    <div class="p-xl">
+      <p class="font-body text-body-md text-text-secondary">
+        <span id="deact-name" class="font-medium text-ink"></span> will immediately lose sign-in access to SQMS. Existing query history remains preserved for audit.
+      </p>
+    </div>
+    <footer class="px-xl py-lg bg-surface-subtle border-t border-border flex items-center justify-end gap-md">
+      <button type="button" id="cancel-deact-btn" class="min-h-[40px] px-lg py-sm rounded bg-surface text-ink border border-border hover:bg-page font-label text-label-lg">Cancel</button>
+      <button type="button" id="confirm-deact-btn" class="min-h-[40px] px-lg py-sm rounded bg-error text-on-error hover:opacity-90 font-label text-label-lg">Deactivate User</button>
+    </footer>
+  </dialog>
+
+  <script>
+    (function () {
+      const USERS = [
+        { id: 1, name: 'Kamran Siddiqui', email: 'kamran.siddiqui@university.edu.pk', role: 'Staff', dept: 'Finance & Fees', active: true },
+        { id: 2, name: 'Saima Noreen', email: 'saima.noreen@university.edu.pk', role: 'Staff', dept: 'Hostel Office', active: true },
+        { id: 3, name: 'Ayesha Tariq', email: 'ayesha.tariq@university.edu.pk', role: 'Student', dept: 'BS Computer Science', active: true },
+        { id: 4, name: 'Bilal Ahmed Khan', email: 'bilal.khan@university.edu.pk', role: 'Student', dept: 'BS Electrical Engg', active: true },
+        { id: 5, name: 'Usman Ghani', email: 'usman.ghani@university.edu.pk', role: 'Student', dept: 'BS Mechanical Engg', active: false }
+      ];
+
+      let editUserId = null;
+      let pendingDeactId = null;
+
+      function render() {
+        document.getElementById('users-tbody').innerHTML = USERS.map(u => `
+          <tr class="hover:bg-surface-subtle transition-colors duration-state-change">
+            <td class="px-lg py-md font-body text-body-md font-medium text-ink whitespace-nowrap">${u.name}</td>
+            <td class="px-lg py-md font-mono text-mono-sm text-text-secondary whitespace-nowrap">${u.email}</td>
+            <td class="px-lg py-md whitespace-nowrap">
+              <span class="inline-flex items-center px-sm py-xs rounded bg-surface-subtle border border-border font-label text-label-md text-ink">${u.role}</span>
+            </td>
+            <td class="px-lg py-md font-body text-body-md text-text-secondary whitespace-nowrap">${u.dept}</td>
+            <td class="px-lg py-md whitespace-nowrap">
+              <button type="button" data-toggle="${u.id}" role="switch" aria-checked="${u.active}" class="toggle-active inline-flex items-center gap-xs px-sm py-xs rounded font-label text-label-md transition-colors duration-state-change ${u.active ? 'bg-status-resolved-bg text-status-resolved-fg' : 'bg-status-closed-bg text-status-closed-fg'}">
+                <span class="w-2 h-2 rounded-full ${u.active ? 'bg-status-resolved-fg' : 'bg-status-closed-fg'}" aria-hidden="true"></span>
+                <span>${u.active ? 'Active' : 'Inactive'}</span>
+              </button>
+            </td>
+            <td class="px-lg py-md text-right whitespace-nowrap">
+              <button type="button" data-edit="${u.id}" class="edit-user-btn min-h-[36px] px-md py-xs rounded text-link hover:bg-primary-container font-label text-label-md transition-colors duration-state-change">Edit</button>
+            </td>
+          </tr>
+        `).join('');
+
+        document.querySelectorAll('.edit-user-btn').forEach(btn => {
+          btn.addEventListener('click', () => openDrawer(Number(btn.dataset.edit)));
+        });
+
+        document.querySelectorAll('.toggle-active').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const u = USERS.find(x => x.id === Number(btn.dataset.toggle));
+            if (u.active) {
+              pendingDeactId = u.id;
+              document.getElementById('deact-name').textContent = u.name;
+              document.getElementById('deactivate-dialog').showModal();
+            } else {
+              u.active = true;
+              render();
+            }
+          });
+        });
+      }
+
+      const drawer = document.getElementById('user-drawer');
+      const backdrop = document.getElementById('user-backdrop');
+
+      function openDrawer(id = null) {
+        editUserId = id;
+        const u = id ? USERS.find(x => x.id === id) : null;
+        document.getElementById('user-drawer-title').textContent = u ? 'Edit User' : 'Add User';
+        document.getElementById('uf-name').value = u ? u.name : '';
+        document.getElementById('uf-email').value = u ? u.email : '';
+        document.getElementById('uf-role').value = u ? u.role : 'Staff';
+        document.getElementById('uf-dept').value = u ? u.dept : 'Finance & Fees';
+
+        backdrop.classList.remove('hidden');
+        drawer.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          backdrop.classList.remove('opacity-0');
+          drawer.classList.remove('translate-x-full');
+        });
+      }
+
+      function closeDrawer() {
+        backdrop.classList.add('opacity-0');
+        drawer.classList.add('translate-x-full');
+        setTimeout(() => {
+          backdrop.classList.add('hidden');
+          drawer.classList.add('hidden');
+        }, 250);
+      }
+
+      document.getElementById('add-user-btn').addEventListener('click', () => openDrawer(null));
+      document.getElementById('close-user-drawer').addEventListener('click', closeDrawer);
+      document.getElementById('cancel-user-drawer').addEventListener('click', closeDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+
+      document.getElementById('user-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('uf-name').value.trim();
+        const email = document.getElementById('uf-email').value.trim();
+        const role = document.getElementById('uf-role').value;
+        const dept = document.getElementById('uf-dept').value;
+        if (!name || !email) return;
+
+        if (editUserId) {
+          const u = USERS.find(x => x.id === editUserId);
+          Object.assign(u, { name, email, role, dept });
+        } else {
+          USERS.unshift({ id: Date.now(), name, email, role, dept, active: true });
+        }
+        closeDrawer();
+        render();
+      });
+
+      const deactDialog = document.getElementById('deactivate-dialog');
+      document.getElementById('cancel-deact-btn').addEventListener('click', () => deactDialog.close());
+      document.getElementById('confirm-deact-btn').addEventListener('click', () => {
+        const u = USERS.find(x => x.id === pendingDeactId);
+        if (u) u.active = false;
+        deactDialog.close();
+        render();
+      });
+
+      document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+        document.getElementById('mobile-nav-drawer').classList.toggle('hidden');
+      });
+
+      render();
+    })();
+  </script>
+
+
+</body></html>

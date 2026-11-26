@@ -1,0 +1,360 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Home — SQMS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1F3A5F',
+        'on-primary': '#FFFFFF',
+        'primary-hover': '#17304F',
+        'primary-container': '#EBF1FF',
+        'on-primary-container': '#143155',
+        'link': '#2B6CB0',
+        'on-link': '#FFFFFF',
+        'accent-brass': '#B7791F',
+        'on-accent-brass': '#1F1F1F',
+        'accent-brass-tint': '#FFEEDE',
+        'on-accent-brass-tint': '#472A00',
+        'page': '#F5F7FA',
+        'surface': '#FFFFFF',
+        'on-surface': '#1B2430',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#5B6675',
+        'ink': '#1B2430',
+        'text-secondary': '#5B6675',
+        'border': '#DDE2E9',
+        'border-strong': '#BEC7D7',
+        'status-submitted-bg': '#F1F5F9',
+        'status-submitted-fg': '#334155',
+        'status-assigned-bg': '#EBF4FF',
+        'status-assigned-fg': '#1E4E8C',
+        'status-progress-bg': '#FEF3C7',
+        'status-progress-fg': '#92400E',
+        'status-resolved-bg': '#DCFCE7',
+        'status-resolved-fg': '#166534',
+        'status-closed-bg': '#E2E8F0',
+        'status-closed-fg': '#475569',
+        'priority-high': '#BA1A1A',
+        'on-priority-high': '#FFFFFF',
+        'priority-high-tint': '#FFEDEA',
+        'on-priority-high-tint': '#690005',
+        'priority-medium-bg': '#FEF3C7',
+        'priority-medium-fg': '#92400E',
+        'priority-low-bg': '#F1F5F9',
+        'priority-low-fg': '#475569',
+        'error': '#BA1A1A',
+        'on-error': '#FFFFFF',
+        'error-tint': '#FFEDEA',
+        'on-error-tint': '#690005',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-tint': '#DCFCE7',
+        'on-success-tint': '#166534',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        '2xl': '32px',
+        '3xl': '48px',
+      },
+      fontFamily: {
+        'display': ['"IBM Plex Sans"', 'sans-serif'],
+        'headline': ['"IBM Plex Sans"', 'sans-serif'],
+        'title': ['"IBM Plex Sans"', 'sans-serif'],
+        'body': ['"IBM Plex Sans"', 'sans-serif'],
+        'label': ['"IBM Plex Sans"', 'sans-serif'],
+        'mono': ['"IBM Plex Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-sm': ['32px', { lineHeight: '40px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '21px', fontWeight: '400' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+        'label-table': ['12px', { lineHeight: '16px', letterSpacing: '0.48px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+        'drawer-slide': '260ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up {
+        animation: none !important;
+      }
+      * {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-page text-ink font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Shared Staff Top Navbar (_Layout.cshtml) -->
+    <header class="sticky top-0 z-30 bg-surface border-b border-border">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl h-[64px] flex items-center justify-between gap-lg">
+        <div class="flex items-center gap-2xl h-full">
+          <a href="#" class="flex items-center gap-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link rounded px-xs py-xs">
+            <span class="font-headline text-title-lg text-primary tracking-tight">SQMS</span>
+            <span class="hidden sm:inline-block font-label text-label-md text-text-secondary border-l border-border pl-sm">Registrar Portal</span>
+          </a>
+
+          <nav aria-label="Staff navigation" class="hidden md:flex items-center gap-xl h-full">
+            <a href="#staff-home" aria-current="page" class="relative inline-flex items-center h-full font-label text-label-lg text-ink border-b-2 border-accent-brass transition-colors duration-state-change ease-state-change">
+              Home
+            </a>
+            <a href="#department-queue" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change ease-state-change">
+              Department Queue
+            </a>
+          </nav>
+        </div>
+
+        <div class="flex items-center gap-md">
+          <div class="inline-flex items-center gap-sm min-h-[40px] px-sm py-xs">
+            <span class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-label text-label-md inline-flex items-center justify-center">KS</span>
+            <span class="hidden sm:flex flex-col items-start text-left">
+              <span class="font-label text-label-lg text-ink leading-none">Kamran Siddiqui</span>
+              <span class="font-body text-body-sm text-text-secondary mt-xs leading-none">Finance &amp; Fees</span>
+            </span>
+            <span class="hidden md:inline-flex items-center px-sm py-xs rounded bg-surface-subtle border border-border font-label text-label-md text-text-secondary">Staff</span>
+          </div>
+
+          <button type="button" id="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation menu" class="md:hidden inline-flex items-center justify-center min-h-[40px] min-w-[40px] rounded text-text-secondary hover:bg-surface-subtle hover:text-ink transition-colors duration-state-change">
+            <span class="material-symbols-outlined text-[22px]" aria-hidden="true">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-nav-drawer" class="hidden md:hidden border-t border-border bg-surface px-lg py-md space-y-xs">
+        <a href="#staff-home" aria-current="page" class="block px-md py-sm rounded bg-primary-container text-on-primary-container font-label text-label-lg">Home</a>
+        <a href="#department-queue" class="block px-md py-sm rounded text-ink hover:bg-surface-subtle font-label text-label-lg">Department Queue</a>
+      </div>
+    </header>
+
+    <!-- Main Staff Home Workspace -->
+    <main class="flex-1 max-w-[1200px] w-full mx-auto px-lg sm:px-xl py-2xl space-y-xl">
+
+      <!-- Personalized Greeting -->
+      <section class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-lg animate-fade-up">
+        <div>
+          <h1 class="font-headline text-headline-md text-ink">Good morning, Kamran Siddiqui</h1>
+          <p class="font-body text-body-md text-text-secondary mt-xs">
+            Finance &amp; Fees Office · Here is what requires attention in your department today.
+          </p>
+        </div>
+        <a href="#department-queue" class="inline-flex items-center justify-center gap-sm min-h-[40px] px-lg py-sm rounded bg-primary text-on-primary hover:bg-primary-hover font-label text-label-lg transition-colors duration-state-change self-start sm:self-auto">
+          <span>Open Department Queue</span>
+          <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+        </a>
+      </section>
+
+      <!-- Stat Tiles -->
+      <section aria-label="Department metrics" class="grid grid-cols-1 md:grid-cols-3 gap-lg animate-fade-up" style="animation-delay: 50ms;">
+        <!-- Required Primary Stat Tile -->
+        <div class="bg-surface border border-border rounded-md p-xl space-y-sm">
+          <div class="flex items-center justify-between">
+            <p class="font-label text-label-md text-text-secondary uppercase tracking-wider">Open queries in your department</p>
+            <span class="material-symbols-outlined text-[20px] text-primary" aria-hidden="true">inbox</span>
+          </div>
+          <p class="font-headline text-display-sm text-ink tabular-nums">18</p>
+          <p class="font-body text-body-sm text-text-secondary">
+            <span class="text-priority-high font-medium">+3 since yesterday</span> · 4 High priority
+          </p>
+        </div>
+
+        <div class="bg-surface border border-border rounded-md p-xl space-y-sm">
+          <div class="flex items-center justify-between">
+            <p class="font-label text-label-md text-text-secondary uppercase tracking-wider">Assigned to you</p>
+            <span class="material-symbols-outlined text-[20px] text-primary" aria-hidden="true">assignment_ind</span>
+          </div>
+          <p class="font-headline text-display-sm text-ink tabular-nums">7</p>
+          <p class="font-body text-body-sm text-text-secondary">
+            <span class="text-success font-medium">2 resolved today</span> · 5 awaiting action
+          </p>
+        </div>
+
+        <div class="bg-surface border border-border rounded-md p-xl space-y-sm">
+          <div class="flex items-center justify-between">
+            <p class="font-label text-label-md text-text-secondary uppercase tracking-wider">Median first response</p>
+            <span class="material-symbols-outlined text-[20px] text-primary" aria-hidden="true">schedule</span>
+          </div>
+          <p class="font-headline text-display-sm text-ink tabular-nums">1h 40m</p>
+          <p class="font-body text-body-sm text-text-secondary">
+            <span class="text-success font-medium">-22m vs. last week</span> · Target &lt; 4h
+          </p>
+        </div>
+      </section>
+
+      <!-- Priority & Recent Department Queries -->
+      <section aria-label="Priority and recent queries" class="bg-surface border border-border rounded-md overflow-hidden animate-fade-up" style="animation-delay: 100ms;">
+        <header class="px-xl py-lg border-b border-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-sm">
+          <div>
+            <h2 class="font-title text-title-md text-ink">Priority &amp; Recent Department Queries</h2>
+            <p class="font-body text-body-sm text-text-secondary">Newest and high-urgency student requests routed to Finance &amp; Fees.</p>
+          </div>
+          <a href="#department-queue" class="font-label text-label-lg text-link hover:underline">View all 18 open queries</a>
+        </header>
+
+        <ul class="divide-y divide-border">
+          <li class="px-xl py-lg hover:bg-surface-subtle transition-colors duration-state-change flex flex-col md:flex-row md:items-center justify-between gap-md">
+            <div class="space-y-xs">
+              <div class="flex flex-wrap items-center gap-sm">
+                <span class="font-mono text-mono-sm text-ink bg-surface-subtle border border-border px-sm py-xs rounded">Q-2026-0142</span>
+                <span class="inline-flex items-center px-sm py-xs rounded bg-priority-high text-on-priority-high font-label text-label-md">High</span>
+                <span class="inline-flex items-center gap-xs px-sm py-xs rounded bg-status-progress-bg text-status-progress-fg font-label text-label-md">
+                  <span class="w-1.5 h-1.5 rounded-full bg-status-progress-fg" aria-hidden="true"></span>
+                  <span>In Progress</span>
+                </span>
+              </div>
+              <p class="font-body text-body-md font-medium text-ink">Fee challan not generated for Fall 2026</p>
+              <p class="font-body text-body-sm text-text-secondary">
+                Ayesha Tariq (<span class="font-mono text-ink">2023-CS-114</span>) · 26 Nov 2026, 14:05 (2 hours ago)
+              </p>
+            </div>
+            <a href="#detail-142" class="inline-flex items-center justify-center gap-xs min-h-[36px] px-md py-xs rounded border border-border bg-surface text-link hover:bg-primary-container font-label text-label-md transition-colors duration-state-change self-start md:self-center">
+              <span>Review Query</span>
+              <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+            </a>
+          </li>
+
+          <li class="px-xl py-lg hover:bg-surface-subtle transition-colors duration-state-change flex flex-col md:flex-row md:items-center justify-between gap-md">
+            <div class="space-y-xs">
+              <div class="flex flex-wrap items-center gap-sm">
+                <span class="font-mono text-mono-sm text-ink bg-surface-subtle border border-border px-sm py-xs rounded">Q-2026-0145</span>
+                <span class="inline-flex items-center px-sm py-xs rounded bg-priority-high text-on-priority-high font-label text-label-md">High</span>
+                <span class="inline-flex items-center gap-xs px-sm py-xs rounded bg-status-assigned-bg text-status-assigned-fg font-label text-label-md">
+                  <span class="w-1.5 h-1.5 rounded-full bg-status-assigned-fg" aria-hidden="true"></span>
+                  <span>Assigned</span>
+                </span>
+              </div>
+              <p class="font-body text-body-md font-medium text-ink">Merit scholarship fee waiver not reflected in installment #2</p>
+              <p class="font-body text-body-sm text-text-secondary">
+                Bilal Ahmed Khan (<span class="font-mono text-ink">2024-EE-042</span>) · 26 Nov 2026, 11:20 (5 hours ago)
+              </p>
+            </div>
+            <a href="#detail-145" class="inline-flex items-center justify-center gap-xs min-h-[36px] px-md py-xs rounded border border-border bg-surface text-link hover:bg-primary-container font-label text-label-md transition-colors duration-state-change self-start md:self-center">
+              <span>Review Query</span>
+              <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+            </a>
+          </li>
+
+          <li class="px-xl py-lg hover:bg-surface-subtle transition-colors duration-state-change flex flex-col md:flex-row md:items-center justify-between gap-md">
+            <div class="space-y-xs">
+              <div class="flex flex-wrap items-center gap-sm">
+                <span class="font-mono text-mono-sm text-ink bg-surface-subtle border border-border px-sm py-xs rounded">Q-2026-0141</span>
+                <span class="inline-flex items-center px-sm py-xs rounded border border-accent-brass/40 bg-priority-medium-bg text-priority-medium-fg font-label text-label-md">Medium</span>
+                <span class="inline-flex items-center gap-xs px-sm py-xs rounded bg-status-submitted-bg text-status-submitted-fg font-label text-label-md">
+                  <span class="w-1.5 h-1.5 rounded-full bg-status-submitted-fg" aria-hidden="true"></span>
+                  <span>Submitted</span>
+                </span>
+              </div>
+              <p class="font-body text-body-md font-medium text-ink">Duplicate semester library fine posted on student ledger</p>
+              <p class="font-body text-body-sm text-text-secondary">
+                Zainab Fatima (<span class="font-mono text-ink">2022-BBA-089</span>) · 25 Nov 2026, 16:40 (1 day ago)
+              </p>
+            </div>
+            <a href="#detail-141" class="inline-flex items-center justify-center gap-xs min-h-[36px] px-md py-xs rounded border border-border bg-surface text-link hover:bg-primary-container font-label text-label-md transition-colors duration-state-change self-start md:self-center">
+              <span>Review Query</span>
+              <span class="material-symbols-outlined text-[16px]" aria-hidden="true">chevron_right</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Engineering Handoff Note -->
+      <details class="bg-surface border border-border rounded-md p-lg">
+        <summary class="font-label text-label-md text-text-secondary cursor-pointer">Engineering Handoff · Views/Staff/Home.cshtml</summary>
+        <div class="mt-md pt-md border-t border-border font-body text-body-sm text-text-secondary space-y-xs">
+          <p><strong class="text-ink">Razor View:</strong> <span class="font-mono text-ink">Views/Staff/Home.cshtml</span> using shared <span class="font-mono text-ink">Views/Shared/_Layout.cshtml</span></p>
+          <p><strong class="text-ink">Bootstrap 5 Mapping:</strong> <span class="font-mono text-ink">.navbar</span>, <span class="font-mono text-ink">.row .g-3 .col-md-4 .card</span> (Stat Tiles), <span class="font-mono text-ink">.list-group .list-group-flush</span> (Recent Queries), <span class="font-mono text-ink">.badge</span> (Status &amp; Priority).</p>
+        </div>
+      </details>
+    </main>
+
+    <!-- Minimal Institutional Footer -->
+    <footer class="bg-surface border-t border-border mt-auto">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl py-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-sm">
+        <p class="font-body text-body-sm text-text-secondary">Student Query Management System (SQMS) · Office of the University Registrar</p>
+        <p class="font-mono text-mono-sm text-text-secondary">Academic Session 2026–2027</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+      document.getElementById('mobile-nav-drawer').classList.toggle('hidden');
+    });
+  </script>
+
+
+</body></html>

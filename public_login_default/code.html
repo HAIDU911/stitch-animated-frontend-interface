@@ -1,0 +1,396 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — SQMS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1F3A5F',
+        'on-primary': '#FFFFFF',
+        'primary-hover': '#17304F',
+        'primary-container': '#EBF1FF',
+        'on-primary-container': '#143155',
+        'link': '#2B6CB0',
+        'on-link': '#FFFFFF',
+        'accent-brass': '#B7791F',
+        'on-accent-brass': '#1F1F1F',
+        'accent-brass-tint': '#FFEEDE',
+        'on-accent-brass-tint': '#472A00',
+        'page': '#F5F7FA',
+        'surface': '#FFFFFF',
+        'on-surface': '#1B2430',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#5B6675',
+        'ink': '#1B2430',
+        'text-secondary': '#5B6675',
+        'border': '#DDE2E9',
+        'border-strong': '#BEC7D7',
+        'status-submitted-bg': '#F1F5F9',
+        'status-submitted-fg': '#334155',
+        'status-assigned-bg': '#EBF4FF',
+        'status-assigned-fg': '#1E4E8C',
+        'status-progress-bg': '#FEF3C7',
+        'status-progress-fg': '#92400E',
+        'status-resolved-bg': '#DCFCE7',
+        'status-resolved-fg': '#166534',
+        'status-closed-bg': '#E2E8F0',
+        'status-closed-fg': '#475569',
+        'priority-high': '#BA1A1A',
+        'on-priority-high': '#FFFFFF',
+        'priority-high-tint': '#FFEDEA',
+        'on-priority-high-tint': '#690005',
+        'priority-medium-bg': '#FEF3C7',
+        'priority-medium-fg': '#92400E',
+        'priority-low-bg': '#F1F5F9',
+        'priority-low-fg': '#475569',
+        'error': '#BA1A1A',
+        'on-error': '#FFFFFF',
+        'error-tint': '#FFEDEA',
+        'on-error-tint': '#690005',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-tint': '#DCFCE7',
+        'on-success-tint': '#166534',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        '2xl': '32px',
+        '3xl': '48px',
+      },
+      fontFamily: {
+        'display': ['"IBM Plex Sans"', 'sans-serif'],
+        'headline': ['"IBM Plex Sans"', 'sans-serif'],
+        'title': ['"IBM Plex Sans"', 'sans-serif'],
+        'body': ['"IBM Plex Sans"', 'sans-serif'],
+        'label': ['"IBM Plex Sans"', 'sans-serif'],
+        'mono': ['"IBM Plex Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-sm': ['32px', { lineHeight: '40px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '21px', fontWeight: '400' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+        'label-table': ['12px', { lineHeight: '16px', letterSpacing: '0.48px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+        'drawer-slide': '260ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-up {
+      animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up {
+        animation: none !important;
+      }
+      * {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-page text-ink font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Minimal Public Header -->
+    <header class="bg-surface border-b border-border">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl h-[64px] flex items-center justify-between gap-lg">
+        <div class="flex items-center gap-sm">
+          <span class="font-headline text-title-lg text-primary tracking-tight">SQMS</span>
+          <span class="hidden sm:inline-block font-label text-label-md text-text-secondary border-l border-border pl-sm">Registrar Portal</span>
+        </div>
+
+        <!-- Interactive State Preview Bar -->
+        <div class="flex items-center gap-xs bg-surface-subtle border border-border rounded p-xs" role="group" aria-label="Login state preview">
+          <button type="button" data-login-state="default" class="state-pill px-sm py-xs rounded font-label text-label-md bg-primary text-on-primary transition-colors duration-state-change">Default</button>
+          <button type="button" data-login-state="error" class="state-pill px-sm py-xs rounded font-label text-label-md text-text-secondary hover:text-ink transition-colors duration-state-change">Error</button>
+          <button type="button" data-login-state="deactivated" class="state-pill px-sm py-xs rounded font-label text-label-md text-text-secondary hover:text-ink transition-colors duration-state-change">Deactivated</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Two-Column Auth Workspace -->
+    <main class="flex-1 max-w-[1200px] w-full mx-auto px-lg sm:px-xl py-3xl flex items-center justify-center">
+      <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 bg-surface border border-border rounded-md overflow-hidden animate-fade-up">
+
+        <!-- Left Column: Sign-In Form -->
+        <section class="md:col-span-7 p-xl sm:p-2xl space-y-xl">
+          <div>
+            <h1 class="font-headline text-headline-md text-ink">Sign in to SQMS</h1>
+            <p class="font-body text-body-md text-text-secondary mt-xs">
+              Use your university email address and portal password.
+            </p>
+          </div>
+
+          <!-- Account Deactivated Alert -->
+          <div id="deactivated-alert" role="alert" class="hidden rounded border border-error/40 bg-error-tint p-lg flex items-start gap-md transition-opacity duration-surface-enter">
+            <span class="material-symbols-outlined text-[20px] text-error mt-0.5" aria-hidden="true">block</span>
+            <div>
+              <p class="font-label text-label-lg text-on-error-tint">Account Deactivated</p>
+              <p class="font-body text-body-sm text-on-error-tint mt-xs">
+                Your portal access has been suspended by the Office of the Registrar. Contact <span class="font-mono">registrar@university.edu.pk</span> to restore access.
+              </p>
+            </div>
+          </div>
+
+          <!-- Top Validation Summary Alert -->
+          <div id="validation-summary" role="alert" class="hidden rounded border border-error/40 bg-error-tint p-md flex items-start gap-sm transition-opacity duration-surface-enter">
+            <span class="material-symbols-outlined text-[18px] text-error mt-0.5" aria-hidden="true">error</span>
+            <div>
+              <p class="font-label text-label-lg text-on-error-tint">Unable to sign in</p>
+              <p class="font-body text-body-sm text-on-error-tint mt-xs">Check the highlighted fields and try again.</p>
+            </div>
+          </div>
+
+          <form id="login-form" novalidate class="space-y-lg">
+            <div>
+              <label class="flex flex-col gap-xs">
+                <span class="font-label text-label-lg text-ink">University Email</span>
+                <input id="login-email" type="email" autocomplete="email" placeholder="ayesha.tariq@university.edu.pk" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink placeholder:text-text-secondary focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20 transition-colors duration-state-change">
+                <span id="login-email-error" role="alert" class="hidden items-center gap-xs font-body text-body-sm text-error">
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">error</span>
+                  <span>Enter a valid university email address.</span>
+                </span>
+              </label>
+            </div>
+
+            <div>
+              <label class="flex flex-col gap-xs">
+                <div class="flex items-center justify-between">
+                  <span class="font-label text-label-lg text-ink">Password</span>
+                  <a href="#forgot" class="font-label text-label-md text-link hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link rounded">Forgot password?</a>
+                </div>
+                <div class="relative flex items-center">
+                  <input id="login-password" type="password" autocomplete="current-password" placeholder="Enter your password" class="w-full min-h-[40px] pl-md pr-2xl py-sm rounded bg-surface border border-border font-body text-body-md text-ink placeholder:text-text-secondary focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20 transition-colors duration-state-change">
+                  <button type="button" id="toggle-pw-btn" aria-label="Show password" class="absolute right-xs inline-flex items-center justify-center min-h-[36px] min-w-[36px] rounded text-text-secondary hover:text-ink transition-colors duration-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link">
+                    <span class="material-symbols-outlined text-[18px]" id="toggle-pw-icon" aria-hidden="true">visibility</span>
+                  </button>
+                </div>
+                <span id="login-pw-error" role="alert" class="hidden items-center gap-xs font-body text-body-sm text-error">
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">error</span>
+                  <span>Password must be at least 8 characters.</span>
+                </span>
+              </label>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <label class="inline-flex items-center gap-sm cursor-pointer">
+                <input type="checkbox" class="rounded border-border text-primary focus:ring-link">
+                <span class="font-body text-body-md text-ink">Keep me signed in on this device</span>
+              </label>
+            </div>
+
+            <button data-component-id="button-primary" data-component-type="button" data-component-variant="primary" type="submit" class="w-full inline-flex items-center justify-center gap-sm min-h-[40px] px-lg py-sm rounded bg-primary text-on-primary hover:bg-primary-hover active:scale-[0.99] font-label text-label-lg transition-colors duration-state-change focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-link focus-visible:ring-offset-2">
+              <span data-design-text-token="label-lg">Sign In</span>
+            </button>
+          </form>
+
+          <p class="font-body text-body-md text-text-secondary pt-sm border-t border-border">
+            New student?
+            <a href="#register" class="font-label text-label-lg text-link hover:underline">Register your student account</a>
+          </p>
+        </section>
+
+        <!-- Right Column: Plain-Language System Overview -->
+        <aside class="md:col-span-5 bg-surface-subtle border-t md:border-t-0 md:border-l border-border p-xl sm:p-2xl flex flex-col justify-between gap-xl">
+          <div class="space-y-lg">
+            <div>
+              <span class="inline-flex items-center px-sm py-xs rounded bg-primary-container text-on-primary-container font-label text-label-md">Internal University System</span>
+              <h2 class="font-title text-title-lg text-ink mt-md">University Query Desk</h2>
+              <p class="font-body text-body-md text-text-secondary mt-xs">
+                One official channel for resolving academic, financial, and campus administration requests.
+              </p>
+            </div>
+
+            <ul class="space-y-md">
+              <li class="flex items-start gap-md">
+                <span class="material-symbols-outlined text-[20px] text-primary mt-0.5" aria-hidden="true">assignment_turned_in</span>
+                <div>
+                  <p class="font-label text-label-lg text-ink">Direct Department Routing</p>
+                  <p class="font-body text-body-sm text-text-secondary">Queries route directly to Finance &amp; Fees, Examinations, Admissions, Hostel Office, or IT Services.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-md">
+                <span class="material-symbols-outlined text-[20px] text-primary mt-0.5" aria-hidden="true">timeline</span>
+                <div>
+                  <p class="font-label text-label-lg text-ink">Transparent Status Tracking</p>
+                  <p class="font-body text-body-sm text-text-secondary">Follow each request from submission through assignment, review, and resolution.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-md">
+                <span class="material-symbols-outlined text-[20px] text-primary mt-0.5" aria-hidden="true">history_edu</span>
+                <div>
+                  <p class="font-label text-label-lg text-ink">Audited Registrar Records</p>
+                  <p class="font-body text-body-sm text-text-secondary">Every query receives a permanent reference number such as <span class="font-mono text-ink">Q-2026-0142</span>.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-lg border-t border-border">
+            <p class="font-body text-body-sm text-text-secondary">
+              Registrar Helpdesk · Mon–Fri, 08:30–16:30 PKT
+            </p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Minimal Institutional Footer -->
+    <footer class="bg-surface border-t border-border">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl py-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-sm">
+        <p class="font-body text-body-sm text-text-secondary">Student Query Management System (SQMS) · Office of the University Registrar</p>
+        <p class="font-mono text-mono-sm text-text-secondary">Academic Session 2026–2027</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const emailInput = document.getElementById('login-email');
+      const pwInput = document.getElementById('login-password');
+      const emailErr = document.getElementById('login-email-error');
+      const pwErr = document.getElementById('login-pw-error');
+      const summary = document.getElementById('validation-summary');
+      const deactivated = document.getElementById('deactivated-alert');
+
+      function setState(state) {
+        document.querySelectorAll('.state-pill').forEach(btn => {
+          const active = btn.dataset.loginState === state;
+          btn.className = active
+            ? 'state-pill px-sm py-xs rounded font-label text-label-md bg-primary text-on-primary transition-colors duration-state-change'
+            : 'state-pill px-sm py-xs rounded font-label text-label-md text-text-secondary hover:text-ink transition-colors duration-state-change';
+        });
+
+        summary.classList.add('hidden');
+        deactivated.classList.add('hidden');
+        [emailErr, pwErr].forEach(el => {
+          el.classList.add('hidden');
+          el.classList.remove('inline-flex');
+        });
+        emailInput.classList.remove('border-error');
+        pwInput.classList.remove('border-error');
+
+        if (state === 'error') {
+          summary.classList.remove('hidden');
+          emailInput.value = 'ayesha.tariq';
+          emailInput.classList.add('border-error');
+          pwInput.value = '1234';
+          pwInput.classList.add('border-error');
+          emailErr.classList.remove('hidden');
+          emailErr.classList.add('inline-flex');
+          pwErr.classList.remove('hidden');
+          pwErr.classList.add('inline-flex');
+        } else if (state === 'deactivated') {
+          deactivated.classList.remove('hidden');
+          emailInput.value = 'usman.ghani@university.edu.pk';
+          pwInput.value = '••••••••••';
+        } else {
+          emailInput.value = '';
+          pwInput.value = '';
+        }
+      }
+
+      document.querySelectorAll('.state-pill').forEach(btn => {
+        btn.addEventListener('click', () => setState(btn.dataset.loginState));
+      });
+
+      document.getElementById('toggle-pw-btn').addEventListener('click', () => {
+        const isPw = pwInput.type === 'password';
+        pwInput.type = isPw ? 'text' : 'password';
+        document.getElementById('toggle-pw-icon').textContent = isPw ? 'visibility_off' : 'visibility';
+      });
+
+      document.getElementById('login-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const validEmail = emailInput.value.includes('@');
+        const validPw = pwInput.value.length >= 8;
+        if (!validEmail || !validPw) {
+          summary.classList.remove('hidden');
+          if (!validEmail) {
+            emailInput.classList.add('border-error');
+            emailErr.classList.remove('hidden');
+            emailErr.classList.add('inline-flex');
+          }
+          if (!validPw) {
+            pwInput.classList.add('border-error');
+            pwErr.classList.remove('hidden');
+            pwErr.classList.add('inline-flex');
+          }
+        } else {
+          summary.classList.add('hidden');
+        }
+      });
+    })();
+  </script>
+
+
+</body></html>

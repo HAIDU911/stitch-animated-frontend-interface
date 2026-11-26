@@ -1,0 +1,324 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Query Q-2026-0129 — SQMS</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#1F3A5F',
+        'on-primary': '#FFFFFF',
+        'primary-hover': '#17304F',
+        'primary-container': '#EBF1FF',
+        'on-primary-container': '#143155',
+        'link': '#2B6CB0',
+        'on-link': '#FFFFFF',
+        'accent-brass': '#B7791F',
+        'on-accent-brass': '#1F1F1F',
+        'accent-brass-tint': '#FFEEDE',
+        'on-accent-brass-tint': '#472A00',
+        'page': '#F5F7FA',
+        'surface': '#FFFFFF',
+        'on-surface': '#1B2430',
+        'surface-subtle': '#F5F7FA',
+        'on-surface-subtle': '#5B6675',
+        'ink': '#1B2430',
+        'text-secondary': '#5B6675',
+        'border': '#DDE2E9',
+        'border-strong': '#BEC7D7',
+        'status-submitted-bg': '#F1F5F9',
+        'status-submitted-fg': '#334155',
+        'status-assigned-bg': '#EBF4FF',
+        'status-assigned-fg': '#1E4E8C',
+        'status-progress-bg': '#FEF3C7',
+        'status-progress-fg': '#92400E',
+        'status-resolved-bg': '#DCFCE7',
+        'status-resolved-fg': '#166534',
+        'status-closed-bg': '#E2E8F0',
+        'status-closed-fg': '#475569',
+        'priority-high': '#BA1A1A',
+        'on-priority-high': '#FFFFFF',
+        'priority-high-tint': '#FFEDEA',
+        'on-priority-high-tint': '#690005',
+        'priority-medium-bg': '#FEF3C7',
+        'priority-medium-fg': '#92400E',
+        'priority-low-bg': '#F1F5F9',
+        'priority-low-fg': '#475569',
+        'error': '#BA1A1A',
+        'on-error': '#FFFFFF',
+        'error-tint': '#FFEDEA',
+        'on-error-tint': '#690005',
+        'success': '#166534',
+        'on-success': '#FFFFFF',
+        'success-tint': '#DCFCE7',
+        'on-success-tint': '#166534',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        '2xl': '32px',
+        '3xl': '48px',
+      },
+      fontFamily: {
+        'display': ['"IBM Plex Sans"', 'sans-serif'],
+        'headline': ['"IBM Plex Sans"', 'sans-serif'],
+        'title': ['"IBM Plex Sans"', 'sans-serif'],
+        'body': ['"IBM Plex Sans"', 'sans-serif'],
+        'label': ['"IBM Plex Sans"', 'sans-serif'],
+        'mono': ['"IBM Plex Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-sm': ['32px', { lineHeight: '40px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'title-lg': ['20px', { lineHeight: '28px', letterSpacing: '-0.1px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        'body-md': ['14px', { lineHeight: '21px', fontWeight: '400' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+        'label-table': ['12px', { lineHeight: '16px', letterSpacing: '0.48px', fontWeight: '600' }],
+        'mono-md': ['14px', { lineHeight: '20px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '220ms',
+        'surface-exit': '150ms',
+        'drawer-slide': '260ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+        'drawer-slide': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.4, 0, 1, 1)',
+        'drawer-slide': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-up { animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+    dialog[open] { animation: fadeSlideUp 220ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+    dialog::backdrop { background-color: rgba(27, 36, 48, 0.42); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up, dialog[open] { animation: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-page text-ink font-body antialiased">
+  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Shared Student Top Navbar (_Layout.cshtml) -->
+    <header class="sticky top-0 z-30 bg-surface border-b border-border">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl h-[64px] flex items-center justify-between gap-lg">
+        <div class="flex items-center gap-2xl h-full">
+          <a href="#" class="flex items-center gap-sm rounded px-xs py-xs">
+            <span class="font-headline text-title-lg text-primary tracking-tight">SQMS</span>
+            <span class="hidden sm:inline-block font-label text-label-md text-text-secondary border-l border-border pl-sm">Registrar Portal</span>
+          </a>
+
+          <nav aria-label="Student navigation" class="hidden md:flex items-center gap-xl h-full">
+            <a href="#my-queries" aria-current="page" class="relative inline-flex items-center h-full font-label text-label-lg text-ink border-b-2 border-accent-brass">My Queries</a>
+            <a href="#new-query" class="relative inline-flex items-center h-full font-label text-label-lg text-text-secondary hover:text-ink border-b-2 border-transparent hover:border-border-strong transition-colors duration-state-change">New Query</a>
+          </nav>
+        </div>
+
+        <div class="flex items-center gap-md">
+          <div class="inline-flex items-center gap-sm min-h-[40px] px-sm py-xs">
+            <span class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-label text-label-md inline-flex items-center justify-center">AT</span>
+            <span class="hidden sm:flex flex-col items-start text-left">
+              <span class="font-label text-label-lg text-ink leading-none">Ayesha Tariq</span>
+              <span class="font-mono text-mono-sm text-text-secondary mt-xs leading-none">2023-CS-114</span>
+            </span>
+            <span class="hidden md:inline-flex items-center px-sm py-xs rounded bg-surface-subtle border border-border font-label text-label-md text-text-secondary">Student</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-[1200px] w-full mx-auto px-lg sm:px-xl py-2xl">
+      <div class="max-w-2xl mx-auto space-y-xl animate-fade-up">
+
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-md">
+          <div>
+            <nav aria-label="Breadcrumb" class="flex items-center gap-xs font-body text-body-sm text-text-secondary mb-xs">
+              <a href="#my-queries" class="text-link hover:underline">My Queries</a>
+              <span aria-hidden="true">/</span>
+              <span class="font-mono text-ink">Q-2026-0129</span>
+              <span aria-hidden="true">/</span>
+              <span>Edit</span>
+            </nav>
+            <h1 class="font-headline text-headline-md text-ink">Edit Submitted Query</h1>
+          </div>
+
+          <button type="button" id="open-delete-modal-btn" class="inline-flex items-center gap-xs min-h-[40px] px-md py-sm rounded border border-error/40 bg-surface text-error hover:bg-error-tint font-label text-label-lg transition-colors duration-state-change self-start">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">delete</span>
+            <span>Delete Query</span>
+          </button>
+        </div>
+
+        <form id="edit-query-form" class="bg-surface border border-border rounded-md overflow-hidden">
+          <div class="p-xl space-y-lg">
+            <div id="edit-saved-banner" role="status" class="hidden rounded border border-success/40 bg-success-tint p-md flex items-center gap-sm">
+              <span class="material-symbols-outlined text-[18px] text-success" aria-hidden="true">check_circle</span>
+              <span class="font-label text-label-lg text-on-success-tint">Changes saved to Q-2026-0129.</span>
+            </div>
+
+            <div class="flex items-center gap-sm">
+              <span class="font-mono text-mono-sm text-ink bg-surface-subtle border border-border px-sm py-xs rounded">Q-2026-0129</span>
+              <span class="inline-flex items-center gap-xs px-sm py-xs rounded bg-status-submitted-bg text-status-submitted-fg font-label text-label-md">
+                <span class="w-1.5 h-1.5 rounded-full bg-status-submitted-fg" aria-hidden="true"></span>
+                <span>Submitted (Editable)</span>
+              </span>
+            </div>
+
+            <label class="flex flex-col gap-xs">
+              <span class="font-label text-label-lg text-ink">Query Title</span>
+              <input id="eq-title" type="text" value="Timetable clash between CS-305 and MT-210" class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">
+            </label>
+
+            <label class="flex flex-col gap-xs">
+              <span class="font-label text-label-lg text-ink">Category</span>
+              <select class="w-full min-h-[40px] px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">
+                <option selected>Timetable &amp; Course Clash (Examinations)</option>
+                <option>Fee Challan &amp; Billing (Finance &amp; Fees)</option>
+                <option>Exam Results &amp; Grading (Examinations)</option>
+                <option>Hostel Accommodation (Hostel Office)</option>
+              </select>
+            </label>
+
+            <div>
+              <span class="block font-label text-label-lg text-ink mb-xs">Priority</span>
+              <div class="grid grid-cols-3 gap-sm">
+                <button type="button" data-prio="Low" class="eq-prio min-h-[40px] px-md py-sm rounded border border-border bg-surface text-ink font-label text-label-lg hover:bg-surface-subtle">Low</button>
+                <button type="button" data-prio="Medium" class="eq-prio min-h-[40px] px-md py-sm rounded border border-primary bg-primary-container text-on-primary-container font-label text-label-lg">Medium</button>
+                <button type="button" data-prio="High" class="eq-prio min-h-[40px] px-md py-sm rounded border border-border bg-surface text-ink font-label text-label-lg hover:bg-surface-subtle">High</button>
+              </div>
+            </div>
+
+            <label class="flex flex-col gap-xs">
+              <div class="flex items-center justify-between">
+                <span class="font-label text-label-lg text-ink">Description</span>
+                <span id="eq-counter" class="font-mono text-mono-sm text-text-secondary tabular-nums">136 / 600</span>
+              </div>
+              <textarea id="eq-desc" rows="4" maxlength="600" class="w-full px-md py-sm rounded bg-surface border border-border font-body text-body-md text-ink focus:outline-none focus:border-link focus:ring-2 focus:ring-link/20">Both CS-305 (Section B) and MT-210 (Section A) are scheduled on Tuesday 11:00–12:30. Requesting section transfer for MT-210.</textarea>
+            </label>
+          </div>
+
+          <footer class="px-xl py-lg bg-surface-subtle border-t border-border flex items-center justify-end gap-md">
+            <a href="#detail" class="inline-flex items-center justify-center min-h-[40px] px-lg py-sm rounded bg-surface text-ink border border-border hover:bg-page font-label text-label-lg">Cancel</a>
+            <button type="submit" class="inline-flex items-center justify-center min-h-[40px] px-xl py-sm rounded bg-primary text-on-primary hover:bg-primary-hover font-label text-label-lg">Save Changes</button>
+          </footer>
+        </form>
+
+        <!-- Engineering Handoff Note -->
+        <details class="bg-surface border border-border rounded-md p-lg">
+          <summary class="font-label text-label-md text-text-secondary cursor-pointer">Engineering Handoff · Views/Student/Edit.cshtml</summary>
+          <div class="mt-md pt-md border-t border-border font-body text-body-sm text-text-secondary space-y-xs">
+            <p><strong class="text-ink">Razor View:</strong> <span class="font-mono text-ink">Views/Student/Edit.cshtml</span></p>
+            <p><strong class="text-ink">Bootstrap 5 Mapping:</strong> <span class="font-mono text-ink">.card</span>, <span class="font-mono text-ink">.form-control</span>, <span class="font-mono text-ink">.form-select</span>, <span class="font-mono text-ink">.btn-danger</span> + <span class="font-mono text-ink">.modal</span> (Delete Confirmation).</p>
+          </div>
+        </details>
+      </div>
+    </main>
+
+    <footer class="bg-surface border-t border-border mt-auto">
+      <div class="max-w-[1200px] mx-auto px-lg sm:px-xl py-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-sm">
+        <p class="font-body text-body-sm text-text-secondary">Student Query Management System (SQMS) · Office of the University Registrar</p>
+        <p class="font-mono text-mono-sm text-text-secondary">Academic Session 2026–2027</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Destructive Delete Confirmation Modal -->
+  <dialog id="del-confirm-modal" role="alertdialog" aria-labelledby="del-modal-title" class="rounded-md bg-surface border border-border shadow-lg p-0 max-w-md w-full">
+    <header class="p-xl border-b border-border flex items-center gap-sm">
+      <span class="material-symbols-outlined text-[22px] text-error" aria-hidden="true">warning</span>
+      <h2 id="del-modal-title" class="font-title text-title-lg text-ink">Delete Query Q-2026-0129?</h2>
+    </header>
+    <div class="p-xl">
+      <p class="font-body text-body-md text-text-secondary">
+        This action permanently removes your submitted query from the registrar queue and cannot be undone.
+      </p>
+    </div>
+    <footer class="px-xl py-lg bg-surface-subtle border-t border-border flex items-center justify-end gap-md">
+      <button type="button" id="cancel-del-modal" class="min-h-[40px] px-lg py-sm rounded bg-surface text-ink border border-border hover:bg-page font-label text-label-lg">Cancel</button>
+      <button type="button" id="confirm-del-modal" class="min-h-[40px] px-lg py-sm rounded bg-error text-on-error hover:opacity-90 font-label text-label-lg">Delete Query</button>
+    </footer>
+  </dialog>
+
+  <script>
+    (function () {
+      const desc = document.getElementById('eq-desc');
+      const counter = document.getElementById('eq-counter');
+      desc.addEventListener('input', () => {
+        counter.textContent = `${desc.value.length} / 600`;
+      });
+
+      document.querySelectorAll('.eq-prio').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const v = btn.dataset.prio;
+          document.querySelectorAll('.eq-prio').forEach(b => {
+            const active = b.dataset.prio === v;
+            b.className = active
+              ? 'eq-prio min-h-[40px] px-md py-sm rounded border border-primary bg-primary-container text-on-primary-container font-label text-label-lg'
+              : 'eq-prio min-h-[40px] px-md py-sm rounded border border-border bg-surface text-ink font-label text-label-lg hover:bg-surface-subtle';
+          });
+        });
+      });
+
+      document.getElementById('edit-query-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        document.getElementById('edit-saved-banner').classList.remove('hidden');
+      });
+
+      const dlg = document.getElementById('del-confirm-modal');
+      document.getElementById('open-delete-modal-btn').addEventListener('click', () => dlg.showModal());
+      document.getElementById('cancel-del-modal').addEventListener('click', () => dlg.close());
+      document.getElementById('confirm-del-modal').addEventListener('click', () => dlg.close());
+    })();
+  </script>
+
+
+</body></html>
