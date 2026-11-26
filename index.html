@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SQMS Screens — Index</title>
+<style>
+  :root {
+    --navy: #1F3A5F;
+    --navy-hover: #17304F;
+    --brass: #B7791F;
+    --page: #F5F7FA;
+    --surface: #FFFFFF;
+    --ink: #1B2430;
+    --muted: #5B6675;
+    --border: #DDE2E9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  header {
+    background: var(--navy);
+    color: #fff;
+    padding: 40px 24px;
+    border-bottom: 3px solid var(--brass);
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  header h1 { margin: 0 0 6px; font-size: 26px; font-weight: 600; letter-spacing: -0.2px; }
+  header p { margin: 0; color: #C8D6E8; font-size: 14px; }
+  main { max-width: 1080px; margin: 0 auto; padding: 32px 24px 64px; }
+  section { margin-bottom: 36px; }
+  h2 {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--muted);
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+  }
+  a.card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+  }
+  a.card:hover, a.card:focus-visible {
+    border-color: var(--navy);
+    box-shadow: 0 2px 10px rgba(31, 58, 95, 0.10);
+    transform: translateY(-1px);
+    outline: none;
+  }
+  .card .name { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .card .desc { font-size: 13px; color: var(--muted); }
+  .card .path {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 11px;
+    color: var(--brass);
+    background: #FFEEDE;
+    border-radius: 4px;
+    padding: 2px 6px;
+  }
+  footer {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  footer a { color: var(--navy); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Student Query Management System — Screen Index</h1>
+    <p>Static Stitch exports. Click any card to open that screen's <code>code.html</code>.</p>
+  </div>
+</header>
+
+<main>
+  <section>
+    <h2>Public</h2>
+    <div class="grid">
+      <a class="card" href="public_login_default/code.html">
+        <div class="name">Sign In</div>
+        <div class="desc">Default sign-in for students, staff and admins.</div>
+        <span class="path">public_login_default/code.html</span>
+      </a>
+      <a class="card" href="public_student_registration_default/code.html">
+        <div class="name">Student Registration</div>
+        <div class="desc">Self-service student sign-up with department selection.</div>
+        <span class="path">public_student_registration_default/code.html</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Student</h2>
+    <div class="grid">
+      <a class="card" href="student_my_queries_loaded/code.html">
+        <div class="name">My Queries</div>
+        <div class="desc">A student's query history in a status-tagged table.</div>
+        <span class="path">student_my_queries_loaded/code.html</span>
+      </a>
+      <a class="card" href="student_new_query_default/code.html">
+        <div class="name">New Query</div>
+        <div class="desc">Submission form: department, category, subject, priority.</div>
+        <span class="path">student_new_query_default/code.html</span>
+      </a>
+      <a class="card" href="student_query_detail_active/code.html">
+        <div class="name">Query Detail — Q-2026-0142</div>
+        <div class="desc">Read-only thread with status timeline and staff replies.</div>
+        <span class="path">student_query_detail_active/code.html</span>
+      </a>
+      <a class="card" href="student_edit_query_delete_modal/code.html">
+        <div class="name">Edit Query / Delete Modal — Q-2026-0129</div>
+        <div class="desc">Editable submitted query plus delete confirmation.</div>
+        <span class="path">student_edit_query_delete_modal/code.html</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Staff</h2>
+    <div class="grid">
+      <a class="card" href="staff_home_default/code.html">
+        <div class="name">Staff Home</div>
+        <div class="desc">Department landing page with queue summary and assignments.</div>
+        <span class="path">staff_home_default/code.html</span>
+      </a>
+      <a class="card" href="staff_department_queue_filterable/code.html">
+        <div class="name">Department Queue</div>
+        <div class="desc">Filterable, sortable queue of every query in the department.</div>
+        <span class="path">staff_department_queue_filterable/code.html</span>
+      </a>
+      <a class="card" href="staff_query_detail_two_column/code.html">
+        <div class="name">Staff Query Detail — Q-2026-0142</div>
+        <div class="desc">Thread plus status, priority and assignment controls.</div>
+        <span class="path">staff_query_detail_two_column/code.html</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Admin</h2>
+    <div class="grid">
+      <a class="card" href="admin_dashboard_overview/code.html">
+        <div class="name">Admin Dashboard / System Overview</div>
+        <div class="desc">Institution-wide volume, resolution time and load metrics.</div>
+        <span class="path">admin_dashboard_overview/code.html</span>
+      </a>
+      <a class="card" href="admin_all_queries_table/code.html">
+        <div class="name">All System Queries</div>
+        <div class="desc">Cross-department query table with search and filtering.</div>
+        <span class="path">admin_all_queries_table/code.html</span>
+      </a>
+      <a class="card" href="admin_users_management/code.html">
+        <div class="name">Users Management</div>
+        <div class="desc">Directory of students, staff and admins with roles.</div>
+        <span class="path">admin_users_management/code.html</span>
+      </a>
+      <a class="card" href="admin_departments_categories_crud/code.html">
+        <div class="name">Departments &amp; Categories</div>
+        <div class="desc">Create, edit and delete departments and query categories.</div>
+        <span class="path">admin_departments_categories_crud/code.html</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>System</h2>
+    <div class="grid">
+      <a class="card" href="system_403_404_error_pages/code.html">
+        <div class="name">Access Denied — 403 / 404</div>
+        <div class="desc">Unauthorised access and unknown route error state.</div>
+        <span class="path">system_403_404_error_pages/code.html</span>
+      </a>
+      <a class="card" href="system_generic_error_page/code.html">
+        <div class="name">Generic Error</div>
+        <div class="desc">Fallback screen for failed or incomplete requests.</div>
+        <span class="path">system_generic_error_page/code.html</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Design tokens and palette: <a href="sqms_design_system.md">sqms_design_system.md</a>. Static exports only — no backend or persistence.
+</footer>
+</body>
+</html>
